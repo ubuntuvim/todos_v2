@@ -1,0 +1,61 @@
+.show-todos-list-style {
+    border-bottom: 1px dotted #ccc;
+    min-height: 45px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+.show-todos-list-style:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.show-todos-list-style > div > label {
+  font-size: 18px;
+}
+
+/*  覆盖原有的样式为自定义样式  */
+body #content div.checkbox.check-transparent label,
+  body #content .modal .modal-dialog .modal-content div.checkbox.check-transparent label {
+    /*color: rgba(255, 255, 255, 0.5); */
+    color: white;
+}
+
+body #content div.checkbox.check-transparent input[type=checkbox]:checked + label,
+  body #content .modal .modal-dialog .modal-content div.checkbox.check-transparent input[type=checkbox]:checked + label {
+    /*color: white; */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input[type=checkbox] {
+	cursor: pointer;
+}
+/* ====================== 覆盖原有的样式为自定义样式 end ====================== */
+
+
+/* 设置列表右边图标样式  */
+#todolist li .todo-list-common {
+	display: none;
+	position: absolute;
+	top: 0;
+	/*right: 10px;*/
+	bottom: 0;
+	font-size: 18px;
+	margin-top: 3px;
+	cursor: pointer;
+}
+
+.todo-list-destroy {
+	right: 10px;
+}
+
+.todo-list-edit {
+	right: 40px;
+}
+
+.todo-list-star {
+	right: 70px;
+}
+
+.todo-list-tag {
+	right: 70px;
+}
+    

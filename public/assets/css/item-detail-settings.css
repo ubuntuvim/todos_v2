@@ -1,0 +1,111 @@
+
+#edit-detail-info {
+  z-index: 9999; }
+  #edit-detail-info .mm-panel {
+    background: #1d2833; }
+  #edit-detail-info .tab-content {
+    left: 0;
+    background: #263543;
+    padding: 5px 15px; }
+    #edit-detail-info .tab-content .tab-pane {
+      padding-top: 45px; }
+      #edit-detail-info .tab-content .tab-pane > h5 {
+        color: rgba(255, 255, 255, 0.5);
+        font-family: "Roboto Condensed", sans-serif;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 300;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px; }
+      #edit-detail-info .tab-content .tab-pane ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0; }
+        #edit-detail-info .tab-content .tab-pane ul.users-list > li, #edit-detail-info .tab-content .tab-pane ul.history-list > li, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li {
+          margin-bottom: 15px; }
+          #edit-detail-info .tab-content .tab-pane ul.users-list > li:last-child, #edit-detail-info .tab-content .tab-pane ul.history-list > li:last-child, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li:last-child {
+            margin-bottom: 30px; }
+          #edit-detail-info .tab-content .tab-pane ul.users-list > li .media, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media {
+            position: relative; }
+            #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .profile-photo, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .profile-photo, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .profile-photo {
+              width: 45px;
+              overflow: hidden;
+              display: inline-block; }
+              #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .profile-photo img, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .profile-photo img, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .profile-photo img {
+                width: 100%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                border-radius: 50%; }
+            #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .unread, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .unread, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .unread {
+              position: absolute;
+              left: 30px;
+              font-size: 10px;
+              font-weight: 400; }
+            #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .media-body, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .media-body, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .media-body {
+              padding-top: 6px;
+              position: relative; }
+              #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .media-body .media-heading, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .media-body .media-heading, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .media-body .media-heading {
+                font-family: "Roboto", "Arial", sans-serif;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 0.7);
+                margin: 0 0 3px; }
+              #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .media-body small, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .media-body small, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .media-body small {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.3); }
+                #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .media-body small i, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .media-body small i, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .media-body small i {
+                  font-size: 14px; }
+              #edit-detail-info .tab-content .tab-pane ul.users-list > li .media .media-body .status, #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .media-body .status, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li .media .media-body .status {
+                position: absolute;
+                right: 0px;
+                top: 18px; }
+          #edit-detail-info .tab-content .tab-pane ul.users-list > li.online .status, #edit-detail-info .tab-content .tab-pane ul.history-list > li.online .status, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li.online .status {
+            border-color: #16a085; }
+          #edit-detail-info .tab-content .tab-pane ul.users-list > li.busy .status, #edit-detail-info .tab-content .tab-pane ul.history-list > li.busy .status, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li.busy .status {
+            border-color: #ffc100; }
+          #edit-detail-info .tab-content .tab-pane ul.users-list > li.offline .media .profile-photo, #edit-detail-info .tab-content .tab-pane ul.history-list > li.offline .media .profile-photo, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li.offline .media .profile-photo {
+            filter: alpha(opacity=40);
+            opacity: 0.4; }
+          #edit-detail-info .tab-content .tab-pane ul.users-list > li.offline .status, #edit-detail-info .tab-content .tab-pane ul.history-list > li.offline .status, #edit-detail-info .tab-content .tab-pane ul.favourite-list > li.offline .status {
+            border-color: #717171; }
+        #edit-detail-info .tab-content .tab-pane ul.history-list > li .media .media-body small {
+          display: inline-block;
+          width: 140px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          font-weight: 300; }
+        #edit-detail-info .tab-content .tab-pane ul.settings > li .form-group .control-label {
+          margin: 0;
+          padding: 0;
+          margin-bottom: 15px;
+          font-weight: 300;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 12px;
+          line-height: 22px; }
+          #edit-detail-info .tab-content .tab-pane ul.settings > li .form-group .control-label .onoffswitch {
+            right: -35px; }
+  #edit-detail-info .nav.nav-tabs {
+    padding: 0;
+    max-height: 45px;
+    z-index: 2; }
+    #edit-detail-info .nav.nav-tabs > li > a {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      border-radius: 0;
+      border: 0;
+      padding: 12px 15px;
+      min-height: 45px;
+      color: rgba(255, 255, 255, 0.5); }
+      #edit-detail-info .nav.nav-tabs > li > a:hover {
+        background-color: #212d3a; }
+    #edit-detail-info .nav.nav-tabs > li.active > a {
+      background-color: #263543;
+      color: white; }
+      #edit-detail-info .nav.nav-tabs > li.active > a:hover
+      #edit-detail-info .nav.nav-tabs > li.active > a:focus {
+        background-color: #263543;
+        color: white; }

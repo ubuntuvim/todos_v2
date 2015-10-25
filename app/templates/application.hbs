@@ -1,3 +1,615 @@
-<h2 id="title">Welcome to Ember</h2>
+  <!-- Preloader -->
+  <div class="mask"><div id="loader"></div></div>
+  <!--/Preloader -->
 
-{{outlet}}
+  <!-- Wrap all page content here -->
+  <div id="wrap">
+
+
+    <!-- Make page fluid -->
+    <div class="row">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
+
+        <!-- Branding -->
+        <div class="navbar-header col-md-2">
+          <a class="navbar-brand" href="index.html">
+            <strong>MIN</strong>IMAL
+          </a>
+          <div class="sidebar-collapse">
+            <a href="#">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Branding end -->
+
+
+        <!-- .nav-collapse -->
+        <div class="navbar-collapse">
+                      
+          <!-- Page refresh -->
+          <ul class="nav navbar-nav refresh">
+            <li class="divided">
+              <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+            </li>
+          </ul>
+          <!-- /Page refresh -->
+
+          <!-- Search -->
+          <div class="search" id="main-search">
+            <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
+          </div>
+          <!-- Search end -->
+
+          <!-- Quick Actions -->
+          <ul class="nav navbar-nav quick-actions">
+
+
+            <li class="dropdown divided">
+              
+              <a class="dropdown-toggle button" data-toggle="dropdown" href="#">
+                <i class="fa fa-bell"></i>
+                <span class="label label-transparent-black">3</span>
+              </a>
+
+              <ul class="dropdown-menu wide arrow nopadding bordered">
+                <li><h1>You have <strong>3</strong> new notifications</h1></li>
+                
+                <li>
+                  <a href="#">
+                    <span class="label label-green"><i class="fa fa-user"></i></span>
+                    New user registered.
+                    <span class="small">18 mins</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <span class="label label-red"><i class="fa fa-power-off"></i></span>
+                    Server down.
+                    <span class="small">27 mins</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <span class="label label-orange"><i class="fa fa-plus"></i></span>
+                    New order.
+                    <span class="small">36 mins</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <span class="label label-cyan"><i class="fa fa-power-off"></i></span>
+                    Server restared.
+                    <span class="small">45 mins</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <span class="label label-amethyst"><i class="fa fa-power-off"></i></span>
+                    Server started.
+                    <span class="small">50 mins</span>
+                  </a>
+                </li>
+
+                 <li><a href="#">Check all notifications <i class="fa fa-angle-right"></i></a></li>
+              </ul>
+
+            </li>
+
+            <li class="dropdown divided">
+              <a href="#mmenu"><i class="fa fa-comments"></i></a>
+            </li>
+
+            <li class="dropdown divided user" id="current-user">
+              <div class="profile-photo">
+                <img src="assets/images/profile-photo.jpg" alt />
+              </div>
+              <a class="dropdown-toggle options" data-toggle="dropdown" href="#">
+                John Douey <i class="fa fa-caret-down"></i>
+              </a>
+              <!-- 背景色设置 -->
+              <ul class="dropdown-menu arrow settings">
+
+                <li>
+                  
+                  <h3>Backgrounds:</h3>
+                  <ul id="color-schemes">
+                    <li><a href="#" class="bg-1"></a></li>
+                    <li><a href="#" class="bg-2"></a></li>
+                    <li><a href="#" class="bg-3"></a></li>
+                    <li><a href="#" class="bg-4"></a></li>
+                    <li><a href="#" class="bg-5"></a></li>
+                    <li><a href="#" class="bg-6"></a></li>
+                  </ul>
+
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                  <a href="#"><i class="fa fa-user"></i> Profile</a>
+                </li>
+
+                <li>
+                  <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
+                </li>
+
+                <li>
+                  <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="user-inbox">3</span></a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                  <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+                </li>
+              </ul>
+            </li>
+
+            
+          </ul>
+          <!-- /Quick Actions -->
+
+
+
+            <!-- 左侧菜单栏 -->
+            <ul class="nav navbar-nav side-nav" id="sidebar">
+              
+              <li class="collapsed-content"> 
+                <ul>
+                  <li class="search"><!-- Collapsed search pasting here at 768px --></li>
+                </ul>
+              </li>
+
+              <li class="navigation" id="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="#navigation">未完成Todos 
+                <i class="fa fa-angle-up"></i></a>
+                
+                <ul class="menu">
+                  
+                  <li>
+                    <a href="index.html">
+                      <i class="fa fa-tachometer"></i> Dashboard
+                      <span class="badge badge-red">1</span>
+                    </a>
+                  </li>
+
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-list"></i> Forms <b class="fa fa-plus dropdown-plus"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="form-elements.html">
+                          <i class="fa fa-caret-right"></i> Common Elements
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a href="buttons.html">
+                      <i class="fa fa-tint"></i> Buttons & Icons
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+              
+            </ul>
+
+          
+
+        </div>
+        <!--/.nav-collapse -->
+
+      </div>
+      <!-- Fixed navbar end -->
+      
+
+
+
+
+      
+      <!-- 主要内容区（中间部分） -->
+      <div id="content" class="col-md-12">
+        
+        <!-- content main container -->
+        <div class="main">
+
+
+          <!-- row -->
+          <div class="row">
+
+            <!-- /col 6 -->
+            <div class="col-md-12">
+              
+                  <!-- tile -->
+                  <section class="tile transparent">
+                    <!-- tile body -->
+                    <div class="tile-body color transparent-black rounded-bottom-corners">
+                      <input type="text" placeholder="Add new todo..." class="w100p h50p bottommargin" style="height: 40px; font-size: 16px;">
+                      <ul class="nolisttypes" id="todolist">
+                        
+                        <li class="show-todos-list-style" 
+                          onmouseover="showToolsIcon(this)"
+                          onmouseout="hideToolsIcon(this)">
+                          <div class="checkbox check-transparent">
+                            <input type="checkbox" value="1" id="todo-01">
+                            <label for="todo-01">
+                            &nbsp;&nbsp;Make a backup
+                            </label>
+                            <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                              onclick="test('01')"></span>
+                            <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"></span>
+                            <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+                          </div>
+                        </li>
+                        
+                        <li class="show-todos-list-style" 
+                          onmouseover="showToolsIcon(this)"
+                          onmouseout="hideToolsIcon(this)">
+                          <div class="checkbox check-transparent">
+                            <input type="checkbox" checked="checked" value="1" id="todo-02">
+                            <label for="todo-02" class="done">&nbsp;&nbsp;Send e-mail to Ici</label>
+
+                            <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                              onclick="test('02')"></span>
+                            <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"></span>
+                            <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+
+                          </div>
+                        </li>
+                        <li class="show-todos-list-style" 
+                          onmouseover="showToolsIcon(this)"
+                          onmouseout="hideToolsIcon(this)">
+                          <div class="checkbox check-transparent">
+                            <input type="checkbox" value="1" id="todo-03">
+                            <label for="todo-03">
+                              &nbsp;&nbsp;包括250多个来自 Glyphicon Halflings 的字体图标。Glyphicons Halflings 一般是收费的，但是他们的作者允许 Bootstrap 免费使用。为了表示感谢，希望你在使用时尽量为 Glyphicons 添加一个友情链接。
+                            </label>
+                            <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                              onclick="test('03')"></span>
+                            <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"></span>
+                            <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+                          </div>
+                        </li>
+
+                        
+                        <li class="show-todos-list-style" 
+                          onmouseover="showToolsIcon(this)"
+                          onmouseout="hideToolsIcon(this)">
+                          <div class="checkbox check-transparent">
+                            <input type="checkbox" value="1" id="todo-04">
+                            <label for="todo-04">&nbsp;&nbsp;Resolve issues</label>
+
+                            <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                              onclick="test('04')"></span>
+                            
+                            <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"></span>
+                            
+                            <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- /tile body -->
+                  </section>
+                  <!-- /tile -->
+
+            </div> <!-- /col 6 -->
+            
+          </div>  <!-- /row -->
+          
+        </div>  <!-- /content container -->
+        
+      </div>  <!-- Page content end -->
+      
+
+
+
+      <!-- 右侧菜单 -->
+      <div id="mmenu" class="mmenu right-panel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#mmenu-users" data-toggle="tab"><i class="fa fa-users"></i></a></li>
+          <li class=""><a href="#mmenu-history" data-toggle="tab"><i class="fa fa-clock-o"></i></a></li>
+          <li class=""><a href="#mmenu-friends" data-toggle="tab"><i class="fa fa-heart"></i></a></li>
+          <li class=""><a href="#mmenu-settings" data-toggle="tab"><i class="fa fa-gear"></i></a></li>
+        </ul>
+            
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="mmenu-users">
+            <h5><strong>Online</strong> Users</h5>
+
+            <ul class="users-list">
+              
+              <li class="online">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/ici-avatar.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Ing. Imrich <strong>Kamarel</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Ulaanbaatar, Mongolia</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+             
+
+              <li class="busy">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/random-avatar1.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Lucius <strong>Cashmere</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Wien, Austria</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+
+            <h5><strong>Offline</strong> Users</h5>
+
+            <ul class="users-list">
+              
+              <li class="offline">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/random-avatar4.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Dell <strong>MacApple</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Paris, France</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <div class="tab-pane" id="mmenu-history">
+            <h5><strong>Chat</strong> History</h5>
+
+            <ul class="history-list">
+              
+              <li class="online">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/ici-avatar.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Ing. Imrich <strong>Kamarel</strong></h6>
+                    <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="busy">
+                <div class="media">
+                  
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/arnold-avatar.jpg" alt>
+                  </a>
+                  <span class="badge badge-red unread">3</span>
+
+                  <div class="media-body">
+                    <h6 class="media-heading">Arnold <strong>Karlsberg</strong></h6>
+                    <small>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="offline">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/peter-avatar.jpg" alt>
+
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Peter <strong>Kay</strong></h6>
+                    <small>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit </small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+              
+          </div>
+
+          <div class="tab-pane" id="mmenu-friends">
+            <h5><strong>Friends</strong> List</h5>
+              <ul class="favourite-list">
+              
+              <li class="online">
+                <div class="media">
+                  
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/arnold-avatar.jpg" alt>
+                  </a>
+                  <span class="badge badge-red unread">3</span>
+
+                  <div class="media-body">
+                    <h6 class="media-heading">Arnold <strong>Karlsberg</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Bratislava, Slovakia</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="offline">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/random-avatar8.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Anna <strong>Opichia</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Budapest, Hungary</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="busy">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/random-avatar1.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Lucius <strong>Cashmere</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Wien, Austria</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="online">
+                <div class="media">
+                  <a class="pull-left profile-photo" href="#">
+                    <img class="media-object" src="assets/images/ici-avatar.jpg" alt>
+                  </a>
+                  <div class="media-body">
+                    <h6 class="media-heading">Ing. Imrich <strong>Kamarel</strong></h6>
+                    <small><i class="fa fa-map-marker"></i> Ulaanbaatar, Mongolia</small>
+                    <span class="badge badge-outline status"></span>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="tab-pane pane-settings" id="mmenu-settings">
+            <h5><strong>Chat</strong> Settings</h5>
+
+            <ul class="settings">
+             
+              <li>
+                <div class="form-group">
+                  <label class="col-xs-8 control-label">Show Offline Users</label>
+                  <div class="col-xs-4 control-label">
+                    <div class="onoffswitch greensea">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-offline" checked="">
+                      <label class="onoffswitch-label" for="show-offline">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="form-group">
+                  <label class="col-xs-8 control-label">Show Fullname</label>
+                  <div class="col-xs-4 control-label">
+                    <div class="onoffswitch greensea">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-fullname">
+                      <label class="onoffswitch-label" for="show-fullname">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="form-group">
+                  <label class="col-xs-8 control-label">History Enable</label>
+                  <div class="col-xs-4 control-label">
+                    <div class="onoffswitch greensea">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-history" checked="">
+                      <label class="onoffswitch-label" for="show-history">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="form-group">
+                  <label class="col-xs-8 control-label">Show Locations</label>
+                  <div class="col-xs-4 control-label">
+                    <div class="onoffswitch greensea">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-location" checked="">
+                      <label class="onoffswitch-label" for="show-location">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="form-group">
+                  <label class="col-xs-8 control-label">Notifications</label>
+                  <div class="col-xs-4 control-label">
+                    <div class="onoffswitch greensea">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-notifications">
+                      <label class="onoffswitch-label" for="show-notifications">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="form-group">
+                  <label class="col-xs-8 control-label">Show Undread Count</label>
+                  <div class="col-xs-4 control-label">
+                    <div class="onoffswitch greensea">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-unread" checked="">
+                      <label class="onoffswitch-label" for="show-unread">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+              
+          </div><!-- tab-pane -->
+            
+        </div><!-- tab-content -->
+      </div>
+
+
+
+    </div>
+    <!-- Make page fluid-->
+
+
+
+
+  </div>
+  <!-- Wrap all page content end -->
+
