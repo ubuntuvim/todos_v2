@@ -1,7 +1,9 @@
 # Todos-v2
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Ember TodoMVC upgrade.
+Redesigned interface, adds more useful features.
+The main interface is shown below：
+![The main interface](http://i11.tietuku.com/11bae5a7aa792a38.jpg "The main interface")
 
 ## Prerequisites
 
