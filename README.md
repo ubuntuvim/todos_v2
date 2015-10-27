@@ -4,6 +4,8 @@ Ember TodoMVC upgrade.
 Redesigned interface, adds more useful features.
 The main interface is shown below：
 ![The main interface](http://i11.tietuku.com/11bae5a7aa792a38.jpg "The main interface")
+![The main interface2](http://i13.tietuku.com/c2f1f497709207d0.jpg "The main interface2")
+Is the category list on the left,Including the already completed items, unfinished items.Settings panel on the right is a detail of each list item.
 
 ## Prerequisites
 
