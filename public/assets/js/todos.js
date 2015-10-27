@@ -1,6 +1,6 @@
 $(function(){
 
-  //todo's
+  // 设置已经完成的todo项目的样式：给文件加中划线，颜色变浅
   $('#todolist li label').click(function() {
     $(this).toggleClass('done');
   });
@@ -38,8 +38,39 @@ $(function(){
 
   //multiselect input
   // $(".chosen-select").chosen({disable_search_threshold: 10});
-  
+  // $("body").click(function(){
+  //   $('#content').removeClass('main-with-from-open-right-panel');
+  // }
+
+  ///////////// 展开右侧列表项的详细设置框之后，点击除了这个输入框之外的地方隐藏这个输入框
+  $("body").click(function(){
+       
+       var e = event.srcElement;
+      if (!e.offsetParent && typeof(e.offsetParent) != "undefined") {
+        $('#content').removeClass('main-with-from-open-right-panel');
+       
+      } else if (e.offsetParent.id == "mm-m0-p0" || e.offsetParent.id == 'mmenu') {
+       
+      } else {
+        $('#content').removeClass('main-with-from-open-right-panel');
+      }
+  })
+   $('#content').click(function(){
+       return false;
+  });
+   // ------------- end 
+
 });
+
+/**
+ * 点击列表项 的编辑按钮，在右侧显示输入框
+ * @return {[type]} [description]
+ */
+function toggleShowRightPanel() {
+  $('html').addClass('mm-right mm-next mm-opened mm-opening');
+  $('#mmenu').addClass('mm-current mm-opened');
+  $('#content').addClass('main-with-from-open-right-panel');
+}
 
 function test(v) {
   console.log('selected = ' + v);
@@ -57,4 +88,6 @@ function hideToolsIcon(self) {
   for (var i = 2; i <= 4; i++) {
     $($($(self).children()[0]).children()[i]).hide();
   }
+
+
 }

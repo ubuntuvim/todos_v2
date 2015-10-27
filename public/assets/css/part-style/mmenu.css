@@ -1,0 +1,116 @@
+/**********************************/
+/************* MMENU **************/
+/**********************************/
+.navbar.mm-fixed-top {
+  left: 0 !important; }
+
+.mmenu {
+  z-index: 9999; }
+  .mmenu .mm-panel {
+    background: #1d2833; }
+  .mmenu .tab-content {
+    left: 0;
+    background: #263543;
+    padding: 5px 15px; }
+    .mmenu .tab-content .tab-pane {
+      padding-top: 45px; }
+      .mmenu .tab-content .tab-pane > h5 {
+        color: rgba(255, 255, 255, 0.5);
+        font-family: "Roboto Condensed", sans-serif;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 300;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px; }
+      .mmenu .tab-content .tab-pane ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0; }
+        .mmenu .tab-content .tab-pane ul.users-list > li, .mmenu .tab-content .tab-pane ul.history-list > li, .mmenu .tab-content .tab-pane ul.favourite-list > li {
+          margin-bottom: 15px; }
+          .mmenu .tab-content .tab-pane ul.users-list > li:last-child, .mmenu .tab-content .tab-pane ul.history-list > li:last-child, .mmenu .tab-content .tab-pane ul.favourite-list > li:last-child {
+            margin-bottom: 30px; }
+          .mmenu .tab-content .tab-pane ul.users-list > li .media, .mmenu .tab-content .tab-pane ul.history-list > li .media, .mmenu .tab-content .tab-pane ul.favourite-list > li .media {
+            position: relative; }
+            .mmenu .tab-content .tab-pane ul.users-list > li .media .profile-photo, .mmenu .tab-content .tab-pane ul.history-list > li .media .profile-photo, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .profile-photo {
+              width: 45px;
+              overflow: hidden;
+              display: inline-block; }
+              .mmenu .tab-content .tab-pane ul.users-list > li .media .profile-photo img, .mmenu .tab-content .tab-pane ul.history-list > li .media .profile-photo img, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .profile-photo img {
+                width: 100%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                border-radius: 50%; }
+            .mmenu .tab-content .tab-pane ul.users-list > li .media .unread, .mmenu .tab-content .tab-pane ul.history-list > li .media .unread, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .unread {
+              position: absolute;
+              left: 30px;
+              font-size: 10px;
+              font-weight: 400; }
+            .mmenu .tab-content .tab-pane ul.users-list > li .media .media-body, .mmenu .tab-content .tab-pane ul.history-list > li .media .media-body, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .media-body {
+              padding-top: 6px;
+              position: relative; }
+              .mmenu .tab-content .tab-pane ul.users-list > li .media .media-body .media-heading, .mmenu .tab-content .tab-pane ul.history-list > li .media .media-body .media-heading, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .media-body .media-heading {
+                font-family: "Roboto", "Arial", sans-serif;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 0.7);
+                margin: 0 0 3px; }
+              .mmenu .tab-content .tab-pane ul.users-list > li .media .media-body small, .mmenu .tab-content .tab-pane ul.history-list > li .media .media-body small, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .media-body small {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.3); }
+                .mmenu .tab-content .tab-pane ul.users-list > li .media .media-body small i, .mmenu .tab-content .tab-pane ul.history-list > li .media .media-body small i, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .media-body small i {
+                  font-size: 14px; }
+              .mmenu .tab-content .tab-pane ul.users-list > li .media .media-body .status, .mmenu .tab-content .tab-pane ul.history-list > li .media .media-body .status, .mmenu .tab-content .tab-pane ul.favourite-list > li .media .media-body .status {
+                position: absolute;
+                right: 0px;
+                top: 18px; }
+          .mmenu .tab-content .tab-pane ul.users-list > li.online .status, .mmenu .tab-content .tab-pane ul.history-list > li.online .status, .mmenu .tab-content .tab-pane ul.favourite-list > li.online .status {
+            border-color: #16a085; }
+          .mmenu .tab-content .tab-pane ul.users-list > li.busy .status, .mmenu .tab-content .tab-pane ul.history-list > li.busy .status, .mmenu .tab-content .tab-pane ul.favourite-list > li.busy .status {
+            border-color: #ffc100; }
+          .mmenu .tab-content .tab-pane ul.users-list > li.offline .media .profile-photo, .mmenu .tab-content .tab-pane ul.history-list > li.offline .media .profile-photo, .mmenu .tab-content .tab-pane ul.favourite-list > li.offline .media .profile-photo {
+            filter: alpha(opacity=40);
+            opacity: 0.4; }
+          .mmenu .tab-content .tab-pane ul.users-list > li.offline .status, .mmenu .tab-content .tab-pane ul.history-list > li.offline .status, .mmenu .tab-content .tab-pane ul.favourite-list > li.offline .status {
+            border-color: #717171; }
+        .mmenu .tab-content .tab-pane ul.history-list > li .media .media-body small {
+          display: inline-block;
+          width: 140px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          font-weight: 300; }
+        .mmenu .tab-content .tab-pane ul.settings > li .form-group .control-label {
+          margin: 0;
+          padding: 0;
+          margin-bottom: 15px;
+          font-weight: 300;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 12px;
+          line-height: 22px; }
+          .mmenu .tab-content .tab-pane ul.settings > li .form-group .control-label .onoffswitch {
+            right: -35px; }
+  .mmenu .nav.nav-tabs {
+    padding: 0;
+    max-height: 45px;
+    z-index: 2; }
+    .mmenu .nav.nav-tabs > li > a {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      border-radius: 0;
+      border: 0;
+      padding: 12px 15px;
+      min-height: 45px;
+      color: rgba(255, 255, 255, 0.5); }
+      .mmenu .nav.nav-tabs > li > a:hover {
+        background-color: #212d3a; }
+    .mmenu .nav.nav-tabs > li.active > a {
+      background-color: #263543;
+      color: white; }
+      .mmenu .nav.nav-tabs > li.active > a:hover
+      .mmenu .nav.nav-tabs > li.active > a:focus {
+        background-color: #263543;
+        color: white; }

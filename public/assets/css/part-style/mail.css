@@ -1,0 +1,595 @@
+
+/********************************/
+/************* MAIL *************/
+/********************************/
+body #content .vertical-mail > .row,
+body #content .horizontal-mail > .row {
+  display: table; }
+  body #content .vertical-mail > .row > div[class*='col-'],
+  body #content .horizontal-mail > .row > div[class*='col-'] {
+    padding: 0;
+    display: table-cell;
+    float: none;
+    vertical-align: top; }
+    body #content .vertical-mail > .row > div[class*='col-']:first-child,
+    body #content .horizontal-mail > .row > div[class*='col-']:first-child {
+      padding-left: 15px; }
+    body #content .vertical-mail > .row > div[class*='col-']:last-child,
+    body #content .horizontal-mail > .row > div[class*='col-']:last-child {
+      padding: 0 15px; }
+body #content .vertical-mail ul.navigation,
+body #content .horizontal-mail ul.navigation {
+  background-color: rgba(0, 0, 0, 0.3);
+  list-style-type: none;
+  color: white;
+  height: 100%;
+  overflow: auto;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -ms-border-radius: 4px 0 0 4px;
+  -o-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+  padding: 0 20px;
+  border: 1px solid transparent; }
+  body #content .vertical-mail ul.navigation > li.mark,
+  body #content .horizontal-mail ul.navigation > li.mark {
+    text-align: center;
+    font-size: 70px; }
+  body #content .vertical-mail ul.navigation > li.compose,
+  body #content .horizontal-mail ul.navigation > li.compose {
+    text-align: center;
+    margin: 20px 0 30px 0; }
+    body #content .vertical-mail ul.navigation > li.compose .btn,
+    body #content .horizontal-mail ul.navigation > li.compose .btn {
+      color: white;
+      font-size: 13px;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: 700; }
+  body #content .vertical-mail ul.navigation > li.heading h5,
+  body #content .horizontal-mail ul.navigation > li.heading h5 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto Condensed", sans-serif;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8); }
+    body #content .vertical-mail ul.navigation > li.heading h5 a,
+    body #content .horizontal-mail ul.navigation > li.heading h5 a {
+      color: rgba(255, 255, 255, 0.5); }
+      body #content .vertical-mail ul.navigation > li.heading h5 a:hover,
+      body #content .horizontal-mail ul.navigation > li.heading h5 a:hover {
+        color: white; }
+  body #content .vertical-mail ul.navigation > li > ul,
+  body #content .horizontal-mail ul.navigation > li > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 -20px; }
+    body #content .vertical-mail ul.navigation > li > ul > li,
+    body #content .horizontal-mail ul.navigation > li > ul > li {
+      text-align: right; }
+      body #content .vertical-mail ul.navigation > li > ul > li a,
+      body #content .horizontal-mail ul.navigation > li > ul > li a {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 16px;
+        line-height: 36px;
+        font-weight: 700;
+        font-family: "Roboto Slab", serif;
+        display: block;
+        padding-right: 20px;
+        -webkit-transition: all 0.15s linear;
+        -moz-transition: all 0.15s linear;
+        transition: all 0.15s linear; }
+        body #content .vertical-mail ul.navigation > li > ul > li a span.badge,
+        body #content .horizontal-mail ul.navigation > li > ul > li a span.badge {
+          position: relative;
+          top: -3px;
+          margin-right: 5px; }
+        body #content .vertical-mail ul.navigation > li > ul > li a:hover,
+        body #content .horizontal-mail ul.navigation > li > ul > li a:hover {
+          color: white;
+          text-decoration: none;
+          background-color: rgba(0, 0, 0, 0.1); }
+      body #content .vertical-mail ul.navigation > li > ul > li.active a,
+      body #content .horizontal-mail ul.navigation > li > ul > li.active a {
+        font-size: 22px;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white; }
+      body #content .vertical-mail ul.navigation > li > ul > li.divider,
+      body #content .horizontal-mail ul.navigation > li > ul > li.divider {
+        padding: 5px 0;
+        background: none; }
+      body #content .vertical-mail ul.navigation > li > ul > li.other a, body #content .vertical-mail ul.navigation > li > ul > li.tag a,
+      body #content .horizontal-mail ul.navigation > li > ul > li.other a,
+      body #content .horizontal-mail ul.navigation > li > ul > li.tag a {
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: 14px;
+        line-height: 30px;
+        font-weight: 400;
+        position: relative; }
+        body #content .vertical-mail ul.navigation > li > ul > li.other a:hover, body #content .vertical-mail ul.navigation > li > ul > li.tag a:hover,
+        body #content .horizontal-mail ul.navigation > li > ul > li.other a:hover,
+        body #content .horizontal-mail ul.navigation > li > ul > li.tag a:hover {
+          color: white; }
+      body #content .vertical-mail ul.navigation > li > ul > li.tag a,
+      body #content .horizontal-mail ul.navigation > li > ul > li.tag a {
+        font-size: 12px;
+        padding-right: 33px; }
+        body #content .vertical-mail ul.navigation > li > ul > li.tag a span.label,
+        body #content .horizontal-mail ul.navigation > li > ul > li.tag a span.label {
+          position: absolute;
+          right: 20px;
+          display: inline-block;
+          width: 5px;
+          height: 15px;
+          top: 50%;
+          margin-top: -7px;
+          padding: 0;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          -ms-border-radius: 2px;
+          -o-border-radius: 2px;
+          border-radius: 2px; }
+body #content ul.inbox {
+  list-style-type: none;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.15);
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+  -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+  padding: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1); }
+  body #content ul.inbox > li.heading h1 {
+    text-align: center;
+    color: white; }
+  body #content ul.inbox > li.search {
+    margin: 20px 0;
+    text-align: center; }
+    body #content ul.inbox > li.search i {
+      line-height: 28px;
+      margin-right: 5px;
+      color: rgba(255, 255, 255, 0.7); }
+    body #content ul.inbox > li.search input {
+      font-family: "Ubuntu Mono", sans-serif;
+      font-size: 16px;
+      color: white;
+      background: none;
+      border: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+      -webkit-appearance: none !important;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      border-radius: 0;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 !important;
+      line-height: 18px;
+      min-height: 26px; }
+      body #content ul.inbox > li.search input:focus {
+        outline: none;
+        border-bottom: 1px solid white;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important; }
+      body #content ul.inbox > li.search input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.7); }
+      body #content ul.inbox > li.search input:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.7); }
+      body #content ul.inbox > li.search input::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.7); }
+      body #content ul.inbox > li.search input:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.7); }
+  body #content ul.inbox > li.pagination span {
+    font-size: 11px;
+    color: white;
+    font-style: italic;
+    margin-right: 5px; }
+  body #content ul.inbox > li.pagination .btn {
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7); }
+    body #content ul.inbox > li.pagination .btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white; }
+  body #content ul.inbox > li.msg {
+    padding: 10px 20px 10px 30px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1); }
+    body #content ul.inbox > li.msg .checkbox {
+      margin: 0;
+      padding: 0;
+      height: 0;
+      min-height: 0;
+      position: absolute;
+      left: 5px;
+      top: -10px; }
+    body #content ul.inbox > li.msg .mail-favourite {
+      position: absolute;
+      left: 8px;
+      top: 32px;
+      color: white;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05); }
+      body #content ul.inbox > li.msg .mail-favourite.active i:before {
+        content: "\f005"; }
+    body #content ul.inbox > li.msg.last {
+      margin-bottom: 0; }
+    body #content ul.inbox > li.msg div {
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05); }
+      body #content ul.inbox > li.msg div h5 {
+        color: white;
+        margin: 0; }
+      body #content ul.inbox > li.msg div p {
+        padding-top: 10px;
+        margin: 0;
+        width: 220px;
+        color: rgba(255, 255, 255, 0.8);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        line-height: 16px; }
+        body #content ul.inbox > li.msg div p strong {
+          color: white; }
+      body #content ul.inbox > li.msg div .delivery-time {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 11px; }
+      body #content ul.inbox > li.msg div .mail-attachment {
+        float: right;
+        color: rgba(255, 255, 255, 0.8); }
+      body #content ul.inbox > li.msg div .mail-label {
+        width: 3px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        -webkit-border-radius: 0 4px 4px 0;
+        -moz-border-radius: 0 4px 4px 0;
+        -ms-border-radius: 0 4px 4px 0;
+        -o-border-radius: 0 4px 4px 0;
+        border-radius: 0 4px 4px 0; }
+      body #content ul.inbox > li.msg div .mail-actions {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        -webkit-transition: all 0.1s linear;
+        -moz-transition: all 0.1s linear;
+        transition: all 0.1s linear; }
+        body #content ul.inbox > li.msg div .mail-actions a {
+          padding: 5px;
+          color: rgba(255, 255, 255, 0.8);
+          -webkit-transition: all 0.1s linear;
+          -moz-transition: all 0.1s linear;
+          transition: all 0.1s linear; }
+          body #content ul.inbox > li.msg div .mail-actions a:hover {
+            color: white; }
+          body #content ul.inbox > li.msg div .mail-actions a.delete:hover {
+            color: #ff4a43; }
+          body #content ul.inbox > li.msg div .mail-actions a.reply:hover {
+            color: #a2d200; }
+    body #content ul.inbox > li.msg:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+      border: 1px solid transparent; }
+      body #content ul.inbox > li.msg:hover .mail-actions {
+        opacity: 1; }
+    body #content ul.inbox > li.msg.active {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid transparent; }
+body #content .mail-content {
+  width: 100%;
+  height: 100%; }
+  body #content .mail-content .quick-navigation {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1); }
+    body #content .mail-content .quick-navigation h3 {
+      display: inline-block;
+      font-size: 18px;
+      margin: 0;
+      line-height: 50px;
+      color: white; }
+    body #content .mail-content .quick-navigation button {
+      padding: 15px 20px;
+      border: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7); }
+      body #content .mail-content .quick-navigation button.prev {
+        -webkit-border-radius: 4px 0 0 4px;
+        -moz-border-radius: 4px 0 0 4px;
+        -ms-border-radius: 4px 0 0 4px;
+        -o-border-radius: 4px 0 0 4px;
+        border-radius: 4px 0 0 4px; }
+      body #content .mail-content .quick-navigation button.next {
+        -webkit-border-radius: 0 4px 4px 0;
+        -moz-border-radius: 0 4px 4px 0;
+        -ms-border-radius: 0 4px 4px 0;
+        -o-border-radius: 0 4px 4px 0;
+        border-radius: 0 4px 4px 0; }
+      body #content .mail-content .quick-navigation button:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: white; }
+  body #content .mail-content .message {
+    overflow: hidden;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05); }
+    body #content .mail-content .message .header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px; }
+      body #content .mail-content .message .header h1 {
+        margin: 0 0 10px 0;
+        color: white;
+        font-size: 26px; }
+      body #content .mail-content .message .header .message-info {
+        list-style-type: none;
+        padding: 0;
+        margin: 0; }
+        body #content .mail-content .message .header .message-info li {
+          display: inline-block;
+          color: white;
+          min-width: 20%;
+          margin-right: 20px;
+          background-color: rgba(0, 0, 0, 0.2);
+          padding: 4px 10px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          -ms-border-radius: 4px;
+          -o-border-radius: 4px;
+          border-radius: 4px;
+          font-size: 11px;
+          margin-bottom: 5px; }
+          body #content .mail-content .message .header .message-info li em {
+            filter: alpha(opacity=80);
+            opacity: 0.8; }
+      body #content .mail-content .message .header .actions {
+        margin: 20px -20px -20px -20px;
+        padding: 10px 20px;
+        background-color: rgba(0, 0, 0, 0.3); }
+        body #content .mail-content .message .header .actions .btn {
+          background-color: rgba(255, 255, 255, 0.15);
+          -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: rgba(255, 255, 255, 0.7); }
+          body #content .mail-content .message .header .actions .btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white; }
+    body #content .mail-content .message .content {
+      padding: 40px 20px 20px 20px;
+      overflow: hidden;
+      background-color: white; }
+      body #content .mail-content .message .content p {
+        color: #717171;
+        font-weight: 300; }
+      body #content .mail-content .message .content .attachments {
+        list-style-type: none;
+        padding: 0;
+        margin: 0; }
+        body #content .mail-content .message .content .attachments > li {
+          margin-bottom: 5px; }
+          body #content .mail-content .message .content .attachments > li em {
+            font-size: 11px;
+            color: #717171; }
+          body #content .mail-content .message .content .attachments > li .att-actions {
+            font-size: 14px;
+            margin-left: 5px;
+            float: right; }
+            body #content .mail-content .message .content .attachments > li .att-actions i {
+              padding: 5px;
+              cursor: pointer; }
+              body #content .mail-content .message .content .attachments > li .att-actions i.att-show:hover {
+                color: #22beef; }
+              body #content .mail-content .message .content .attachments > li .att-actions i.att-forward:hover {
+                color: #ff4a43; }
+              body #content .mail-content .message .content .attachments > li .att-actions i.att-download:hover {
+                color: #a2d200; }
+      body #content .mail-content .message .content form {
+        text-align: right; }
+        body #content .mail-content .message .content form .note-editor {
+          margin-top: -10px;
+          text-align: left; }
+          body #content .mail-content .message .content form .note-editor .note-toolbar {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            -ms-border-radius: 0;
+            -o-border-radius: 0;
+            border-radius: 0; }
+          body #content .mail-content .message .content form .note-editor .note-editable {
+            border-left: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05); }
+        body #content .mail-content .message .content form button {
+          margin-top: 10px; }
+body #content .horizontal-mail > .row > div[class*='col-']:last-child {
+  padding-left: 0;
+  padding-right: 15px; }
+body #content .horizontal-mail .inbox {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 20px; }
+  body #content .horizontal-mail .inbox .table-heading .heading h1 {
+    color: white;
+    margin: 0; }
+  body #content .horizontal-mail .inbox .table-heading .ColVis {
+    float: right;
+    margin: 0;
+    margin-left: 15px; }
+    body #content .horizontal-mail .inbox .table-heading .ColVis .ColVis_Button {
+      height: 37px;
+      width: 37px;
+      text-align: center; }
+  body #content .horizontal-mail .inbox .table-heading .dataTables_filter label input {
+    min-height: 36px; }
+  body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th,
+  body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td {
+    color: rgba(255, 255, 255, 0.6); }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th:after,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td:after {
+      background-color: rgba(255, 255, 255, 0.3); }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sortable:hover, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting:hover,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sortable:hover,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting:hover {
+      color: white; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sortable:hover:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting:hover:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sortable:hover:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting:hover:after {
+        background-color: rgba(255, 255, 255, 0.6); }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-asc, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-desc, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-asc:hover, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-desc:hover, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_asc, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_desc, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_asc:hover, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_desc:hover,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-asc,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-desc,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-asc:hover,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-desc:hover,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_asc,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_desc,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_asc:hover,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_desc:hover {
+      color: white; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-asc:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-desc:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-asc:hover:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sort-desc:hover:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_asc:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_desc:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_asc:hover:after, body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.sorting_desc:hover:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-asc:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-desc:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-asc:hover:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sort-desc:hover:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_asc:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_desc:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_asc:hover:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.sorting_desc:hover:after {
+        background-color: white; }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.controls,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.controls {
+      width: 100px !important; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > th.controls:first-child,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > thead > tr > td.controls:first-child {
+        width: 50px !important; }
+  body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr {
+    cursor: pointer; }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th {
+      font-weight: 400;
+      color: white;
+      border-top-color: rgba(255, 255, 255, 0.2); }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td:first-child,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th:first-child {
+        position: relative; }
+        body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td:first-child .mail-label,
+        body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th:first-child .mail-label {
+          position: absolute;
+          width: 5px;
+          height: 100%;
+          top: 0;
+          left: 0; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .checkbox,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        margin-left: 5px; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-favourite,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-favourite {
+        color: white;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05);
+        font-size: 14px;
+        position: relative;
+        top: 1px; }
+        body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-favourite.active i:before,
+        body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-favourite.active i:before {
+          content: "\f005"; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-actions,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-actions {
+        filter: alpha(opacity=0);
+        opacity: 0;
+        -webkit-transition: all 0.1s linear;
+        -moz-transition: all 0.1s linear;
+        transition: all 0.1s linear; }
+        body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-actions a,
+        body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-actions a {
+          padding: 5px 10px;
+          color: white;
+          font-size: 14px;
+          line-height: 14px;
+          -webkit-transition: all 0.1s linear;
+          -moz-transition: all 0.1s linear;
+          transition: all 0.1s linear; }
+          body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-actions a:hover,
+          body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-actions a:hover {
+            color: white; }
+          body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-actions a.delete:hover,
+          body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-actions a.delete:hover {
+            color: #ff4a43; }
+          body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr td .mail-actions a.reply:hover,
+          body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr th .mail-actions a.reply:hover {
+            color: #a2d200; }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr:hover td .mail-actions,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr:hover th .mail-actions {
+      filter: alpha(opacity=100);
+      opacity: 1; }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.odd td.sorting_1,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.odd th.sorting_1, body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.even td.sorting_1,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.even th.sorting_1 {
+      padding-left: 5px;
+      position: relative;
+      z-index: 9; }
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.odd td.sorting_1:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.odd th.sorting_1:after, body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.even td.sorting_1:after,
+      body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.even th.sorting_1:after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 8px;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: -1; }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr:first-child td,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr:first-child th {
+      border-top: 0; }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.row_selected td,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.row_selected th {
+      background-color: rgba(0, 0, 0, 0.1); }
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.unread td,
+    body #content .horizontal-mail .inbox .dataTable.table-custom > tbody tr.unread th {
+      font-weight: 700; }
+body #content .horizontal-mail .mail-content {
+  padding-left: 15px; }

@@ -1,0 +1,26 @@
+
+
+/*******************************************/
+/************* RECENT ACTIVITY *************/
+/*******************************************/
+.recent-activity .tab-content > ul > li .user {
+  margin: 0 30px 0 5px;
+  position: relative; }
+  .recent-activity .tab-content > ul > li .user:after {
+    content: "\f105";
+    font-family: "FontAwesome";
+    font-size: 36px;
+    line-height: 36px;
+    margin-left: 10px;
+    position: absolute;
+    top: -8px; }
+.recent-activity .tab-content > ul > li .subject strong {
+  color: #418bca;
+  font-weight: 500; }
+.recent-activity .tab-content > ul > li .time {
+  font-size: 11px;
+  color: #bebebe;
+  line-height: 36px;
+  float: right; }
+  .recent-activity .tab-content > ul > li .time i {
+    font-size: 14px; }

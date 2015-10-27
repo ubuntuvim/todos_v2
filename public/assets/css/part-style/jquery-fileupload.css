@@ -1,0 +1,33 @@
+
+/**********************************************/
+/************* JQUERY FILE UPLOAD *************/
+/**********************************************/
+.fileupload-buttonbar {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none; }
+
+table tbody.files > tr > td {
+  vertical-align: middle; }
+  table tbody.files > tr > td.upload {
+    vertical-align: top; }
+  table tbody.files > tr > td.actions button {
+    margin-right: 5px; }
+    table tbody.files > tr > td.actions button i {
+      font-size: 14px; }
+  table tbody.files > tr > td.actions .checkbox {
+    left: -28px;
+    top: 2px; }
+    table tbody.files > tr > td.actions .checkbox label:after {
+      width: 12px !important; }
+  table tbody.files > tr > td .preview {
+    width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    display: block; }
+    table tbody.files > tr > td .preview canvas,
+    table tbody.files > tr > td .preview img {
+      width: 50px;
+      max-width: 50px; }

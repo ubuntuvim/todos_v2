@@ -1,0 +1,19 @@
+
+/*****************************************/
+/************* CHECK TOGGLER *************/
+/*****************************************/
+.check-toggler:before {
+  content: "\f00d";
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  color: #ff4a43; }
+.check-toggler.checked:before {
+  content: "\f00c";
+  color: #a2d200; }
+.check-toggler:hover {
+  text-decoration: none; }

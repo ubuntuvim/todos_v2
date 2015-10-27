@@ -1,0 +1,57 @@
+
+
+/****************************************/
+/************* OWL CAROUSEL *************/
+/****************************************/
+.owl-carousel .owl-item img {
+  width: 80px;
+  margin: 10px 0 25px 0; }
+.owl-carousel .owl-item p {
+  margin: 0;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  -o-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 42px;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  font-style: italic; }
+  .owl-carousel .owl-item p:before {
+    content: "\f10d";
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 2em;
+    filter: alpha(opacity=15);
+    opacity: 0.15; }
+.owl-carousel .owl-controls .owl-pagination {
+  position: absolute;
+  top: 10px;
+  left: 10px; }
+.owl-carousel .owl-controls .owl-page span {
+  width: 6px;
+  height: 6px;
+  background: white;
+  margin: 3px 2px; }
+.owl-carousel .owl-controls .owl-buttons {
+  position: absolute;
+  top: 35%;
+  width: 100%; }
+  .owl-carousel .owl-controls .owl-buttons .owl-prev,
+  .owl-carousel .owl-controls .owl-buttons .owl-next {
+    position: absolute;
+    background: none; }
+  .owl-carousel .owl-controls .owl-buttons .owl-prev {
+    left: 0; }
+  .owl-carousel .owl-controls .owl-buttons .owl-next {
+    right: 0; }

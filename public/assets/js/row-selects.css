@@ -1,0 +1,143 @@
+
+/**************************************/
+/************* ROW SELECT *************/
+/**************************************/
+ul.inlineSelect {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
+  ul.inlineSelect.rowSelect > li.title, ul.inlineSelect.inline > li.title {
+    background-color: #f2f2f2; }
+    ul.inlineSelect.rowSelect > li.title h5, ul.inlineSelect.inline > li.title h5 {
+      margin: 0;
+      padding: 10px; }
+  ul.inlineSelect.rowSelect > li > .checkbox, ul.inlineSelect.inline > li > .checkbox {
+    padding-left: 0;
+    margin: 0 !important; }
+    ul.inlineSelect.rowSelect > li > .checkbox input[type=checkbox]:checked + label, ul.inlineSelect.inline > li > .checkbox input[type=checkbox]:checked + label {
+      background-color: #f5f5f5; }
+    ul.inlineSelect.rowSelect > li > .checkbox label, ul.inlineSelect.inline > li > .checkbox label {
+      width: 100%;
+      background-color: #fafafa;
+      padding: 6px 0 5px 40px; }
+      ul.inlineSelect.rowSelect > li > .checkbox label:hover, ul.inlineSelect.inline > li > .checkbox label:hover {
+        background-color: #f5f5f5; }
+      ul.inlineSelect.rowSelect > li > .checkbox label:before, ul.inlineSelect.inline > li > .checkbox label:before {
+        left: 10px;
+        top: 7px; }
+      ul.inlineSelect.rowSelect > li > .checkbox label:after, ul.inlineSelect.inline > li > .checkbox label:after {
+        left: 13px;
+        top: 5px; }
+  ul.inlineSelect.rowSelect > li:first-child {
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0; }
+  ul.inlineSelect.rowSelect > li:last-child label {
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -ms-border-radius: 0 0 4px 4px;
+    -o-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px; }
+  ul.inlineSelect.inline > li {
+    padding: 0;
+    margin-right: -3px; }
+    ul.inlineSelect.inline > li:first-child {
+      -webkit-border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+      -ms-border-radius: 4px 0 0 4px;
+      -o-border-radius: 4px 0 0 4px;
+      border-radius: 4px 0 0 4px; }
+    ul.inlineSelect.inline > li:last-child label {
+      -webkit-border-radius: 0 4px 4px 0;
+      -moz-border-radius: 0 4px 4px 0;
+      -ms-border-radius: 0 4px 4px 0;
+      -o-border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0; }
+  ul.inlineSelect.red > li.title {
+    background-color: #ff4a43;
+    color: white; }
+  ul.inlineSelect.red > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #ffdddc; }
+  ul.inlineSelect.red > li > .checkbox label:hover {
+    background-color: #fff6f5; }
+  ul.inlineSelect.cyan > li.title {
+    background-color: #22beef;
+    color: white; }
+  ul.inlineSelect.cyan > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #e0f6fd; }
+  ul.inlineSelect.cyan > li > .checkbox label:hover {
+    background-color: #f8fdfe; }
+  ul.inlineSelect.orange > li.title {
+    background-color: #ffc100;
+    color: white; }
+  ul.inlineSelect.orange > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #fff3cc; }
+  ul.inlineSelect.orange > li > .checkbox label:hover {
+    background-color: #fff9e5; }
+  ul.inlineSelect.green > li.title {
+    background-color: #a2d200;
+    color: white; }
+  ul.inlineSelect.green > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #f5ffd2; }
+  ul.inlineSelect.green > li > .checkbox label:hover {
+    background-color: #fbffeb; }
+  ul.inlineSelect.amethyst > li.title {
+    background-color: #cd97eb;
+    color: white; }
+  ul.inlineSelect.amethyst > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #f6edfb; }
+  ul.inlineSelect.amethyst > li > .checkbox label:hover {
+    background-color: white; }
+  ul.inlineSelect.greensea > li.title {
+    background-color: #16a085;
+    color: white; }
+  ul.inlineSelect.greensea > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #bff6eb; }
+  ul.inlineSelect.greensea > li > .checkbox label:hover {
+    background-color: #d5f9f2; }
+  ul.inlineSelect.dutch > li.title {
+    background-color: #1693a5;
+    color: white; }
+  ul.inlineSelect.dutch > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #adebf4; }
+  ul.inlineSelect.dutch > li > .checkbox label:hover {
+    background-color: #c3f0f7; }
+  ul.inlineSelect.hotpink > li.title {
+    background-color: #ff0066;
+    color: white; }
+  ul.inlineSelect.hotpink > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #ffcce0; }
+  ul.inlineSelect.hotpink > li > .checkbox label:hover {
+    background-color: #ffe5f0; }
+  ul.inlineSelect.drank > li.title {
+    background-color: #a40778;
+    color: white; }
+  ul.inlineSelect.drank > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #fcaee6; }
+  ul.inlineSelect.drank > li > .checkbox label:hover {
+    background-color: #fdc7ee; }
+  ul.inlineSelect.blue > li.title {
+    background-color: #418bca;
+    color: white; }
+  ul.inlineSelect.blue > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #e1ecf6; }
+  ul.inlineSelect.blue > li > .checkbox label:hover {
+    background-color: #f4f9fc; }
+  ul.inlineSelect.slategray > li.title {
+    background-color: #3f4e62;
+    color: white; }
+  ul.inlineSelect.slategray > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #b6c1d0; }
+  ul.inlineSelect.slategray > li > .checkbox label:hover {
+    background-color: #c6cfda; }
+  ul.inlineSelect.redbrown > li.title {
+    background-color: #d9544f;
+    color: white; }
+  ul.inlineSelect.redbrown > li > .checkbox input[type=checkbox]:checked + label {
+    background-color: #f4cecd; }
+  ul.inlineSelect.redbrown > li > .checkbox label:hover {
+    background-color: #f9e3e2; }

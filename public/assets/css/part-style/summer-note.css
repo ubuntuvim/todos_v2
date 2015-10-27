@@ -1,0 +1,45 @@
+
+/**************************************/
+/************* SUMMERNOTE *************/
+/**************************************/
+.note-editor {
+  border: 0; }
+  .note-editor .note-editable {
+    overflow: auto;
+    background-color: white; }
+  .note-editor .note-toolbar {
+    border-bottom: 0;
+    background-color: #f2f2f2;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0; }
+  .note-editor .note-statusbar {
+    background-color: #f2f2f2;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -ms-border-radius: 0 0 4px 4px;
+    -o-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px; }
+    .note-editor .note-statusbar .note-resizebar {
+      border-top: 1px solid transparent; }
+
+.transparent-editor .note-editor .note-editable {
+  background-color: rgba(0, 0, 0, 0.3); }
+.transparent-editor .note-editor .note-toolbar {
+  background-color: rgba(0, 0, 0, 0.5); }
+  .transparent-editor .note-editor .note-toolbar button {
+    background-color: white;
+    color: #717171; }
+    .transparent-editor .note-editor .note-toolbar button:hover {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #717171; }
+      .transparent-editor .note-editor .note-toolbar button:hover .caret {
+        border-top-color: #717171; }
+  .transparent-editor .note-editor .note-toolbar .dropdown-menu {
+    color: #717171; }
+.transparent-editor .note-editor .note-statusbar {
+  background-color: rgba(0, 0, 0, 0.5); }
+.transparent-editor .note-editor .caret {
+  border-top-color: #717171; }

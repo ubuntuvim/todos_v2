@@ -1,0 +1,164 @@
+
+
+/***********************************/
+/************* BUTTONS *************/
+/***********************************/
+.btn {
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  /* file upload */ }
+  .btn.btn-black-transparent {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #f2f2f2; }
+    .btn.btn-black-transparent:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: white; }
+  .btn:focus {
+    outline: 0; }
+  .btn.active, .btn:active {
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .btn.uppercased {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 3px 20px; }
+  .btn.btn-green {
+    background-color: #a2d200;
+    color: #f2f2f2; }
+    .btn.btn-green:hover {
+      background-color: #8eb800;
+      color: white; }
+  .btn.btn-cyan {
+    background-color: #52ccf2;
+    color: #f2f2f2; }
+    .btn.btn-cyan:hover {
+      background-color: #0fa1cf;
+      color: white; }
+  .btn.btn-red {
+    background-color: #ff7b76;
+    color: #f2f2f2; }
+    .btn.btn-red:hover {
+      background-color: #ff4f48;
+      color: white; }
+  .btn.btn-orange {
+    background-color: #ffc100;
+    color: #f2f2f2; }
+    .btn.btn-orange:hover {
+      background-color: #f0b500;
+      color: white; }
+  .btn.btn-amethyst {
+    background-color: #cd97eb;
+    color: #f2f2f2; }
+    .btn.btn-amethyst:hover {
+      background-color: #b86ce3;
+      color: white; }
+  .btn.btn-greensea {
+    background-color: #1ccdaa;
+    color: #f2f2f2; }
+    .btn.btn-greensea:hover {
+      background-color: #14937a;
+      color: white; }
+  .btn.btn-hotpink {
+    background-color: #ff3385;
+    color: #f2f2f2; }
+    .btn.btn-hotpink:hover {
+      background-color: #e6005c;
+      color: white; }
+  .btn.btn-drank {
+    background-color: #d5099c;
+    color: #f2f2f2; }
+    .btn.btn-drank:hover {
+      background-color: #95066d;
+      color: white; }
+  .btn.btn-dutch {
+    background-color: #1cbbd2;
+    color: #f2f2f2; }
+    .btn.btn-dutch:hover {
+      background-color: #148798;
+      color: white; }
+  .btn.btn-blue {
+    background-color: #69a3d5;
+    color: #f2f2f2; }
+    .btn.btn-blue:hover {
+      background-color: #3784c5;
+      color: white; }
+  .btn.btn-redbrown {
+    background-color: #e27d79;
+    color: #f2f2f2; }
+    .btn.btn-redbrown:hover {
+      background-color: #d64842;
+      color: white; }
+  .btn.btn-slategray {
+    background-color: #536781;
+    color: #f2f2f2; }
+    .btn.btn-slategray:hover {
+      background-color: #394759;
+      color: white; }
+  .btn.btn-primary {
+    color: #f2f2f2; }
+    .btn.btn-primary:hover {
+      color: white; }
+  .btn.btn-danger {
+    color: #f2f2f2; }
+    .btn.btn-danger:hover {
+      color: white; }
+  .btn.btn-warning {
+    color: #f2f2f2; }
+    .btn.btn-warning:hover {
+      color: white; }
+  .btn.btn-success {
+    color: #f2f2f2; }
+    .btn.btn-success:hover {
+      color: white; }
+  .btn.btn-info {
+    color: #f2f2f2; }
+    .btn.btn-info:hover {
+      color: white; }
+  .btn.btn-file {
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    line-height: 23px; }
+    .btn.btn-file input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      font-size: 999px;
+      text-align: right;
+      filter: alpha(opacity=0);
+      opacity: 0;
+      background: red;
+      cursor: inherit;
+      display: block; }
+
+.btn-group-lg > .btn,
+.btn-group-sm > .btn,
+.btn-group-xs > .btn {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
+
+.btn-group > .btn + .dropdown-toggle {
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important; }
+
+.btn-group > .btn-default + .dropdown-toggle {
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important; }
+
+a.submit i {
+  margin: 0 3px; }
+a.submit:hover {
+  text-decoration: none; }

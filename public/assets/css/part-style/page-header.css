@@ -1,0 +1,48 @@
+
+/****************************************/
+/************* PAGE HEADER **************/
+/****************************************/
+.pageheader {
+  position: relative; }
+  .pageheader h2 {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 32px;
+    font-weight: 300;
+    font-family: "Roboto", "Arial", sans-serif; }
+    .pageheader h2 span {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      font-style: italic; }
+    .pageheader h2 i {
+      padding: 0;
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 28px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      line-height: 44px; }
+  .pageheader .breadcrumbs {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    .pageheader .breadcrumbs ol.breadcrumb {
+      background-color: transparent;
+      margin-bottom: 0; }
+      .pageheader .breadcrumbs ol.breadcrumb > li {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.6); }
+        .pageheader .breadcrumbs ol.breadcrumb > li.active {
+          color: rgba(0, 0, 0, 0.4); }
+        .pageheader .breadcrumbs ol.breadcrumb > li + li:before {
+          content: "\f105";
+          font-family: "FontAwesome";
+          color: rgba(255, 255, 255, 0.6); }

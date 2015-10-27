@@ -1,0 +1,67 @@
+
+/**************************************/
+/************* ERROR PAGE *************/
+/**************************************/
+body #content.full-page.error .inside-block {
+  width: 500px;
+  position: relative; }
+  body #content.full-page.error .inside-block h1.error {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+    margin-bottom: 30px; }
+    body #content.full-page.error .inside-block h1.error strong:before {
+      top: 2px;
+      left: 0;
+      width: 60px; }
+  body #content.full-page.error .inside-block p {
+    text-align: center;
+    font-weight: 400; }
+    body #content.full-page.error .inside-block p.lead {
+      margin-bottom: 0; }
+  body #content.full-page.error .inside-block .controls {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px; }
+    body #content.full-page.error .inside-block .controls .btn {
+      margin-right: 10px;
+      margin-bottom: 10px; }
+body #content.full-page.error .search {
+  width: 200px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99; }
+  body #content.full-page.error .search input {
+    font-family: "Ubuntu Mono", sans-serif;
+    font-size: 16px;
+    color: white;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 !important;
+    line-height: 18px;
+    min-height: 26px; }
+    body #content.full-page.error .search input:focus {
+      outline: none;
+      border-bottom: 1px solid white;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important; }
+    body #content.full-page.error .search input::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.7); }
+    body #content.full-page.error .search input:-moz-placeholder {
+      color: rgba(255, 255, 255, 0.7); }
+    body #content.full-page.error .search input::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.7); }
+    body #content.full-page.error .search input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.7); }

@@ -1,0 +1,161 @@
+
+/****************************************/
+/************* TABS & PILLS *************/
+/****************************************/
+.nav.nav-tabs,
+.nav.nav-pills {
+  padding: 0;
+  border-bottom: 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0; }
+  .nav.nav-tabs.nav-justified > li > a,
+  .nav.nav-pills.nav-justified > li > a {
+    border: 1px solid transparent; }
+    .nav.nav-tabs.nav-justified > li > a:hover,
+    .nav.nav-pills.nav-justified > li > a:hover {
+      border: 1px solid transparent; }
+  .nav.nav-tabs.nav-separated,
+  .nav.nav-pills.nav-separated {
+    margin-bottom: 20px; }
+  .nav.nav-tabs.tabdrop li.tabdrop a,
+  .nav.nav-pills.tabdrop li.tabdrop a {
+    position: relative; }
+    .nav.nav-tabs.tabdrop li.tabdrop a i,
+    .nav.nav-pills.tabdrop li.tabdrop a i {
+      font-size: 14px; }
+    .nav.nav-tabs.tabdrop li.tabdrop a .badge,
+    .nav.nav-pills.tabdrop li.tabdrop a .badge {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      background-color: #16a085;
+      font-weight: 300; }
+  .nav.nav-tabs.tabdrop li.tabdrop.open .dropdown-menu,
+  .nav.nav-pills.tabdrop li.tabdrop.open .dropdown-menu {
+    left: auto; }
+  .nav.nav-tabs.tabdrop li.tabdrop.active a .badge,
+  .nav.nav-pills.tabdrop li.tabdrop.active a .badge {
+    color: white; }
+  .nav.nav-tabs > li.active > a,
+  .nav.nav-tabs > li.active > a:hover,
+  .nav.nav-tabs > li.active > a:focus,
+  .nav.nav-pills > li.active > a,
+  .nav.nav-pills > li.active > a:hover,
+  .nav.nav-pills > li.active > a:focus {
+    color: #717171;
+    background-color: white;
+    border: 1px solid transparent; }
+  .nav.nav-tabs > li.success > a,
+  .nav.nav-tabs > li.success > a:hover,
+  .nav.nav-tabs > li.success > a:focus,
+  .nav.nav-pills > li.success > a,
+  .nav.nav-pills > li.success > a:hover,
+  .nav.nav-pills > li.success > a:focus {
+    color: #a2d200;
+    border: 1px solid transparent; }
+  .nav.nav-tabs > li.success a,
+  .nav.nav-pills > li.success a {
+    padding-left: 35px; }
+  .nav.nav-tabs > li.success:before,
+  .nav.nav-pills > li.success:before {
+    content: "\f05d";
+    position: absolute;
+    font-family: 'FontAwesome';
+    color: #a2d200;
+    z-index: 9;
+    top: 5px;
+    left: 15px;
+    font-size: 22px; }
+  .nav.nav-tabs > li.disabled > a,
+  .nav.nav-tabs > li.disabled > a:hover,
+  .nav.nav-tabs > li.disabled > a:focus,
+  .nav.nav-pills > li.disabled > a,
+  .nav.nav-pills > li.disabled > a:hover,
+  .nav.nav-pills > li.disabled > a:focus {
+    color: rgba(255, 255, 255, 0.15); }
+  .nav.nav-tabs > .open > a,
+  .nav.nav-pills > .open > a {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    border: 1px solid transparent; }
+  .nav.nav-tabs > .open .dropdown-menu,
+  .nav.nav-pills > .open .dropdown-menu {
+    border: 1px solid rgba(0, 0, 0, 0.05); }
+  .nav.nav-tabs > li > a,
+  .nav.nav-pills > li > a {
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-right: 0;
+    margin-left: 0;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear; }
+    .nav.nav-tabs > li > a:hover,
+    .nav.nav-pills > li > a:hover {
+      color: rgba(255, 255, 255, 0.8);
+      background-color: transparent;
+      border: 1px solid transparent; }
+    .nav.nav-tabs > li > a i,
+    .nav.nav-pills > li > a i {
+      font-size: 14px; }
+  .nav.nav-tabs.tabs-bottom,
+  .nav.nav-pills.tabs-bottom {
+    padding: 0 0 1px 0; }
+    .nav.nav-tabs.tabs-bottom > li > a,
+    .nav.nav-pills.tabs-bottom > li > a {
+      -webkit-border-radius: 0 0 4px 4px;
+      -moz-border-radius: 0 0 4px 4px;
+      -ms-border-radius: 0 0 4px 4px;
+      -o-border-radius: 0 0 4px 4px;
+      border-radius: 0 0 4px 4px; }
+  .nav.nav-tabs.tabs-left > li,
+  .nav.nav-pills.tabs-left > li {
+    display: block;
+    float: none; }
+    .nav.nav-tabs.tabs-left > li > a,
+    .nav.nav-pills.tabs-left > li > a {
+      white-space: nowrap;
+      -webkit-border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+      -ms-border-radius: 4px 0 0 4px;
+      -o-border-radius: 4px 0 0 4px;
+      border-radius: 4px 0 0 4px; }
+  .nav.nav-tabs.tabs-right > li,
+  .nav.nav-pills.tabs-right > li {
+    display: block;
+    float: none; }
+    .nav.nav-tabs.tabs-right > li > a,
+    .nav.nav-pills.tabs-right > li > a {
+      white-space: nowrap;
+      -webkit-border-radius: 0 4px 4px 0;
+      -moz-border-radius: 0 4px 4px 0;
+      -ms-border-radius: 0 4px 4px 0;
+      -o-border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0; }
+
+.nav.nav-pills > li.active > a,
+.nav.nav-pills > li.active > a:hover,
+.nav.nav-pills > li.active > a:focus {
+  border: 0; }
+.nav.nav-pills > li > a:hover {
+  border: 0; }
+.nav.nav-pills > .open > a {
+  border: 0; }
+.nav.nav-pills.nav-justified > li > a {
+  border: 1px solid transparent; }
+  .nav.nav-pills.nav-justified > li > a:hover {
+    border: 1px solid transparent; }
+
+.tab-content > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 0; }
+  .tab-content > ul > li {
+    padding: 5px 15px;
+    cursor: pointer; }
+    .tab-content > ul > li:hover {
+      background-color: #fafafa; }
