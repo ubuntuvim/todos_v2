@@ -1,0 +1,92 @@
+<!-- 中间主要的内容区 -->
+
+<div class='main'>
+  <!-- row -->
+  <div class="row">
+
+  <!-- /col 6 -->
+  <div class="col-md-12">
+    
+        <!-- tile -->
+        <section class="tile transparent">
+          <!-- tile body -->
+          <div class="tile-body color transparent-black rounded-bottom-corners">
+            <input type="text" placeholder="Add new todo..." class="w100p h50p bottommargin" style="height: 40px; font-size: 16px;">
+            <ul class="nolisttypes" id="todolist">
+              
+              <li class="show-todos-list-style" 
+                onmouseover="showToolsIcon(this)"
+                onmouseout="hideToolsIcon(this)">
+                <div class="checkbox check-transparent">
+                  <input type="checkbox" value="1" id="todo-01">
+                  <label for="todo-01">
+                  &nbsp;&nbsp;Make a backup
+                  </label>
+                  <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                    onclick="test('01')"></span>
+                  
+                  <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"
+                   onclick="toggleShowRightPanel()">
+                  </span>
+                  
+
+                  <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+                </div>
+              </li>
+              
+              <li class="show-todos-list-style" 
+                onmouseover="showToolsIcon(this)"
+                onmouseout="hideToolsIcon(this)">
+                <div class="checkbox check-transparent">
+                  <input type="checkbox" checked="checked" value="1" id="todo-02">
+                  <label for="todo-02" class="done">&nbsp;&nbsp;Send e-mail to Ici</label>
+
+                  <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                    onclick="test('02')"></span>
+                  <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit" onclick="toggleShowRightPanel()"></span>
+                  <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+
+                </div>
+              </li>
+              <li class="show-todos-list-style" 
+                onmouseover="showToolsIcon(this)"
+                onmouseout="hideToolsIcon(this)">
+                <div class="checkbox check-transparent">
+                  <input type="checkbox" value="1" id="todo-03">
+                  <label for="todo-03">
+                    &nbsp;&nbsp;包括250多个来自 Glyphicon Halflings 的字体图标。Glyphicons Halflings 一般是收费的，但是他们的作者允许 Bootstrap 免费使用。为了表示感谢，希望你在使用时尽量为 Glyphicons 添加一个友情链接。
+                  </label>
+                  <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                    onclick="test('03')"></span>
+                  <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit" onclick="toggleShowRightPanel()"></span>
+                  <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+                </div>
+              </li>
+
+              
+              <li class="show-todos-list-style" 
+                onmouseover="showToolsIcon(this)"
+                onmouseout="hideToolsIcon(this)">
+                <div class="checkbox check-transparent">
+                  <input type="checkbox" value="1" id="todo-04">
+                  <label for="todo-04">&nbsp;&nbsp;Resolve issues</label>
+
+                  <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
+                    onclick="test('04')"></span>
+                  <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit" onclick="toggleShowRightPanel()">
+                  </span>
+                  
+                  <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- /tile body -->
+        </section>
+        <!-- /tile -->
+
+  </div> <!-- /col 6 -->
+
+  </div>  <!-- /row -->
+</div>  <!-- /main -->

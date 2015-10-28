@@ -1,0 +1,108 @@
+<!--  右上角消息提示  -->
+{{!yield}}
+<ul class="nav navbar-nav quick-actions">
+	<li class="dropdown divided">
+	  
+	  <a class="dropdown-toggle button" data-toggle="dropdown" href="#">
+	    <i class="fa fa-bell"></i>
+	    <span class="label label-transparent-black">3</span>
+	  </a>
+
+	  <ul class="dropdown-menu wide arrow nopadding bordered">
+	    <li><h1>You have <strong>3</strong> new notifications</h1></li>
+	    
+	    <li>
+	      <a href="#">
+	        <span class="label label-green"><i class="fa fa-user"></i></span>
+	        New user registered.
+	        <span class="small">18 mins</span>
+	      </a>
+	    </li>
+
+	    <li>
+	      <a href="#">
+	        <span class="label label-red"><i class="fa fa-power-off"></i></span>
+	        Server down.
+	        <span class="small">27 mins</span>
+	      </a>
+	    </li>
+
+	    <li>
+	      <a href="#">
+	        <span class="label label-orange"><i class="fa fa-plus"></i></span>
+	        New order.
+	        <span class="small">36 mins</span>
+	      </a>
+	    </li>
+
+	    <li>
+	      <a href="#">
+	        <span class="label label-cyan"><i class="fa fa-power-off"></i></span>
+	        Server restared.
+	        <span class="small">45 mins</span>
+	      </a>
+	    </li>
+
+	    <li>
+	      <a href="#">
+	        <span class="label label-amethyst"><i class="fa fa-power-off"></i></span>
+	        Server started.
+	        <span class="small">50 mins</span>
+	      </a>
+	    </li>
+
+	     <li><a href="#">Check all notifications <i class="fa fa-angle-right"></i></a></li>
+	  </ul>
+
+	</li>
+
+	<!-- <li class="dropdown divided">
+	  <a href="#mmenu" id="showRightMenu"><i class="fa fa-comments"></i></a>
+	</li> -->
+
+	<li class="dropdown divided user" id="current-user">
+	  <div class="profile-photo">
+	    <img src="assets/images/profile-photo.jpg" alt />
+	  </div>
+	  <a class="dropdown-toggle options" data-toggle="dropdown" href="#">
+	    John Douey <i class="fa fa-caret-down"></i>
+	  </a>
+	  <!-- 背景色设置 -->
+	  <ul class="dropdown-menu arrow settings">
+
+	    <li>
+	      
+	      <h3>Backgrounds:</h3>
+	      <ul id="color-schemes">
+	        <li><a href="#" class="bg-1"></a></li>
+	        <li><a href="#" class="bg-2"></a></li>
+	        <li><a href="#" class="bg-3"></a></li>
+	        <li><a href="#" class="bg-4"></a></li>
+	        <li><a href="#" class="bg-5"></a></li>
+	        <li><a href="#" class="bg-6"></a></li>
+	      </ul>
+
+	    </li>
+
+	    <li class="divider"></li>
+
+	    <li>
+	      <a href="#"><i class="fa fa-user"></i> Profile</a>
+	    </li>
+
+	    <li>
+	      <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
+	    </li>
+
+	    <li>
+	      <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="user-inbox">3</span></a>
+	    </li>
+
+	    <li class="divider"></li>
+
+	    <li>
+	      <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+	    </li>
+	  </ul>
+	</li>
+</ul>

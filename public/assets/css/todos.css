@@ -33,7 +33,7 @@ input[type=checkbox] {
 
 /* 设置列表右边图标样式  */
 #todolist li .todo-list-common {
-	/*display: none;*/
+	display: none;
 	position: absolute;
 	top: 0;
 	/*right: 10px;*/
