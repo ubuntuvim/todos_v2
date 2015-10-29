@@ -5,6 +5,16 @@ $(function(){
     $(this).toggleClass('done');
   });
 
+  //  根据顶部左部的按钮显示气泡信息
+  $("#navbar").click(function() {
+    if ($(this).hasClass('collapsed')) {  //折叠状态
+      $('body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a > span').hide();
+    } else {
+      $('body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a > span').show();
+    }
+  });
+   
+
   //weather icons
   // var icons = new Skycons({"color": "white"});
   // icons.set("clear-day", Skycons.CLEAR_DAY);
@@ -42,24 +52,15 @@ $(function(){
   //   $('#content').removeClass('main-with-from-open-right-panel');
   // }
 
-  ///////////// 展开右侧列表项的详细设置框之后，点击除了这个输入框之外的地方隐藏这个输入框
-  $("body").click(function(){
-       
-       var e = event.srcElement;
-      if (!e.offsetParent && typeof(e.offsetParent) != "undefined") {
-        $('#content').removeClass('main-with-from-open-right-panel');
-       
-      } else if (e.offsetParent.id == "mm-m0-p0" || e.offsetParent.id == 'mmenu') {
-       
-      } else {
-        $('#content').removeClass('main-with-from-open-right-panel');
-      }
-  })
-   $('#content').click(function(){
-       return false;
+  ///////////// 展开右侧列表项的详细设置框之后，点击右上角的 “X”按钮关闭这个面板
+  $("#right-panel-title-close").click(function(){
+    $('#content').removeClass('main-with-from-open-right-panel');
+    $('html').removeClass('mm-right mm-next mm-opened mm-opening');
+    $('#mmenu').removeClass('mm-current mm-opened');
   });
-   // ------------- end 
-
+  $('#content').click(function() {
+    return false;
+  });
 });
 
 /**

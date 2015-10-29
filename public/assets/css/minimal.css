@@ -675,7 +675,8 @@ body .navbar .navbar-nav.side-nav {
         body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a .badge {
           position: absolute;
           top: 8px;
-          left: 23px;
+          /*left: 23px;*/
+          right: 2px;
           z-index: 9;
           font-size: 9px;
           padding: 2px 4px; }

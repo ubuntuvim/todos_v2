@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'todos-v2',
     environment: environment,
+    firebase: 'https://luminous-heat-9079.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

@@ -28,6 +28,15 @@ body #content div.checkbox.check-transparent input[type=checkbox]:checked + labe
 input[type=checkbox] {
 	cursor: pointer;
 }
+
+/*body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a .badge {
+  position: absolute;
+  top: 8px;
+  right: 2px;
+  z-index: 9;
+  font-size: 9px;
+  padding: 2px 4px; 
+}*/
 /* ====================== 覆盖原有的样式为自定义样式 end ====================== */
 
 
@@ -61,4 +70,93 @@ input[type=checkbox] {
 
 .main-with-from-open-right-panel {
 	padding-right: 360px !important;
+}
+
+/* 右侧面板样式  */
+#right-panel-title-close {
+  position: absolute;
+  top: 13px;
+  cursor: pointer;
+}
+
+#mmenu .nav.nav-tabs {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+#right-panel-style {
+  color: #fff;
+  margin-top: 50px;
+}
+
+#right-panel-style .tile {
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  margin-bottom: 20px;
+  color: #717171;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  /*background-color: white;*/
+  -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+}
+#right-panel-style .tile.color.transparent-black {
+    /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+
+#right-panel-style .tile.color.transparent-black.textured {
+      background: rgba(0, 0, 0, 0.3) url(../images/dot_pattern.png) repeat; 
+}
+
+#right-panel-style .tile.color.transparent-white {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+#right-panel-style .tile.color.white {
+    background-color: white;
+    color: #717171; 
+}
+
+#right-panel-style .tile.color .tile-body {
+  color: #fafafa;
+  background-color: transparent;
+}
+
+#right-panel-style .tile.transparent-black input[type="text"],
+#right-panel-style .tile.transparent-black input[type="password"] {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 26px;
+}
+
+#right-panel-style input[type="text"],
+#right-panel-style input[type="password"] {
+    -webkit-appearance: none !important;
+    color: #717171;
+    outline: 0;
+    height: 16px;
+    padding: 6px 11px !important;
+    line-height: 18px;
+    font-size: 13px;
+    vertical-align: top;
+    background-color: #fff;
+    min-height: 37px;
+    filter: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #e2e2e2;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
 }
