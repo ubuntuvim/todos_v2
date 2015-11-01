@@ -13,8 +13,8 @@ export default Ember.Controller.extend({
     //   return this.get('posts').filterBy('isPublished');
     // })
 	//  获取未已经完成的todo数量
-	noCompletedTodoCount: Ember.computed('todos.@each.checked', function() {
-      return this.get('todos').filterBy('checked', false).get('length');
+	completedTodoCount: Ember.computed('todos.@each.checked', function() {
+      return this.get('todos').filterBy('checked', true).get('length');
     }),
     //  获取todo总数量
 	todoTotlaCount: Ember.computed('todos.@each.checked', function() {
