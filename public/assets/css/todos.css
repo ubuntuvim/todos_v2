@@ -9,25 +9,56 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 .show-todos-list-style > div > label {
-  font-size: 18px;
+    font-size: 18px;
+    padding-top: 4px;
+}
+
+.todo-list-ok-wc {
+    border: 1px solid #717171;
+    padding: 6px 1px 2px 4px;
+    transition: border 0.2s linear 0s,color 0.2s linear 0s;
+    border-radius: 4px;
+    height: 24px;
+    width: 24px;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* todo列表前面的钩 */
+.todo-list-ok-btn {
+  font-size: 16px;
+  opacity: 0;
+}
+
+.todo-list-ok-btn-checked {
+  opacity: 1;  
+  font-size: 16px;
 }
 
 /*  覆盖原有的样式为自定义样式  */
-body #content div.checkbox.check-transparent label,
-  body #content .modal .modal-dialog .modal-content div.checkbox.check-transparent label {
-    /*color: rgba(255, 255, 255, 0.5); */
+.label-font-style {
     color: white;
 }
 
-body #content div.checkbox.check-transparent input[type=checkbox]:checked + label,
-  body #content .modal .modal-dialog .modal-content div.checkbox.check-transparent input[type=checkbox]:checked + label {
-    /*color: white; */
+.label-font-style-checked {
+    color: rgba(255, 255, 255, 0.5); 
+    text-decoration: line-through;  
+}
+/*
+body #content div.checkbox.check-transparent input[type=checkbox]:checked + label {
+    
     color: rgba(255, 255, 255, 0.5);
 }
 
 input[type=checkbox] {
 	cursor: pointer;
 }
+*/
+#todolist > li > div > label {
+  cursor: pointer;
+}
+
 
 /*body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a .badge {
   position: absolute;
@@ -44,7 +75,7 @@ input[type=checkbox] {
 #todolist li .todo-list-common {
 	display: none;
 	position: absolute;
-	top: 0;
+	top: 6px;
 	/*right: 10px;*/
 	bottom: 0;
 	font-size: 18px;
@@ -62,6 +93,7 @@ input[type=checkbox] {
 
 .todo-list-star {
 	right: 70px;
+  opacity: 0.3;
 }
 
 .todo-list-tag {

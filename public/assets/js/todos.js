@@ -1,7 +1,7 @@
 $(function(){
 
   // 设置已经完成的todo项目的样式：给文件加中划线，颜色变浅
-  $('#todolist li label').click(function() {
+  $('#todolist > li > div > label').click(function() {
     $(this).toggleClass('done');
   });
 
@@ -61,7 +61,30 @@ $(function(){
   $('#content').click(function() {
     return false;
   });
+
+  //  点击todo项设置为完成状态，修改列表前面的选择框为打钩状态
+  // $("").click(function() {
+
+  // });
 });
+
+//  点击选择框设置选中状态，如果是选中则todo为完成状态，修改修改后台数据
+function setCheckStatus(self) {
+
+  var labelPos = $(self).parent().next();
+  //  设置选择框的选中状态
+  if ($(self).css("opacity") === '1') {
+    $(self).css("opacity", '0');
+    //  设置文字的样式为白色，
+    $(labelPos).removeClass('label-font-style-checked');
+  } else {
+    $(self).css("opacity", '1');
+    // 设置文章样式为中划线，灰色
+    // 先获取到label这个标签：本标签的父标签的下一个元素
+    $(labelPos).addClass('label-font-style-checked');
+    // $(ld).addClass("label-font-style-checked");
+  }
+}
 
 /**
  * 点击列表项 的编辑按钮，在右侧显示输入框
@@ -79,6 +102,8 @@ function test(v) {
 
 //  当鼠标移到列表上，显示列表的工具图标
 function showToolsIcon(self) {
+  //  设置显示todo项前面的钩钩 
+  // $($($($(self).children()[0]).children()[0]).children()[0]).css("opacity", '1');
   for (var i = 2; i <= 4; i++) {
     $($($(self).children()[0]).children()[i]).show();
   }
@@ -86,9 +111,19 @@ function showToolsIcon(self) {
 
 //  当鼠标从列表上移开，隐藏列表的工具图标
 function hideToolsIcon(self) {
+  //  隐藏（通过设置透明）todo项前面的钩钩 
+  // $($($($(self).children()[0]).children()[0]).children()[0]).css("opacity", '0');
   for (var i = 2; i <= 4; i++) {
     $($($(self).children()[0]).children()[i]).hide();
   }
+}
 
-
+//  点击 “星星” 标记此todo为重要todo，修改排序到前面
+function setStar(self) {
+  if ($(self).css("opacity") === '1') {
+    $(self).css("opacity", '0.3');
+  } else {
+    $(self).css("opacity", '1');  
+  }
+  
 }

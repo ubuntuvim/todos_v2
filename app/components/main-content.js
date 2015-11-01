@@ -6,6 +6,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	classNames: ['col-md-12'],
 	attributeBindings: ['id'],
+<<<<<<< HEAD
 	id: 'content',
 	actions: {
 		createNewTodoItem: function() {
@@ -31,4 +32,8 @@ export default Ember.Component.extend({
 			this.set('title', "");
 		}
 	}
+=======
+	id: 'content'
+	
+>>>>>>> The initlial realization the new todo,click finish and other functions
 });
