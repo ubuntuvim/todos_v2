@@ -21,6 +21,9 @@ module.exports = function(defaults) {
   
   app.import("bower_components/bootstrap/dist/js/bootstrap.js");
   app.import("bower_components/bootstrap/dist/css/bootstrap.css");
+  //  导入bootstrap checkbox组件
+  //  https://github.com/flatlogic/awesome-bootstrap-checkbox
+  app.import("bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css");
 
 
   return app.toTree();

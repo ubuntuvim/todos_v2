@@ -7,4 +7,5 @@ export default Ember.Component.extend({
 	classNames: ['col-md-12'],
 	attributeBindings: ['id'],
 	id: 'content'
+	
 });
