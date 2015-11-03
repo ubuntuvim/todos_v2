@@ -9,29 +9,7 @@ export default Ember.Controller.extend({
     queryParams: ['queryValue'],
     queryValue: '',
 
-
-    // using descending sort
-    // todosSortingDesc: ['id:desc'],
-    // sortedTodosDesc: Ember.computed.sort('todos', 'todosSortingDesc'),
-
-	// using a custom sort function
-	priorityTodos: Ember.computed.sort('todos', function(a, b){
-	  // 比较创建的时间，新创建的排最后
-	  if (a.timestamp > b.timestamp) {
-		  return 1;
-	  } else if (a.timestamp < b.timestamp) {
-	    return -1;
-	  }
-
-	  return 0;
-	}),
-
-    //  排序设置
-    // using standard ascending sort
-    todosSorting: ['star:desc'],
-    sortedTodos: Ember.computed.sort('priorityTodos', 'todosSorting'),
-
-
+    // 查询，返回的todos是经错查询的数据
     todos: Ember.computed('queryValue', 'model', function() {
       var queryValue = this.get('queryValue');
       var todo = this.get('model');
@@ -45,6 +23,24 @@ export default Ember.Controller.extend({
       }
 
     }),
+
+	// using a custom sort function
+	orderByCreateTime: Ember.computed.sort('todos', function(a, b){
+	  // 比较创建的时间，新创建的排最后
+	  if (a.timestamp > b.timestamp) {
+		  return 1;
+	  } else if (a.timestamp < b.timestamp) {
+	    return -1;
+	  }
+
+	  return 0;
+	}),
+
+    //  排序设置，形成排序链，todos查询 --> orderByCreateTime(创建时间升序)  --> orderByStarStatusFromList(根据星号标记降序)
+    // using standard ascending sort
+    todosSorting: ['star:desc'],
+    orderByStarStatusFromList: Ember.computed.sort('orderByCreateTime', 'todosSorting'),
+
 
     // testTodo: filterByQuery( 'todo-item', ['title'], 'query'),
 
