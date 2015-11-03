@@ -95,6 +95,10 @@ input[type=checkbox] {
 	right: 70px;
   opacity: 0.3;
 }
+.todo-list-star-ed {
+  right: 70px;
+  opacity: 1;
+}
 
 .todo-list-tag {
 	right: 70px;

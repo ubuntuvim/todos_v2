@@ -1,24 +1,64 @@
 import Ember from 'ember';
+// import filterByQuery from 'ember-cli-filter-by-query/util/filter';
 
 /**
  * 处理界面的action
  */
 export default Ember.Controller.extend({
+	//  查询，根据title值查询
+    queryParams: ['queryValue'],
+    queryValue: '',
+
+
+    // using descending sort
+    // todosSortingDesc: ['id:desc'],
+    // sortedTodosDesc: Ember.computed.sort('todos', 'todosSortingDesc'),
+
+	// using a custom sort function
+	priorityTodos: Ember.computed.sort('todos', function(a, b){
+	  // 比较创建的时间，新创建的排最后
+	  if (a.timestamp > b.timestamp) {
+		  return 1;
+	  } else if (a.timestamp < b.timestamp) {
+	    return -1;
+	  }
+
+	  return 0;
+	}),
+
+    //  排序设置
+    // using standard ascending sort
+    todosSorting: ['star:desc'],
+    sortedTodos: Ember.computed.sort('priorityTodos', 'todosSorting'),
+
+
+    todos: Ember.computed('queryValue', 'model', function() {
+      var queryValue = this.get('queryValue');
+      var todo = this.get('model');
+      if (queryValue) {
+          return todo.filter(function(td) {
+          	  //  通过判断包含的方式实现模糊查询效果
+        	  return td.get('title').indexOf(queryValue) !== -1;
+          });
+      } else {
+          return todo;
+      }
+
+    }),
+
+    // testTodo: filterByQuery( 'todo-item', ['title'], 'query'),
+
 	//  获取Store中所有的todo-item数据
-	todos: Ember.computed(function() {
+	todosForTotla: Ember.computed(function() {
       return this.store.peekAll('todo-item');
   	}),
-
-    // filteredPosts: Ember.computed('posts.@each.isPublished', function() {
-    //   return this.get('posts').filterBy('isPublished');
-    // })
 	//  获取未已经完成的todo数量
-	completedTodoCount: Ember.computed('todos.@each.checked', function() {
-      return this.get('todos').filterBy('checked', true).get('length');
+	completedTodoCount: Ember.computed('todosForTotla.@each.checked', function() {
+      return this.get('todosForTotla').filterBy('checked', true).get('length');
     }),
     //  获取todo总数量
-	todoTotlaCount: Ember.computed('todos.@each.checked', function() {
-      return this.get('todos').get('length');
+	todoTotlaCount: Ember.computed('todosForTotla.@each.checked', function() {
+      return this.get('todosForTotla').get('length');
     }),
 
 	actions: {
@@ -29,7 +69,7 @@ export default Ember.Controller.extend({
 				title: title,
 			    checked: false,
 			    timestamp: new Date().getTime(),
-			    star: true,
+			    star: false,
 			    recordStatus: 1,  //todo项状态：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
 			    startDate: new Date(),  //任务开始时间
 			    endDate: new Date(),  //任务结束时间
@@ -58,6 +98,19 @@ export default Ember.Controller.extend({
 			  	todo.save();
 			});
 
+		},
+		//  修改星号状态，todo列表以星号状态排序，有星号的排前面
+		changeStarStatus: function(params) {
+			this.store.findRecord('todo-item', params).then(function(todo) {
+				if (todo.get('star')) {
+					todo.set('star', false);
+				} else {
+					todo.set('star', true);
+				}
+				todo.save();
+			});
 		}
+
+
 	}  //end actions 	
 });

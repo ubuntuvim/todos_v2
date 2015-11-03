@@ -21,7 +21,9 @@
           {{#refresh-self}}{{/refresh-self}}
 
           <!-- Search -->
-          {{#search-tool}}{{/search-tool}}
+          <div class="search" id="main-search">
+            <i class="fa fa-search"></i> {{input type="text" placeholder="Search..." value=queryValue}}
+          </div>
           <!-- Search end -->
 
           <!-- 右上角消息提示工具栏 -->
@@ -100,7 +102,7 @@
 
                 <ul class="nolisttypes" id="todolist">
                   
-                  {{#each model as |item|}}
+                  {{#each sortedTodos as |item|}}
                   <li class="show-todos-list-style" 
                     onmouseover="showToolsIcon(this)"
                     onmouseout="hideToolsIcon(this)">
@@ -113,8 +115,8 @@
                       {{item.title}}
                       </label>
 
-                      <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
-                        onclick="setStar(this)"></span>
+                      <span class="glyphicon glyphicon-star todo-list-common todo-list-star {{if item.star 'todo-list-star-ed' 'todo-list-star'}}" 
+                      onclick={{action "changeStarStatus" item.id}}></span>
                       
                       <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"
                        onclick="toggleShowRightPanel()">
