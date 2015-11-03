@@ -25,6 +25,7 @@ export default Ember.Controller.extend({
     }),
 
 	// using a custom sort function
+	// http://emberjs.com/api/classes/Ember.computed.html#method_sort
 	orderByCreateTime: Ember.computed.sort('todos', function(a, b){
 	  // 比较创建的时间，新创建的排最后
 	  if (a.timestamp > b.timestamp) {
