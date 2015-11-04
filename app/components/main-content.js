@@ -8,4 +8,5 @@ export default Ember.Component.extend({
 	attributeBindings: ['id'],
 
 	id: 'content'
+	
 });

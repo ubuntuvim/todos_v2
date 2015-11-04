@@ -1,10 +1,14 @@
 import Ember from 'ember';
+<<<<<<< HEAD
 // import filterByQuery from 'ember-cli-filter-by-query/util/filter';
+=======
+>>>>>>> origin/master
 
 /**
  * 处理界面的action
  */
 export default Ember.Controller.extend({
+<<<<<<< HEAD
 	//  查询，根据title值查询
     queryParams: ['queryValue', { isCompleted: 'isCompleted',refreshModel: true }],
     queryValue: '',
@@ -91,6 +95,23 @@ export default Ember.Controller.extend({
     //  获取todo总数量
 	todoTotlaCount: Ember.computed('todosForTotla.@each.checked', function() {
       return this.get('todosForTotla').get('length');
+=======
+	//  获取Store中所有的todo-item数据
+	todos: Ember.computed(function() {
+      return this.store.peekAll('todo-item');
+  	}),
+
+    // filteredPosts: Ember.computed('posts.@each.isPublished', function() {
+    //   return this.get('posts').filterBy('isPublished');
+    // })
+	//  获取未已经完成的todo数量
+	noCompletedTodoCount: Ember.computed('todos.@each.checked', function() {
+      return this.get('todos').filterBy('checked', false).get('length');
+    }),
+    //  获取todo总数量
+	todoTotlaCount: Ember.computed('todos.@each.checked', function() {
+      return this.get('todos').get('length');
+>>>>>>> origin/master
     }),
 
 	actions: {
@@ -101,7 +122,11 @@ export default Ember.Controller.extend({
 				title: title,
 			    checked: false,
 			    timestamp: new Date().getTime(),
+<<<<<<< HEAD
 			    star: false,
+=======
+			    star: true,
+>>>>>>> origin/master
 			    recordStatus: 1,  //todo项状态：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
 			    startDate: new Date(),  //任务开始时间
 			    endDate: new Date(),  //任务结束时间
@@ -130,6 +155,7 @@ export default Ember.Controller.extend({
 			  	todo.save();
 			});
 
+<<<<<<< HEAD
 		},
 		//  修改星号状态，todo列表以星号状态排序，有星号的排前面
 		changeStarStatus: function(params) {
@@ -147,5 +173,8 @@ export default Ember.Controller.extend({
 			this.set('isCompleted', params);
 		}
 
+=======
+		}
+>>>>>>> origin/master
 	}  //end actions 	
 });

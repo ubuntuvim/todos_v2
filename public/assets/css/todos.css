@@ -94,10 +94,13 @@ input[type=checkbox] {
 .todo-list-star {
 	right: 70px;
   opacity: 0.3;
+<<<<<<< HEAD
 }
 .todo-list-star-ed {
   right: 70px;
   opacity: 1;
+=======
+>>>>>>> origin/master
 }
 
 .todo-list-tag {
