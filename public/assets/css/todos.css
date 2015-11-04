@@ -196,3 +196,22 @@ input[type=checkbox] {
     -moz-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
+
+/* 列表底部的过滤按钮样式 */
+.filter-tools-commen {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 30px;
+  cursor: pointer;
+}
+/* 列表底部回收站样式 */
+.filter-tools-trash {
+  position: absolute;
+  right: 20px;
+}
+/* 激活状态 */
+.filter-tools-active {
+  color: white;
+  /*font-weight: bold;*/
+}
+

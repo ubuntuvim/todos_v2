@@ -6,13 +6,44 @@ import Ember from 'ember';
  */
 export default Ember.Controller.extend({
 	//  查询，根据title值查询
-    queryParams: ['queryValue'],
+    queryParams: ['queryValue', { isCompleted: 'isCompleted',refreshModel: true }],
     queryValue: '',
+    isCompleted: 'noCompleted',  //默认显示未完成
 
-    // 查询，返回的todos是经错查询的数据
-    todos: Ember.computed('queryValue', 'model', function() {
-      var queryValue = this.get('queryValue');
+    //  根据是否完成过滤
+    completedList: Ember.computed('isCompleted', 'model', function() {
+	  var isCompleted = this.get('isCompleted');
       var todo = this.get('model');
+
+      //  直接根据模板设置的过滤条件过滤数据
+      if ('noCompleted' === isCompleted) {  // 
+
+      	this.set('showNCAll', true);  //设置点击的按钮为激活状态
+      	this.set('showCAll', false);  // 另外两个设置为非激活
+      	this.set('showAll', false);  //
+
+        return todo.filterBy('checked', false);
+      } else if ('completed' === isCompleted)  {  //
+      	
+      	this.set('showNCAll', false);  //设置点击的按钮为激活状态
+      	this.set('showCAll', true);  // 
+      	this.set('showAll', false);  //另外两个设置为非激活
+
+      	return todo.filterBy('checked', true);
+      } else {
+      	
+      	this.set('showNCAll', false);  //
+      	this.set('showCAll', false);  // 另外两个设置为非激活
+      	this.set('showAll', true);  //设置点击的按钮为激活状态
+
+      	return todo;
+      }
+    }),
+
+    // 查询，返回的todos查询的数据
+    todos: Ember.computed('queryValue', 'completedList', function() {
+      var queryValue = this.get('queryValue');
+      var todo = this.get('completedList');
       if (queryValue) {
           return todo.filter(function(td) {
           	  //  通过判断包含的方式实现模糊查询效果
@@ -22,7 +53,7 @@ export default Ember.Controller.extend({
           return todo;
       }
 
-    }),
+    }), 
 
 	// using a custom sort function
 	// http://emberjs.com/api/classes/Ember.computed.html#method_sort
@@ -49,7 +80,11 @@ export default Ember.Controller.extend({
 	todosForTotla: Ember.computed(function() {
       return this.store.peekAll('todo-item');
   	}),
-	//  获取未已经完成的todo数量
+	//  获取未完成的todo数量
+	noCompletedTodoCount: Ember.computed('todosForTotla.@each.checked', function() {
+      return this.get('todosForTotla').filterBy('checked', false).get('length');
+    }),
+	//  获取已经完成的todo数量
 	completedTodoCount: Ember.computed('todosForTotla.@each.checked', function() {
       return this.get('todosForTotla').filterBy('checked', true).get('length');
     }),
@@ -106,8 +141,11 @@ export default Ember.Controller.extend({
 				}
 				todo.save();
 			});
+		}, 
+		//  设置过滤条件为参数值
+		showByCondition: function(params) {
+			this.set('isCompleted', params);
 		}
-
 
 	}  //end actions 	
 });

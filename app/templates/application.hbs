@@ -86,7 +86,7 @@
       <!-- 主要内容区（中间部分） -->
       <div id="content" class="col-md-12">
 
-        <div class="main">
+      <div class="main">
         <!-- row -->
         <div class="row">
 
@@ -127,6 +127,22 @@
                   </li>
                   {{/each}}
                 
+                </ul>
+
+                <ul>
+                  <span class="filter-tools-commen {{if showAll 'filter-tools-active'}}" 
+                    onclick={{action 'showByCondition' 'all'}}>所有({{todoTotlaCount}})</span>
+
+                  <span class="filter-tools-commen {{if showNCAll 'filter-tools-active'}}" 
+                    onclick={{action 'showByCondition' 'noCompleted'}}>未完成({{noCompletedTodoCount}})</span>
+                  
+                  <span class="filter-tools-commen {{if showCAll 'filter-tools-active'}}" 
+                    onclick={{action 'showByCondition' 'completed'}}>已完成({{completedTodoCount}})</span>
+
+                  <span class="filter-tools-commen filter-tools-trash">
+                  <span class="glyphicon glyphicon-trash"></span>
+                  回收站
+                  </span>
                 </ul>
               </div>
               <!-- /tile body -->
