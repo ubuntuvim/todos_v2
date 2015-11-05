@@ -74,9 +74,9 @@ $(function(){
   //       zposition : "front"
   //    }
   // });
-  $("#trash-tool").click(function() {
-    $("#trash-list").slideUp(5000);
-  });
+  // $("#trash-tool").click(function() {
+  //   $("#trash-list").slideToggle();
+  // });
 });
 
 

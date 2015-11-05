@@ -140,7 +140,7 @@
                   <span class="filter-tools-commen {{if showCAll 'filter-tools-active'}}" 
                     onclick={{action 'showByCondition' '2'}}>已完成({{completedTodoCount}})</span>
 
-                  <span class="filter-tools-commen filter-tools-trash" id="trash-tool">
+                  <span class="filter-tools-commen filter-tools-trash">
                   <span class="glyphicon glyphicon-trash"></span>
                   
                   回收站({{recoverableTodoCount}})
@@ -154,10 +154,11 @@
         </div> <!-- /col 6 -->
         </div>  <!-- /row -->
 
-
-        <div id="trash-list">
+        <!--
+        <div id="trash-list" style="height: 200px; width: 300px; background: #eee; display: none;">
           xxxxxxx
         </div>
+        -->
 
         </div>  <!-- /main -->
       </div>  <!--  /content -->
