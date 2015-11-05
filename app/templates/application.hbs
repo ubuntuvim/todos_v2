@@ -47,11 +47,7 @@
                 <li>
                   <a href="/">
                     <i class="fa fa-tachometer"></i> 项目一
-<<<<<<< HEAD
                     <span class="badge badge-success" style="margin-right: 30px;">{{completedTodoCount}}</span>
-=======
-                    <span class="badge badge-success" style="margin-right: 30px;">{{noCompletedTodoCount}}</span>
->>>>>>> origin/master
                     <span class="badge badge-transparent-black">{{todoTotlaCount}}</span>
                   </a>
                   
@@ -90,11 +86,7 @@
       <!-- 主要内容区（中间部分） -->
       <div id="content" class="col-md-12">
 
-<<<<<<< HEAD
       <div class="main">
-=======
-        <div class="main">
->>>>>>> origin/master
         <!-- row -->
         <div class="row">
 
@@ -110,11 +102,7 @@
 
                 <ul class="nolisttypes" id="todolist">
                   
-<<<<<<< HEAD
                   {{#each orderByStarStatusFromList as |item|}}
-=======
-                  {{#each model as |item|}}
->>>>>>> origin/master
                   <li class="show-todos-list-style" 
                     onmouseover="showToolsIcon(this)"
                     onmouseout="hideToolsIcon(this)">
@@ -127,51 +115,56 @@
                       {{item.title}}
                       </label>
 
-<<<<<<< HEAD
                       <span class="glyphicon glyphicon-star todo-list-common todo-list-star {{if item.star 'todo-list-star-ed' 'todo-list-star'}}" 
                       onclick={{action "changeStarStatus" item.id}}></span>
-=======
-                      <span class="glyphicon glyphicon-star todo-list-common todo-list-star" 
-                        onclick="setStar(this)"></span>
->>>>>>> origin/master
                       
                       <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"
                        onclick="toggleShowRightPanel()">
                       </span>
 
-                      <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"></span>
+                      <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy" 
+                        onclick={{action 'remoteTodoItem' item.id}}></span>
                     </div>
                   </li>
                   {{/each}}
                 
                 </ul>
-<<<<<<< HEAD
 
                 <ul>
                   <span class="filter-tools-commen {{if showAll 'filter-tools-active'}}" 
                     onclick={{action 'showByCondition' 'all'}}>所有({{todoTotlaCount}})</span>
 
                   <span class="filter-tools-commen {{if showNCAll 'filter-tools-active'}}" 
-                    onclick={{action 'showByCondition' 'noCompleted'}}>未完成({{noCompletedTodoCount}})</span>
+                    onclick={{action 'showByCondition' '1'}}>未完成({{noCompletedTodoCount}})</span>
                   
                   <span class="filter-tools-commen {{if showCAll 'filter-tools-active'}}" 
-                    onclick={{action 'showByCondition' 'completed'}}>已完成({{completedTodoCount}})</span>
+                    onclick={{action 'showByCondition' '2'}}>已完成({{completedTodoCount}})</span>
 
-                  <span class="filter-tools-commen filter-tools-trash">
+                  <span class="filter-tools-commen filter-tools-trash" id="trash-tool">
                   <span class="glyphicon glyphicon-trash"></span>
-                  回收站
+                  
+                  回收站({{recoverableTodoCount}})
+                  
                   </span>
                 </ul>
-=======
->>>>>>> origin/master
               </div>
               <!-- /tile body -->
             </section>
               
         </div> <!-- /col 6 -->
         </div>  <!-- /row -->
+
+
+        <div id="trash-list">
+          xxxxxxx
+        </div>
+
         </div>  <!-- /main -->
       </div>  <!--  /content -->
+
+
+
+
 
       <!-- 右侧设置todo项详细信息面板 -->
       
