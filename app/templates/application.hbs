@@ -141,10 +141,10 @@
                     onclick={{action 'showByCondition' '2'}}>已完成({{completedTodoCount}})</span>
 
                   <span class="filter-tools-commen filter-tools-trash">
-                  <span class="glyphicon glyphicon-trash"></span>
-                  
-                  回收站({{recoverableTodoCount}})
-                  
+                  <span id="trash-tool">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    回收站({{recoverableTodoCount}})
+                    </span>
                   </span>
                 </ul>
               </div>
@@ -159,6 +159,47 @@
           xxxxxxx
         </div>
         -->
+
+
+        <!--  回收站  -->
+        <div class="row"  id="trash-list"
+              style="overflow: auto; overflow-x: hidden; height: 500px; display: none;">
+
+        <!-- /col 6 -->
+        <div class="col-md-12">
+        
+            <!-- tile -->
+            <section class="tile transparent">
+              <!-- tile body -->
+              <div class="tile-body color transparent-black rounded-bottom-corners">
+               <ul class="trash-font-style">
+                <span class="trash-font-style">回收站</span>
+                <span id="close-trash-list" class="glyphicon glyphicon-remove trash-todo-list-common trash-todo-list-destroy"></span>
+               </ul>
+                <ul class="nolisttypes" id="todolist">
+                  
+                  {{#each delRecordList as |item|}}
+                  <li class="show-todos-list-style">
+                    <div class="check-transparent" style="position: relative;">
+
+                      <label class="label-font-style">
+                        {{item.title}}
+                      </label>
+
+                      <span class="glyphicon glyphicon-ok trash-todo-list-common" 
+                        onclick={{action 'recoveryTodoItem' item.id}}></span>
+                    </div>
+                  </li>
+                  {{/each}}
+                
+                </ul>
+
+              </div>
+              <!-- /tile body -->
+            </section>
+              
+        </div> <!-- /col 6 -->
+        </div>  <!-- /row -->
 
         </div>  <!-- /main -->
       </div>  <!--  /content -->

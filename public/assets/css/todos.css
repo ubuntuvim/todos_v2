@@ -83,6 +83,33 @@ input[type=checkbox] {
 	cursor: pointer;
 }
 
+/* 回收站图片样式 */
+.trash-todo-list-common {
+  /*display: none;*/
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  bottom: 0;
+  font-size: 18px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+/* 回收站标题样式 */
+.trash-font-style-ul {
+  border-bottom: 1px solid #000;
+}
+/* 关闭回收站列表图片样式 */
+.trash-todo-list-destroy {
+  right: 25px;
+}
+
+.trash-font-style {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
 .todo-list-destroy {
 	right: 10px;
 }
@@ -94,13 +121,10 @@ input[type=checkbox] {
 .todo-list-star {
 	right: 70px;
   opacity: 0.3;
-<<<<<<< HEAD
 }
 .todo-list-star-ed {
   right: 70px;
   opacity: 1;
-=======
->>>>>>> origin/master
 }
 
 .todo-list-tag {

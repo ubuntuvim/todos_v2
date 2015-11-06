@@ -93,6 +93,12 @@ export default Ember.Controller.extend({
 	todosForTotla: Ember.computed(function() {
       return this.store.peekAll('todo-item');
   	}),
+	// 获取删除状态的todo数据
+	delRecordList: Ember.computed('todosForTotla', function() {
+		var todo = this.get('todosForTotla');
+		return todo.filterBy('recordStatus', 3);
+	}),
+
 	//  获取未完成的todo数量
 	noCompletedTodoCount: Ember.computed('todosForTotla.@each.recordStatus', function() {
       return this.get('todosForTotla').filterBy('recordStatus', 1).get('length');
@@ -173,6 +179,16 @@ export default Ember.Controller.extend({
 				todo.save();
 			}, function(error) {
 				console.log('删除失败！');
+			});
+		},
+		recoveryTodoItem: function(params) {
+			// 撤销删除
+			this.store.findRecord('todo-item', params).then(function(todo) {
+				todo.set('recordStatus', 1);  //撤销删除为未完成
+				todo.set('checked', false);	
+				todo.save();
+			}, function(error) {
+				console.log('撤销删除失败！');
 			});
 		}
 
