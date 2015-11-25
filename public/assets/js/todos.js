@@ -54,11 +54,11 @@ $(function(){
 
   ///////////// 展开右侧列表项的详细设置框之后，点击右上角的 “X”按钮关闭这个面板
   $("#right-panel-title-close").click(function(){
-    $('#content').removeClass('main-with-from-open-right-panel');
+    $('#content-main').removeClass('main-with-from-open-right-panel');
     $('html').removeClass('mm-right mm-next mm-opened mm-opening');
     $('#mmenu').removeClass('mm-current mm-opened');
   });
-  $('#content').click(function() {
+  $('#content-main').click(function() {
     return false;
   });
 
@@ -81,7 +81,37 @@ $(function(){
   $("#close-trash-list").click(function() {
     $("#trash-list").slideToggle();
   });
-});
+
+  // $('#loginButton').on('click', function () {
+  //   var $btn = $(this).button('loading')
+  //   // business logic...
+  //   $btn.button('reset')
+  // })
+
+  $('#loginButton').on('click', function () {
+    $("#loginPageTip").show();  
+  });
+  
+  /**
+   * 点击登录之后在登录页面顶部显示一个进度条，以示正在登录，
+   * @param  loginButton 触发按钮的id
+   * @return {[type]}           [description]
+   */
+  // $("#loginButton").click(function() {
+  //       // create the notification
+  //       var notification = new NotificationFx({
+  //         message : '请输入用户名',
+  //         layout : 'bar',
+  //         effect : 'exploader',
+  //         ttl : 9000000,
+  //         type : 'notice', // notice, warning or error
+  //         onClose : function() {  // 点击进度条右边的关闭按钮会触发这个事件
+  //           console.log('close...');
+  //         }
+  //       }).show();
+  //   });
+
+});  // function() {}
 
 
 /**
@@ -91,7 +121,7 @@ $(function(){
 function toggleShowRightPanel() {
   $('html').addClass('mm-right mm-next mm-opened mm-opening');
   $('#mmenu').addClass('mm-current mm-opened');
-  $('#content').addClass('main-with-from-open-right-panel');
+  $('#content-main').addClass('main-with-from-open-right-panel');
 }
 
 function test(v) {
@@ -115,3 +145,5 @@ function hideToolsIcon(self) {
     $($($(self).children()[0]).children()[i]).hide();
   }
 }
+
+

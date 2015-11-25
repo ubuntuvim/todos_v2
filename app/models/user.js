@@ -11,7 +11,7 @@ export default DS.Model.extend({
   grade: DS.attr('number'),  //用户等级： 1-普通用户；2-一级会员；2-二级会员（用户等级后面可能用到）
   email: DS.attr('string'),
   userPic: DS.attr('string'),  //用户头像
-  timestramp: DS.attr('date'),  //  注册时间
+  regitsteredDate: DS.attr('date'),  //  注册时间
   todoItem: DS.hasMany('todo-item'),
   group: DS.belongsTo('user-group'),
   comments: DS.hasMany('comment')

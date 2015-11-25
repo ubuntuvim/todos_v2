@@ -1,0 +1,489 @@
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url('Lato_normal_300_default.woff') format('woff');
+  
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url('Lato_normal_400_default.woff') format('woff');
+  
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url('Lato_normal_700_default.woff') format('woff');
+  
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Lato Black'), local('Lato-Black'), url('Lato_normal_900_default.woff') format('woff');
+  
+}
+
+@font-face {
+  font-family: 'Wundercon-Pictograms';
+  src: url("https://d2hkcehpyog59.cloudfront.net/f20b434d7c02cbea5fdb73e0e92868546c976b3b/fonts/Wundercon-Pictograms.eot");
+  src: local('☺'), url("https://d2hkcehpyog59.cloudfront.net/30946e32c9fd50fb9f6605f8128c492bc7db75f2/fonts/Wundercon-Pictograms.woff") format('woff'), url("https://d2hkcehpyog59.cloudfront.net/a74caeab0d59cf9b3c94b633219eb2e3ff7b4484/fonts/Wundercon-Pictograms.ttf") format('truetype'), url("https://d2hkcehpyog59.cloudfront.net/ec47c441ecccf832fbc749e8667b803115609093/fonts/Wundercon-Pictograms.svg") format('svg'), url("https://d2hkcehpyog59.cloudfront.net/f20b434d7c02cbea5fdb73e0e92868546c976b3b/fonts/Wundercon-Pictograms.eot?#iefix") format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.wunderlist-menubar {
+  font-size: 0;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Sans-Serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wunderlist-menubar .hidden {
+  display: none !important;
+}
+.wunderlist-menubar .invisible {
+  opacity: 0 !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)" !important;
+  filter: alpha(opacity=0) !important;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-menubar:after {
+    content: "mobile";
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  .wunderlist-menubar:after {
+    content: "tablet";
+    display: none;
+  }
+}
+.wunderlist-menubar .wunderlist-menu-bar-content {
+  position: relative;
+}
+.wunderlist-menubar .wunderlist-menu-bar {
+  z-index: 9999;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 0 #ededed;
+  box-shadow: 0 1px 0 #ededed;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: 100%;
+}
+.wunderlist-menubar .icon-font {
+  font-size: 20px;
+  font-family: "Wundercon-Pictograms";
+  height: 20px;
+  width: 20px;
+  line-height: 16px;
+  font-weight: normal;
+  text-align: center;
+  position: relative;
+  color: #a3a3a2;
+  vertical-align: top;
+}
+.wunderlist-menubar .icon-font.bell:after {
+  content: "l";
+  display: inline-block;
+  vertical-align: top;
+}
+.wunderlist-menubar .icon-font.speechbubble:after {
+  content: "I";
+  font-size: 18px;
+  vertical-align: top;
+  display: inline-block;
+}
+.wunderlist-menubar .icon-font.search:after {
+  content: 'z';
+  vertical-align: top;
+  padding-bottom: 3px;
+}
+.wunderlist-menubar .icon-font.cancel:after {
+  content: '4';
+  padding-bottom: 3px;
+}
+.wunderlist-menubar .wunderlist-activities-icon,
+.wunderlist-menubar .wunderlist-conversations-icon {
+  height: 50px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer;
+}
+.wunderlist-menubar .wunderlist-activities-icon:hover .icon-font,
+.wunderlist-menubar .wunderlist-conversations-icon:hover .icon-font {
+  color: #777;
+}
+.wunderlist-menubar .wunderlist-activities-icon.active .icon-font,
+.wunderlist-menubar .wunderlist-conversations-icon.active .icon-font {
+  color: #2b88d9;
+}
+.wunderlist-menubar .wunderlist-activities-icon .icon-font,
+.wunderlist-menubar .wunderlist-conversations-icon .icon-font {
+  display: inline-block;
+  padding: 15px 10px;
+}
+.wunderlist-menubar .wunderlist-activities-icon .wunderlist-activities-count,
+.wunderlist-menubar .wunderlist-conversations-icon .wunderlist-activities-count,
+.wunderlist-menubar .wunderlist-activities-icon .wunderlist-conversations-count,
+.wunderlist-menubar .wunderlist-conversations-icon .wunderlist-conversations-count {
+  position: absolute;
+  color: #fff;
+  font-size: 10px;
+  background-color: #d62822;
+  line-height: 10px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  padding: 2px 2px 3px 2px;
+  text-align: center;
+  min-width: 11px;
+  top: 8px;
+  right: 2px;
+}
+.wunderlist-menubar .wunderlist-activities-popover,
+.wunderlist-menubar .wunderlist-conversations-popover {
+  width: 300px !important;
+  right: 5px;
+}
+.wunderlist-menubar .wunderlist-activities-popover .stream-header,
+.wunderlist-menubar .wunderlist-conversations-popover .stream-header {
+  text-align: center;
+}
+.wunderlist-menubar .wunderlist-activities-popover .stream-header h3,
+.wunderlist-menubar .wunderlist-conversations-popover .stream-header h3 {
+  margin: 15px 0;
+  line-height: normal;
+  font-size: 16px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-menubar .wunderlist-activities-icon,
+  .wunderlist-menubar .wunderlist-conversations-icon,
+  .wunderlist-menubar .wunderlist-activities-popover,
+  .wunderlist-menubar .wunderlist-conversations-popover {
+    display: none;
+  }
+}
+.wunderlist-menubar .wunderlist-logo {
+  position: absolute;
+  display: block;
+  margin: 0;
+  padding-right: 10px;
+  height: 50px;
+  width: 135px;
+}
+.wunderlist-menubar .wunderlist-logo:hover {
+  cursor: pointer;
+}
+.wunderlist-menubar .wunderlist-logo .wunderlist-icon {
+  pointer-events: none;
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  -webkit-background-size: 28px;
+  -moz-background-size: 28px;
+  background-size: 28px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4NGQ2ZmY2MC01ZTM1LTRmOTAtODkwZC1kNGYwMDlkMjZiZDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJEMzFEN0E1Nzg4MTFFNEEzMUNCMzI5RjczODY0RTEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJEMzFENzk1Nzg4MTFFNEEzMUNCMzI5RjczODY0RTEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTNjYmIzMDAtYzM5MS00NGVlLWI4MzEtMWQ3MmJhYWIzNDExIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg0ZDZmZjYwLTVlMzUtNGY5MC04OTBkLWQ0ZjAwOWQyNmJkNSIvPiA8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");
+}
+.wunderlist-menubar .wunderlist-logo .wunderlist-wordmark {
+  pointer-events: none;
+  position: absolute;
+  top: 19px;
+  left: 47px;
+  width: 86px;
+  height: 14px;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-logo {
+    max-width: 40px;
+  }
+  .wunderlist-logo .wunderlist-wordmark {
+    display: none;
+  }
+}
+.wunderlist-menubar .wunderlist-menu-links {
+  position: absolute;
+  line-height: 12px;
+  padding: 0;
+  margin: 0;
+  margin: 0;
+  left: 150px;
+  list-style: none;
+  overflow: hidden;
+}
+.wunderlist-menubar .wunderlist-menu-links li{
+  list-style: none;
+  position: relative;
+  display: inline-block;
+}
+.wunderlist-menubar .wunderlist-menu-links li a{
+  display: inline-block;
+  padding: 19px 10px;
+  color: #777;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: pre;
+}
+.wunderlist-menubar .wunderlist-menu-links li a:hover{
+  color: #2b88d9;
+  cursor: pointer;
+}
+.wunderlist-menubar .wunderlist-menu-links li a.active.active {
+  color: #2b88d9;
+}
+.wunderlist-menubar[data-lang="zh-CN"] li a,
+.wunderlist-menubar[data-lang="zh-TW"] li a,
+.wunderlist-menubar[data-lang="ja-JP"] li a,
+.wunderlist-menubar[data-lang="ko"] li a,
+.wunderlist-menubar[data-lang="zh-CN"] ::content li a,
+.wunderlist-menubar[data-lang="zh-TW"] ::content li a,
+.wunderlist-menubar[data-lang="ja-JP"] ::content li a,
+.wunderlist-menubar[data-lang="ko"] ::content li a {
+  font-size: 13px;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-menubar .wunderlist-menu-links {
+    left: 50px;
+  }
+}
+.wunderlist-menubar .wunderlist-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+.wunderlist-menubar .wunderlist-button {
+  display: inline-block;
+  background-color: #2b88d9;
+  border: none;
+  color: #fff;
+  padding: 7px 11px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-top: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #247bc6;
+}
+.wunderlist-menubar .wunderlist-button:hover {
+  background-color: #247bc6;
+}
+.wunderlist-menubar .wunderlist-button.blank {
+  background: #fbfcfd;
+  color: #777;
+  border: 1px solid #adadad;
+}
+.wunderlist-menubar .wunderlist-button.blank:hover {
+  background-color: #f1f1f1;
+}
+.wunderlist-menubar .wunderlist-download-button {
+  display: none;
+}
+.wunderlist-menubar .wunderlist-user-actions {
+  height: 50px;
+  width: 60px;
+  display: inline-block;
+}
+.wunderlist-menubar .wunderlist-user-actions:hover {
+  cursor: pointer;
+}
+.wunderlist-menubar .wunderlist-avatar {
+  padding: 10px;
+  height: 28px;
+  width: 50px;
+  position: relative;
+}
+.wunderlist-menubar .wunderlist-avatar img {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+}
+.wunderlist-menubar .wunderlist-avatar:before {
+  content: "";
+  height: 26px;
+  width: 26px;
+  position: absolute;
+  left: 10;
+  top: 10;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.wunderlist-menubar .wunderlist-avatar .chevron {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 8px;
+  margin-top: 10px;
+  margin-left: 7px;
+  color: #777;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-menubar .wunderlist-download-button {
+    display: block;
+  }
+  .wunderlist-menubar .wunderlist-login-button,
+  .wunderlist-menubar .wunderlist-signup-button {
+    display: none;
+  }
+}
+.wunderlist-menubar .wunderlist-search {
+  height: 50px;
+  width: 170px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  overflow: hidden;
+}
+.wunderlist-menubar .wunderlist-search.large {
+  width: 270px;
+}
+.wunderlist-menubar .wunderlist-search.large .wunderlist-search-input {
+  width: 200px;
+}
+.wunderlist-menubar .wunderlist-search .wunderlist-search-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 40px;
+  padding-top: 14px;
+  color: #2b88d9;
+  cursor: pointer;
+}
+.wunderlist-menubar .wunderlist-search .wunderlist-search-input {
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 100px;
+  padding: 17px 0;
+  font-size: 13px;
+  outline: none;
+  color: #777;
+}
+.wunderlist-menubar .wunderlist-search .wunderlist-search-cancel {
+  position: absolute;
+  height: 50px;
+  right: 0;
+  cursor: pointer;
+  padding: 15px 5px;
+}
+.wunderlist-menubar .wunderlist-search .wunderlist-search-cancel:hover {
+  color: #777;
+}
+.wunderlist-menubar .wunderlist-search.collapsed {
+  width: 40px;
+}
+.wunderlist-menubar .wunderlist-search.collapsed .wunderlist-search-icon {
+  color: #a3a3a2;
+}
+.wunderlist-menubar .wunderlist-search.collapsed .wunderlist-search-icon:hover {
+  color: #777;
+}
+.wunderlist-menubar .wunderlist-search.collapsed .wunderlist-search-input,
+.wunderlist-menubar .wunderlist-search.collapsed .wunderlist-search-cancel {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-menubar .wunderlist-search {
+    display: none;
+  }
+}
+.wunderlist-menubar .wunderlist-popover {
+  z-index: 9998;
+  position: absolute;
+  width: 180px;
+  top: 50px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.wunderlist-menubar .wunderlist-popover ul {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  list-style: none;
+}
+.wunderlist-menubar .wunderlist-popover ul li a {
+  display: block;
+  padding: 8px 15px;
+  color: #777;
+  text-decoration: none;
+  font-size: 14px;
+}
+.wunderlist-menubar .wunderlist-popover ul li a:hover {
+  color: #2b88d9;
+}
+.wunderlist-menubar .wunderlist-popover ul li:first-child a {
+  padding-top: 15px;
+}
+.wunderlist-menubar .wunderlist-popover ul li:last-child a {
+  padding-bottom: 15px;
+}
+.wunderlist-menubar .wunderlist-user-links {
+  right: 5px;
+}
+.wunderlist-menubar .wunderlist-user-links .wunderlist-user-details {
+  padding: 8px 15px;
+  color: #777;
+}
+.wunderlist-menubar .wunderlist-user-links .wunderlist-user-details .wunderlist-username {
+  font-size: 14px;
+  font-weight: 600;
+}
+.wunderlist-menubar .wunderlist-user-links .wunderlist-user-details .wunderlist-email {
+  font-size: 12px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.wunderlist-menubar .wunderlist-more-links-popover ul {
+  padding: 5px 0;
+}
+.wunderlist-menubar .wunderlist-more-links-popover a {
+  text-transform: uppercase;
+  line-height: 12px;
+  color: #777;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+@media only screen and (max-width: 600px) {
+  .wunderlist-menubar .wunderlist-popover {
+    width: 100%;
+    left: 0;
+  }
+}

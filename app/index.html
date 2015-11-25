@@ -3,18 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>天天列表--大事化小，小事化了。</title>
+    <title>天天列表--助您大事化小，小事化了。</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
+    <link rel="shortcut icon" href="assets/images/logo/logo1.png">
+
     <link href="assets/fonts/font-awesome.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="assets/css/awesome-bootstrap-checkbox.css"> -->
     <link type="text/css" rel="stylesheet" media="all" href="assets/css/jquery.mmenu.all.css" />
-
+    <!-- 主要的样式文件 -->
     <link href="assets/css/minimal.css" rel="stylesheet">
+    <link href="assets/css/login.css" rel="stylesheet">
     <!-- <link href="assets/css/mmenu.css" rel="stylesheet"> -->
-    
-    
+    <!-- 介绍页面样式 -->
+    <link href="assets/css/intro/font_lato_default.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/intro/main.css" rel="stylesheet" type="text/css" />
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,6 +27,11 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
+    <!-- 登录页面显示登录进度的进度条样式 -->
+    <link rel="stylesheet" type="text/css" href="assets/tiptools/ns-default.css" />
+    <link rel="stylesheet" type="text/css" href="assets/tiptools/ns-style-bar.css" />
+
 
     {{content-for 'head'}}
 
@@ -32,7 +42,7 @@
 
     {{content-for 'head-footer'}}
 
-    
+
   </head>
   <body class="bg-1" style="overflow: auto; overflow-x: hidden;">
     {{content-for 'body'}}
@@ -41,14 +51,13 @@
     <script src="assets/todos-v2.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/config.js"></script>
-    
+    <script src="assets/js/config.js"></script>    
     <script type="text/javascript" src="assets/js/jquery.mmenu.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.sparkline.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.nicescroll.min.js"></script>
     <!-- 加载提示 -->
     <script src="assets/js/minimal.min.js"></script>
     <script src="assets/js/todos.js"></script>
+
 
     {{content-for 'body-footer'}}
   </body>

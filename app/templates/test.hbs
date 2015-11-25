@@ -1,4 +1,32 @@
-嘻嘻嘻嘻嘻嘻
-<span class="todo-list-ok-wc" {{action "completedTodoItem" item}}>
-xxx
-</span>
+
+<link rel="stylesheet" type="text/css" href="assets/tiptools/ns-default.css" />
+<link rel="stylesheet" type="text/css" href="assets/tiptools/ns-style-bar.css" />
+
+<script src="assets/tiptools/modernizr.custom.js"></script>
+<script src="assets/tiptools/classie.js"></script>
+<script src="assets/tiptools/notificationFx.js"></script>
+
+	
+					
+<button id="notification-trigger" class="">
+	显示提示框
+</button>
+				
+		
+<script>
+	(function() {
+			$("#notification-trigger").click(function() {
+				// create the notification
+				var notification = new NotificationFx({
+					message : '请输入用户名',
+					layout : 'bar',
+					effect : 'exploader',
+					ttl : 9000000,
+					type : 'notice', // notice, warning or error
+					onClose : function() {
+						//bttn.disabled = false;
+					}
+				}).show();
+		} );
+	})();
+</script>

@@ -26,5 +26,28 @@ module.exports = function(defaults) {
   app.import("bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css");
 
 
+  // app.import("vendor/fonts/font-awesome.css");
+  // app.import("vendor/css/jquery.mmenu.all.css");
+  // app.import("vendor/css/minimal.css");
+  // app.import("vendor/css/login.css");
+  // //介绍页面样式
+  // app.import("vendor/css/intro/font_lato_default.css");
+  // app.import("vendor/css/intro/main.css");
+  // app.import("vendor/css/todos.css");
+
+  // app.import("vendor/js/jquery.mmenu.min.js");
+  // app.import("vendor/js/jquery.nicescroll.min.js");
+  // app.import("vendor/js/minimal.min.js");
+  // app.import("vendor/js/todos.js");
+  // app.import("");
+  // app.import("");
+  // app.import("");
+  // app.import("");
+
+  //  
+  // app.import("bower_components/jQuery_mmenu/dist/core/css/jquery.mmenu.all.css");
+  // app.import("bower_components/jQuery_mmenu/dist/core/js/jquery.mmenu.min.all.js");
+
+
   return app.toTree();
 };

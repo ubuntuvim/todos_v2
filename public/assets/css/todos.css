@@ -32,7 +32,7 @@
 }
 
 .todo-list-ok-btn-checked {
-  opacity: 1;  
+  opacity: 1;
   font-size: 16px;
 }
 
@@ -42,12 +42,12 @@
 }
 
 .label-font-style-checked {
-    color: rgba(255, 255, 255, 0.5); 
-    text-decoration: line-through;  
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: line-through;
 }
 /*
 body #content div.checkbox.check-transparent input[type=checkbox]:checked + label {
-    
+
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -66,7 +66,7 @@ input[type=checkbox] {
   right: 2px;
   z-index: 9;
   font-size: 9px;
-  padding: 2px 4px; 
+  padding: 2px 4px;
 }*/
 /* ====================== 覆盖原有的样式为自定义样式 end ====================== */
 
@@ -170,17 +170,17 @@ input[type=checkbox] {
 }
 
 #right-panel-style .tile.color.transparent-black.textured {
-      background: rgba(0, 0, 0, 0.3) url(../images/dot_pattern.png) repeat; 
+      background: rgba(0, 0, 0, 0.3) url(../images/dot_pattern.png) repeat;
 }
 
 #right-panel-style .tile.color.transparent-white {
     background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #right-panel-style .tile.color.white {
     background-color: white;
-    color: #717171; 
+    color: #717171;
 }
 
 #right-panel-style .tile.color .tile-body {
@@ -242,3 +242,49 @@ input[type=checkbox] {
   /*font-weight: bold;*/
 }
 
+
+/* ==================== 介绍页面样式 ====================== */
+/* 覆盖bootstrap的样式，去掉 margin-bottom 值*/
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+     margin-bottom: 0 !important;
+    color: inherit;
+    background-color: #eee;
+}
+
+.my-navbar-transparent-black {  /* 导航条的背景色 */
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+.my-navbar-header {  /* 左侧logo背景 */
+    background-color: rgba(0, 0, 0, 0) !important;
+    width: auto !important;
+}
+.my-bg-transparent-black-3 {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+/* 设置页面导航栏鼠标移上去样式 */
+#introduction-header > ul > li > a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+#introduction-header > ul > li > a:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+/* 介绍页面字体颜色 */
+.intro-font-color {
+    color: white !important;
+}
+
+.intro-section {
+    /*background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));*/
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.feature-grid > a:hover, .hero-wrapper > a:hover {
+    text-decoration: none;
+}

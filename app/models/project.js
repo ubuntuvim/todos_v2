@@ -6,7 +6,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
     projCode: DS.attr('string'),
     projName: DS.attr('string'),
-    timestramp: DS.attr('number'),  //项目创建时间
+    timestamp: DS.attr('number'),  //项目创建时间
     projStatus: DS.attr('number'), // 项目状态：1-正常；2-删除；3-过期
     todoItems: DS.hasMany('todo-item')  //关联todo
 });
