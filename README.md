@@ -77,6 +77,9 @@ APP界面与功能说明如下：
 * 点击1位置关闭展开的设置面板
 * 2位置可以设置APP主题背景、点击个人中心可以进入个人中心详细信息页面、点击“退出”可以退出登录用户
 
+### 分支说明
+1. 2015-11-26，增加了登录功能，功能的实现使用插件[ember-simple-auth](https://github.com/simplabs/ember-simple-auth)。此功能提交到分支HEAD中，之前的版本仍然在master分支。
+
 #项目运行环境配置
 
 ## Prerequisites
