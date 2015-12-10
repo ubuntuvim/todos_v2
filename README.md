@@ -79,6 +79,7 @@ APP界面与功能说明如下：
 
 ### 分支说明
 1. 2015-11-26，增加了登录功能，功能的实现使用插件[ember-simple-auth](https://github.com/simplabs/ember-simple-auth)。此功能提交到分支HEAD中，之前的版本仍然在master分支。
+2. 2015-12-11，合并了HEAD分支到master，并且在此版本中完成了登录、注册、APP简介等功能，其中后台数据处理使用nodejs+MySQL。下一版本计划把所有的数据都保存到本地MySQL，不放firebase上了，太慢了！！
 
 #项目运行环境配置
 
