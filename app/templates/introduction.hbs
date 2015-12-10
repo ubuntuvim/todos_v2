@@ -1,5 +1,8 @@
 {{! 项目介绍页面 }}
 
+<!-- 介绍页面样式 -->
+<link href="assets/css/intro/font_lato_default.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/intro/main.css" rel="stylesheet" type="text/css" />
 
 <!-- Wrap all page content here -->
 <div id="wrap" class="intro-font-color">
@@ -42,9 +45,13 @@
             </li> -->
 
           </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li class="text-right">{{#link-to 'login'}}登录{{/link-to}}</li>
-            <li class="text-right">{{#link-to 'register'}}注册{{/link-to}}</li>
+          <ul class="nav navbar-nav pull-right" style="padding-right: 20px;">
+              {{#if model.isAuthenticated}}
+                  <li class="text-right"><a href="#" {{action 'invalidateSession'}}>退出</a></li>
+              {{else}}
+                  <li class="text-right">{{#link-to 'login'}}登录{{/link-to}}</li>
+                  <li class="text-right">{{#link-to 'register'}}注册{{/link-to}}</li>
+              {{/if}}
           </ul>
         </div><!-- /.navbar-collapse -->
 
@@ -55,174 +62,140 @@
 </div>
 <!-- Wrap all page content end -->
 
-
-<div class="wunderlist-website" style="margin-top: -180px;">
-    <div class="intro">
-        <div class="wrapper wide top" style="margin-bottom: 170px;">
-            <img class="intro-image" height="527" src="http://i12.tietuku.com/adc8242b11f2e5da.jpg"
-            width="710" style="right: -70px;" />
-            <div class="hero-wrapper" style="padding-top: 60px;">
-                <h2>
+<div class="row myfeature1 feature-splie">
+    <div class="col-md-4 col-sm-4">
+        <div class="hero-wrapper">
+            <div class="col">
+                <h3 class="">
                     天天清单，不一样的清单
-                </h2>
-                <p class="subline">
-                    天天清单，助您大事化小，小事化了。
-                </p>
-                {{#link-to 'register' class="button outlined-white button-signup" title="创建免费帐户"}}
-                    创建帐户
-                {{/link-to}}
-                {{#link-to 'login' class="button white button-download" data-safari-modal="true"
-                data-track="Wunderlist:Download:Header" title="下载天天清单"}}
-                    已有账号请直接登录
-                {{/link-to}}
-            </div>
-        </div>
-    </div>
-    <div class="features">
-        <div class="feature-header hidden">
-            <div class="wrapper center">
-                <h2>
-                    无论是工作、家庭和生活。天天清单帮助您每天完成更多。
-                </h2>
-            </div>
-        </div>
-        <div class="feature padding-bottom padding-top">
-            <div class="wrapper">
-                <div class="cols reverse">
-                    <div class="col">
-                        <span class="wundercon blue block feature-item-icon">
-                            d
-                        </span>
-                        <h3>
-                            好好规划所有事情
-                        </h3>
-                        <p class="subline">
-                            随时管理和共享您的待办任务、工作、购物、想看的电影和生活清单。天天清单让您更轻松地完成每一件您正在规划的，生活上的大小事情。
-                        </p>
-                    </div>
-                    <div class="col">
-                        <img height="251" src="http://i12.tietuku.com/aa9951aa685a83d8.jpg"
-                        width="590" style="margin-left: -160px;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="feature">
-            <div class="wrapper">
-                <div class="cols">
-                    <div class="col ">
-                        <span class="wundercon blue block feature-item-icon">
-                            e
-                        </span>
-                        <h3 class="inline-block">
-                            随时被提醒
-                        </h3>
-                        <p class="subline">
-                            您可以为任务设置到期日与提醒，和分配任务。无论那是一个办公清单或者是娱乐清单，有了天天清单，您将不会再忘记deadline。
-                        </p>
-                    </div>
-                    <div class="col">
-                        <img height="450" src="//dr0wv9n0kx6h5.cloudfront.net/4bee1b90f5c90483a28b83a90b174bf037be1883/content/reminders.zh.png"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="feature">
-            <div class="wrapper">
-                <div class="cols reverse">
-                    <div class="col">
-                        <span class="wundercon blue block feature-item-icon">
-                            L
-                        </span>
-                        <h3 class="inline-block">
-                            与任何人协作
-                        </h3>
-                        <p class="subline">
-                            与您的家庭、朋友及同事共享清单。
-                            <a href="../pro" title="天天清单高级帐户">
-                                天天清单高级帐户
-                            </a>
-                            让您的办公协作变得超级便捷有效。
-                        </p>
-                    </div>
-                    <div class="col">
-                        <img class="collab" height="530" src="//dr0wv9n0kx6h5.cloudfront.net/8c6b3e5f7f27445fb7600ff6d6c94467163e5f10/content/collab.zh.png"
-                        width="844" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="feature padding-bottom padding-top platforms">
-            <div class="wrapper center">
-                <h3>
-                    随时随地访问
                 </h3>
                 <p class="subline">
-                    您可以在
-                    <a href="/download/ios">
-                        iPhone
-                    </a>
-                    、
-                    <a href="/download/ios">
-                        iPad
-                    </a>
-                    、
-                    <a href="/download/android">
-                        安卓
-                    </a>
-                    、
-                    <a href="/download/windows8">
-                        Windows
-                    </a>
-                    8、
-                    <a href="/download/windows7">
-                        Windows 7
-                    </a>
-                    、
-                    <a href="/download/mac">
-                        Mac
-                    </a>
-                    、
-                    <a href="/download/chrome-packaged">
-                        Chromebook
-                    </a>
-                    、
-                    <a href="/download/kindle">
-                        Kindle Fire
-                    </a>
-                    和网络上免费使用天天清单，让您的生活在几乎所有设备上无缝同步。
+                    天天清单，天天清，天天轻。
                 </p>
-            </div>
-            <div class="platform-nav">
-                <a class="platform-nav-prev">
-                    w
-                </a>
-                <a class="platform-nav-next">
-                    w
-                </a>
-            </div>
-            <div class="wrapper center">
-                <p>
-                    <a class="button outlined-rounded goto-button button-download" data-track="Wunderlist:Download:Download Section"
-                    title="下载天天清单">
-                        下载天天清单
-                    </a>
-                </p>
-                <span class="over-sized devices img-wrapper" data-url="0059eb50a1fbfdf1a235eea47705e2bf88f75cf5"
-                style="background-image:url(//dr0wv9n0kx6h5.cloudfront.net/0059eb50a1fbfdf1a235eea47705e2bf88f75cf5/content/all-devices@2x.zh.png); width:1016px; height:539px; display:inline-block;">
+                {{#if model.isAuthenticated}}
+                    {{#link-to 'login' class="button white button-download" data-safari-modal="true"
+                    data-track="Wunderlist:Download:Header" title="下载天天清单"}}
+                        已有账号请直接登录
+                    {{/link-to}}
+                {{else}}
+                    {{#link-to 'register' class="button outlined-white button-signup" title="创建免费帐户"}}
+                        创建帐户
+                    {{/link-to}}
+                {{/if}}
+          </div>
+
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8">
+            <img class="img-responsive" height="" src="http://i12.tietuku.com/adc8242b11f2e5da.jpg" />
+    </div>
+</div>
+
+<div class="row myfeature2 feature-splie" style="">
+    <div class="col-md-6 col-sm-6">
+        <img class="img-responsive" height="" src="http://i12.tietuku.com/aa9951aa685a83d8.jpg" />
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="hero-wrapper">
+
+            <div class="col">
+                <span class="wundercon blue block feature-item-icon">
+                    d
                 </span>
+                <h3>
+                    好好规划所有事情
+                </h3>
+                <p class="subline">
+                    随时管理和共享您的待办任务、工作、购物、想看的电影和生活清单。天天清单让您更轻松地完成每一件您正在规划的，生活上的大小事情。
+                </p>
             </div>
         </div>
     </div>
-    <div class="feature" style="background-color: white;margin-top: -20px;padding-top: 20px;">
+</div>
+
+<div class="row myfeature1 feature-splie" style="">
+    <div class="col-md-6 col-sm-6">
+        <div class="hero-wrapper">
+            <div class="col">
+                <span class="wundercon blue block feature-item-icon">
+                    e
+                </span>
+                <h3 class="">
+                    随时被提醒
+                </h3>
+                <p class="subline">
+                    您可以为任务设置到期日与提醒，和分配任务。无论那是一个办公清单或者是娱乐清单，有了天天清单，您将不会再忘记deadline。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <img class="img-responsive" src="http://i5.tietuku.com/77274060516d95d5.png" style="height:450px;" />
+    </div>
+</div>
+
+<div class="row myfeature2 feature-splie" style="">
+    <div class="col-md-4 col-sm-4">
+        <div class="hero-wrapper">
+            <div class="col">
+                <span class="wundercon blue block feature-item-icon">
+                    L
+                </span>
+                <h3 class="">
+                    与任何人协作
+                </h3>
+                <p class="subline">
+                    与您的家庭、朋友及同事共享清单。
+                    让您的办公协作变得超级便捷有效。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <img class="img-responsive" src="http://i12.tietuku.com/7fdc52d385a570e4.png" />
+    </div>
+</div>
+
+<div class="row myfeature1 feature-splie" style="">
+    <div class="feature padding-bottom padding-top platforms">
+        <div class="wrapper center">
+            <h3>
+                随时随地访问
+            </h3>
+            <p class="subline">
+                您可以在iPhone、iPad、安卓、Windows8Windows 7、Mac、Chromebook、Kindle Fire
+                和网络上免费使用天天清单，让您的生活在几乎所有设备上无缝同步。
+            </p>
+        </div>
+        <div class="wrapper center">
+            <p>
+                {{#if model.isAuthenticated}}
+                    {{#link-to 'login' class="button white button-download" data-safari-modal="true"
+                    data-track="Wunderlist:Download:Header" title="下载天天清单"}}
+                        已有账号请直接登录
+                    {{/link-to}}
+                {{else}}
+                    {{#link-to 'register' class="button outlined-white button-signup" title="创建免费帐户"}}
+                        创建帐户
+                    {{/link-to}}
+                {{/if}}
+            </p>
+            <span class="over-sized devices img-wrapper"
+            style="background-image:url(http://i5.tietuku.com/37520e8f2a7cd293.png); width:1016px; height:539px; display:inline-block;">
+            </span>
+        </div>
+    </div>
+</div>
+<div class="wunderlist-website" style="">
+
+    <div class="feature feature-splie myfeature2" style="">
         <div class="center" id="features">
             <h2>
-                天天功能一览
+                天天清单功能一览
             </h2>
         </div>
         <div class="center feature-grid">
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1910685">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     ≤
                 </span>
@@ -233,7 +206,7 @@
                     将所有同类形的清单归类至单一文件夹
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1642907">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     I
                 </span>
@@ -244,7 +217,7 @@
                     将所有对话集合在同一地方，所有人也可以到访。
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1641005">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     L
                 </span>
@@ -255,7 +228,7 @@
                     与您的家人，好友和同事共享清单
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1641358">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     ‰
                 </span>
@@ -266,7 +239,7 @@
                     在iOS、Mac、安卓、Windows和网络上免费使用
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1639500">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     e
                 </span>
@@ -277,7 +250,7 @@
                     添加提醒以确保不会忘记任务
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1639500">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     c
                 </span>
@@ -288,7 +261,7 @@
                     设置到期日，确保不会超过最后期限
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1639503">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     N
                 </span>
@@ -299,7 +272,7 @@
                     添加备注以确保您的所有想法都能够被领会
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1697032">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     l
                 </span>
@@ -310,7 +283,7 @@
                     通过推送通知、电子邮件和应用内通知了解最新动态
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/59709">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     X
                 </span>
@@ -321,7 +294,7 @@
                     只需通过发送便可以将电子邮件转变成待办任务
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1767713">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     d
                 </span>
@@ -332,7 +305,7 @@
                     直接从您的浏览器轻松添加网络内容
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1641444">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     2
                 </span>
@@ -343,7 +316,7 @@
                     使用标签更便捷地管理任務
                 </p>
             </a>
-            <a class="sidefeatures-item" href="https://support.wunderlist.com/customer/zh_cn/portal/articles/1642628">
+            <a class="sidefeatures-item" href="/introduction">
                 <span class="wundercon sidefeatures-item-icon">
                     Z
                 </span>

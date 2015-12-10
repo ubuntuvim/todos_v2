@@ -172,7 +172,7 @@ body .navbar {
       padding-left: 20px;
       height: 45px;
       line-height: 45px;
-      background: url(../images/logo/logo2.png) no-repeat 0 15px;
+      background: url(../images/logo/logo2.png) no-repeat 0 13px;
    }
       body .navbar .navbar-header .navbar-brand img {
         vertical-align: top; }
@@ -11399,11 +11399,12 @@ table tbody.files > tr > td {
   overflow: hidden; }
 
 .carousel-indicators {
-  top: 10px;
+  /*top: 10px;
   right: 20px;
   left: auto;
   bottom: auto;
-  text-align: right; }
+  text-align: right; */
+}
 
 .carousel-caption {
   width: 100%;

@@ -1,0 +1,112 @@
+{{! 用户注册表单}}
+
+<!-- 页面顶部的登录提示，只要控制显隐状态即可  -->
+<div class="ns-box ns-bar ns-effect-exploader ns-type-notice ns-show {{if isShowOrHide 'showProcessStyle' 'hideProcessStyle'}}" style="" id="login-tip">
+    <div class="ns-box-inner" style="text-align: center;">
+        {{#if errorMessage}}
+        {{errorMessage}}
+        {{/if}}
+    </div>
+    <span class="ns-close" {{action 'hideTipOnChange'}}></span>
+</div>
+
+<script>
+// just for the demos, avoids form submit
+//$.extend( $.validator.defaults, settings );
+jQuery.validator.setDefaults({
+  debug: true,
+  // success: "parsley-success",
+  // errorClass: 'parsley-error',
+  // errorElement: 'input'
+});
+$("#parsley-validate").validate({
+	rules: {
+		email: {
+	        required: true,
+	        email: true
+	    },
+		password: {
+			required: true,
+			minlength: 6,
+			maxlength: 16
+		},
+	    confirm_password: {
+		    required: true,
+		    minlength: 6,
+		    equalTo: "#password"
+	    }
+	},
+	messages: {
+		email: {
+		    required: "请输入邮箱地址",
+		    email: "请输入正确的邮箱地址"
+		},
+		password: {
+			required: "请输入密码",
+			minlength: "密码长度不少于6位",
+			maxlength: "密码长度不能超过16位"
+		},
+	    confirm_password: {
+		    required: "请输入确认密码",
+		    minlength: "确认密码不能小于6个字符",
+		    equalTo: "两次输入密码不一致不一致"
+	    }
+	}
+});
+</script>
+
+<form class="form-horizontal" role="form" id="parsley-validate" {{action 'register' on='submit'}}>
+
+  <div class="form-group">
+    <div class="col-md-12 col-sm-12">
+      <font class="require-input-flag">*</font>
+      {{input type="text" class="form-control" id="email" name="email" placeholder="邮箱" value=email}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-12 col-sm-12">
+      {{input type="text" class="form-control" value=username id="username" name="username" placeholder="昵称，如不填系统会默认为您生成昵称"}}
+      <!-- <span class="help-block">如不填，系统会默认为您生成昵称。</span> -->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-12 col-sm-12">
+      {{input type="password" class="form-control" name="password" id="password" placeholder="密码" value=password}}
+      <font class="require-input-flag">*</font>
+      <!-- <span class="help-block">密码不能少于6位。</span> -->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-12 col-sm-12">
+      {{input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="确认密码"}}
+      <font class="require-input-flag">*</font>
+      <!-- <span class="help-block">确认密码不能少于6位。</span> -->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-12 col-sm-12">
+      <div class="input-group">
+      <span class="input-group-btn">
+        <span class="btn btn-info btn-file">
+          <i class="fa fa-upload"></i>
+          {{input type="file" multiple="" name="file"}}
+        </span>
+      </span>
+      <input type="text" class="form-control file-input-show" placeholder="上传头像" name="userPic" readonly="true" value=userPic>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="form-group form-footer">
+    <div class="col-sm-offset-5 col-sm-8">
+      <button type="submit" class="btn btn-greensea">注册</button>
+      <button type="reset" class="btn btn-slategray">清空</button>
+    </div>
+  </div>
+
+</form>

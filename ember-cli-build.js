@@ -18,13 +18,14 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-  
+
   app.import("bower_components/bootstrap/dist/js/bootstrap.js");
   app.import("bower_components/bootstrap/dist/css/bootstrap.css");
   //  导入bootstrap checkbox组件
   //  https://github.com/flatlogic/awesome-bootstrap-checkbox
   app.import("bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css");
-
+  app.import("bower_components/jquery-validation/dist/jquery.validate.js");
+  app.import("bower_components/jquery-validation/src/localization/messages_zh.js");
 
   // app.import("vendor/fonts/font-awesome.css");
   // app.import("vendor/css/jquery.mmenu.all.css");
@@ -44,7 +45,7 @@ module.exports = function(defaults) {
   // app.import("");
   // app.import("");
 
-  //  
+  //
   // app.import("bower_components/jQuery_mmenu/dist/core/css/jquery.mmenu.all.css");
   // app.import("bower_components/jQuery_mmenu/dist/core/js/jquery.mmenu.min.all.js");
 

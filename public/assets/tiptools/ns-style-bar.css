@@ -176,13 +176,14 @@
 
 .ns-effect-exploader.ns-show .ns-close {
 	-webkit-animation-name: animFade;
-	animation-name: animFade;	
+	animation-name: animFade;
+	cursor: pointer;
 }
 
 .ns-effect-exploader.ns-show .ns-box-inner {
 	-webkit-animation-name: animFadeMove;
 	animation-name: animFadeMove;
-	-webkit-animation-timing-function: ease-out; 
+	-webkit-animation-timing-function: ease-out;
 	animation-timing-function: ease-out;
 }
 

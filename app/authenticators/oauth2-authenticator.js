@@ -1,4 +1,4 @@
-import Ember from 'ember';  
+import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
 
 import config from '../config/environment';
@@ -7,7 +7,7 @@ import config from '../config/environment';
 /**
  * 自定义授权器，必须重写restore、authenticate、invalidate这三个方法。
  */
-export default Base.extend({  
+export default Base.extend({
     session: Ember.inject.service('session'),
 
     // tokenEndpoint: 'http://localhost:3001/sessions/create',
@@ -29,28 +29,28 @@ export default Base.extend({
      */
     authenticate: function(options) {
 
-    	// var that = this;
+    	var that = this;
 
         // 返回到login-form.js里的authenticate方法，你也可以在这个方法了处理登录成功或者失败的情况
         return new Ember.RSVP.Promise((resolve, reject) => {
-        
+
             Ember.$.ajax({
                 url: config.apiBaseUrl + '/user/login',
                 type: 'POST',
 	            data: JSON.stringify({
-	                username: options.username,
+	                email: options.email,
 	                password: options.password
 	            }),
                 contentType: 'application/json;charset=utf-8',
                 dataType: 'json'
             }).then(function(response) {
-       
+
                 Ember.run(function() {
                     resolve({
                         user: response.user
                     });
                 });
-                 
+
             }, function(xhr, status, error) {
                 console.log('app/authenricatores/oauth2-authenticator status = ' + status);
                 console.log('app/authenricatores/oauth2-authenticator error = ' + error);
@@ -58,7 +58,7 @@ export default Base.extend({
                 Ember.run(function() {
                     reject(response);
                 });
-                
+
             });
 
         });

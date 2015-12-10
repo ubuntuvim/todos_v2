@@ -2,15 +2,16 @@
 
 import Ember from 'ember';
 
+// import LocalStorageStore from 'ember-simple-auth/session-stores/local-storage';
+
 //  导入全局配置
 import config from '../config/environment';
-
 
 /**
  * 登录控制，使用ember-simple-auth插件
  */
 export default Ember.Component.extend({
-    
+
     session: Ember.inject.service('session'),
 	tagName: 'span',
 	showOrHide: 'display: none;',
@@ -21,9 +22,9 @@ export default Ember.Component.extend({
 			var that = this;
 
 			//  显示进度提示
-			this.set('showOrHide', 'display: ;');
+			this.set('showOrHide', 'display: block;');
 
-			var user = this.getProperties('username', 'password');
+			var user = this.getProperties('email', 'password');
 			// 只处理登录失败的情况，登录成功的情况直接跳转到首页了
             // this.get('session').authenticate('authenticator:oauth2-authenticator', user).catch((msg) => {
             //     this.set('errorMessage', msg);
@@ -31,8 +32,9 @@ export default Ember.Component.extend({
 			this.get('session').authenticate('authenticator:oauth2-authenticator', user)
 				.then(function(response) {  // 登录成功
 					that.set('errorMessage', '登录成功。');
+
 					//  登录成功直接跳转到APP首页
-                	window.location.href = config.localeBaseUrl;  
+                	window.location.href = config.localeBaseUrl;
 				}, function(msg) {  //登录失败
 					//  登录失败的跳转回login页面，并把提示信息response返回到界面
 	                //  login页面要在config/environment.js里配置

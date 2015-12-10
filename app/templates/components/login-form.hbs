@@ -1,25 +1,56 @@
 {{! app/templates/components/login-form.hbs }}
+<script>
+// just for the demos, avoids form submit
+// jQuery.validator.setDefaults({
+//   debug: true
+// });
+$("#form-signin").validate({
+	rules: {
+		email: {
+	        required: true,
+	        email: true
+	    },
+		password: {
+			required: true,
+			minlength: 6,
+			maxlength: 16
+		}
+	},
+	messages: {
+		email: {
+		    required: "请输入邮箱地址",
+		    email: "请输入正确的邮箱地址"
+		},
+		password: {
+			required: "请输入密码",
+			minlength: "密码长度不少于6位",
+			maxlength: "密码长度不能超过16位"
+		}
+	}
+});
+</script>
 
 <!-- 页面顶部的登录提示，只要控制显隐状态即可  -->
 <div class="ns-box ns-bar ns-effect-exploader ns-type-notice ns-show" style="{{showOrHide}}" id="login-tip">
-<div class="ns-box-inner">
-{{#if errorMessage}}
-{{errorMessage}}
-{{/if}}
-</div>
-<span class="ns-close" {{action 'hideTipOnChange'}}></span>
+    <div class="ns-box-inner">
+        {{#if errorMessage}}
+        {{errorMessage}}
+        {{/if}}
+    </div>
+    <span class="ns-close" {{action 'hideTipOnChange'}}></span>
 </div>
 
 <form {{action 'authenticate' on='submit'}} id="form-signin" class="form-signin">
   <section>
-    <div class="input-group">
-      {{input type="text" class="form-control" value=username placeholder="请输入登录名" key-press="hideTipOnChange" }}
-      <div class="input-group-addon"><i class="fa fa-user"></i></div>
+    <div class="input-group col-md-12 col-xs-12">
+      {{input type="text" class="form-control" value=email name="email" placeholder="请输入登录邮箱"
+        key-press="hideTipOnChange"}}
+      <!-- <div class="input-group-addon"><i class="fa fa-user"></i></div> -->
     </div>
-    <div class="input-group">
-      {{input type="password" class="form-control" value=password 
-        placeholder="请输入密码" key-press="hideTipOnChange" }}
-      <div class="input-group-addon"><i class="fa fa-key"></i></div>
+    <div class="input-group col-md-12 col-xs-12">
+      {{input type="password" class="form-control" value=password
+        placeholder="请输入密码" key-press="hideTipOnChange" name="password"}}
+      <!-- <div class="input-group-addon"><i class="fa fa-key"></i></div> -->
     </div>
   </section>
   <section class="controls" style="padding-top: 10px;">
@@ -27,15 +58,15 @@
       <input type="checkbox" value="1" id="remember" checked>
       <label for="remember">Remember me</label>
     </div> -->
-    
+
     <a href="#" style="color: white;">忘记密码</a>
   </section>
-  
+
   <button class="btn btn-greensea" type="submit" id="loginButton">
-    登录</button> 
-    <span>or</span>
+    登录</button>
+    &nbsp;&nbsp;
     {{#link-to 'register'class="btn btn-slategray"}}创建新账号{{/link-to}}
-  
+
 </form>
 
 

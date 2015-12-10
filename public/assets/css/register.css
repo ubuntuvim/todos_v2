@@ -1,0 +1,99 @@
+input[type="text"],
+input[type="file"],
+input[type="password"] {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 20px;
+}
+
+label {
+    color: red;
+    font-size: 1px;
+}
+
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 8px;
+}
+
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/*body #content .input-group .form-control:first-child, body #content .input-group-addon:first-child, body #content .input-group-btn:first-child > .btn, body #content .input-group-btn:first-child > .btn-group > .btn, body #content .input-group-btn:first-child > .dropdown-toggle, body #content .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), body #content .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, body #content .modal .modal-dialog .modal-content .input-group .form-control:first-child, body #content .modal .modal-dialog .modal-content .input-group-addon:first-child, body #content .modal .modal-dialog .modal-content .input-group-btn:first-child > .btn, body #content .modal .modal-dialog .modal-content .input-group-btn:first-child > .btn-group > .btn, body #content .modal .modal-dialog .modal-content .input-group-btn:first-child > .dropdown-toggle, body #content .modal .modal-dialog .modal-content .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), body #content .modal .modal-dialog .modal-content .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}*/
+
+.file-input-show {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    top: 1px;
+}
+
+.btn.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+/* 校验提示信息样式 */
+.parsley-error {
+    background-color: rgba(255, 74, 67, 0.2) !important;
+    border: 1px solid rgba(255, 74, 67, 0.5) !important;
+    border-radius: 4px !important;
+}
+.parsley-success {
+    background-color: rgba(162, 210, 0, 0.2) !important;
+    border: 1px solid rgba(162, 210, 0, 0.5) !important;
+    border-radius: 4px !important;
+}
+
+/* 红星必填标记 */
+.require-input-flag {
+    position: absolute;
+    font-size: 21px;
+    left: 0;
+    top: 9px;
+    color: red;
+}
+
+.parsley-error-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 11px;
+}
+.hideProcessStyle {
+    display: none;
+    margin-top: 45px;
+}
+.showProcessStyle {
+    display: block;
+    margin-top: 45px;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+}

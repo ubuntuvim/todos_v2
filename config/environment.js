@@ -2,9 +2,9 @@
 
 module.exports = function(environment) {
 
-  var apiBaseUrl = 'http://localhost:3001/api';
-  var locationUrl = 'http://localhost:4200';
-
+  // var apiBaseUrl = 'http://www.ddlisting.com:3001/api';
+  // var locationUrl = 'http://www.ddlisting.com';
+  var globalTitle = "天天清，天天轻。";
   var ENV = {
     modulePrefix: 'todos-v2',
     environment: environment,
@@ -15,14 +15,13 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-        
+
       }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      remoteUrl: 'http://localhost:3001'
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
@@ -35,16 +34,23 @@ module.exports = function(environment) {
     }
   };
 
+  var afterLoginUrl = "";
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+
+    var baseUrl = "http://localhost";
     // 配置全局变量
-    ENV.apiBaseUrl = apiBaseUrl;
-    ENV.localeBaseUrl = locationUrl;
+    ENV.apiBaseUrl = baseUrl+':3001/api';
+    ENV.localeBaseUrl = baseUrl + ":4200";
+    afterLoginUrl = baseUrl;
+
+    ENV.globalTitle = globalTitle;
   }
 
   if (environment === 'test') {
@@ -57,26 +63,27 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-
+    ENV.globalTitle = globalTitle;
 
     // 配置全局变量
-    ENV.apiBaseUrl = apiBaseUrl;
-    ENV.localeBaseUrl = locationUrl;
+    // ENV.apiBaseUrl = 'http://localhost:3001/api';
+    // ENV.localeBaseUrl = 'http://localhost:4200';
   }
 
   if (environment === 'production') {
-
+    var baseUrl = "http://www.ddlisting.com";
     // 配置全局变量
-    ENV.apiBaseUrl = apiBaseUrl;
-    ENV.localeBaseUrl = locationUrl;
-
+    ENV.apiBaseUrl = baseUrl+':3001/api';
+    ENV.localeBaseUrl = baseUrl;
+    afterLoginUrl = baseUrl;
+    ENV.globalTitle = globalTitle;
   }
 
 
   ENV['ember-simple-auth'] = {
         store: 'simple-auth-session-store:local-storage',
         authorizer: 'authorizer:oauth2-anthenrizer',
-        crossOriginWhitelist: [ apiBaseUrl ],
+        crossOriginWhitelist: [ afterLoginUrl ],
         routeAfterAuthentication: '/',  //登录成功后跳转到的页面
         authenticationRoute: 'login'  //  登录不成功转回登录页面
   };
