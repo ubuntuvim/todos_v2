@@ -13,9 +13,13 @@ Router.map(function() {
   this.route('register');
   this.route('redirecToIndex');
 
-  this.route('inedex', function() {
-    this.route('loading');
-  });
+
+  // this.route('/', function() {
+  //   this.route('loading');
+  // });
+  this.route('todo-items', function() {
+      this.route('todo-item', { path: '/:td_id'});
+  })
 });
 
 export default Router;

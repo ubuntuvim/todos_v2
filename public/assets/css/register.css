@@ -97,3 +97,30 @@ input[type="password"]::-webkit-input-placeholder {
     text-align: center;
     list-style: none;
 }
+.form-group.form-footer a {
+    color: #1ccdaa;
+    font-weight: bold;
+    text-decoration: none;
+}
+.register-title-font {
+    font-family: "Lato","Open Sans","Microsoft Yahei","微软雅黑",STXihei,"华文细黑","Hiragino Kaku Gothic Pro",Osaka,'ＭＳ Ｐゴシック','MS PGothic','メイリオ',Meiryo,"Geneva CY","Lucida Grande","Arial Unicode MS","Helvetica Neue","Arial",Sans-Serif;
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.inside-block {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    /* width: 360px; */
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    /* height: 100%; */
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    /* padding: 0 0 50px 0; */
+    color: white;
+    overflow: auto;
+}

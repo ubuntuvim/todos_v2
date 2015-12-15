@@ -23,12 +23,12 @@ body #content-login.full-page .inside-block {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  padding: 50px;
+  padding: 0 0 50px 0;
   color: white;
   overflow: auto;
 }
 body #content-login.full-page .inside-block img {
-  margin-top: 50px;
+  margin-top: -10px;
 }
 body #content-login.full-page .inside-block h1 {
   text-transform: uppercase;
@@ -70,8 +70,8 @@ body #content-login.full-page .inside-block h5 {
   margin-bottom: 5px;
 }
 body #content-login.full-page .inside-block form {
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  /*margin-bottom: 40px;*/
 }
 body #content-login.full-page .inside-block form .input-group {
   margin-bottom: 10px;
@@ -130,27 +130,28 @@ body #content-login.full-page .inside-block form .input-group input:-ms-input-pl
   color: rgba(255, 255, 255, 0.6);
 }
 body #content-login.full-page .inside-block form section.controls {
-  text-align: left;
+  /*text-align: left;*/
   position: relative;
 }
 body #content-login.full-page .inside-block form section.controls .checkbox {
   padding: 0;
   display: inline-block;
-  margin: 0 !important;
+  /*margin: 0 !important;*/
 }
 body #content-login.full-page .inside-block form section.controls a {
   font-size: 12px;
-  margin-top: 5px;
+
+  /*margin-top: 5px;
   display: inline-block;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0;*/
 }
 body #content-login.full-page .inside-block form section.controls a:hover {
   color: white;
   text-decoration: none;
 }
-body #content-login.full-page .inside-block form section.log-in {
+form section.log-in {
   margin-top: 20px;
   border-top: 5px dashed rgba(0, 0, 0, 0.1);
 }
@@ -168,4 +169,25 @@ body #content-login.full-page .inside-block form section.log-in span {
 }
 .input-group .form-control:last-child {
   border-radius: 4px !important;
+}
+.remember {
+  color: white;
+  font-size: 13px;
+  margin-top: -10px;
+}
+.member-register {
+  margin: 10px;
+}
+.member-register a {
+  color: #1ccdaa;
+  font-size: 12px;
+}
+.member-register a:hover {
+  color: #1ccdaa;
+  font-size: 12px;
+  text-decoration: none;
+}
+.clear-pd-lr {
+  padding-left:0 !important;
+  padding-right:0 !important;
 }

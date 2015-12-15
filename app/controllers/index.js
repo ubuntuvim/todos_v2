@@ -3,6 +3,8 @@
 import Ember from 'ember';
 // import filterByQuery from 'ember-cli-filter-by-query/util/filter';
 
+import config from '../config/environment';
+
 /**
  * 处理界面的action
  */
@@ -145,8 +147,10 @@ export default Ember.Controller.extend({
 		},
 		//  完成todo
 		completedTodoItem: function(param) {
+            console.log('param >>> ' + param);
 			// 修改本todo的完成状态
-			this.store.findRecord('todo-item', param).then(function(todo) {
+            var _this = this;
+		    this.store.findRecord('todo-item', param).then(function(todo) {
 				if (todo.get('checked')) {
 					todo.set('checked', false);
 					todo.set('recordStatus', 1);  //设置为未完成状态
@@ -154,19 +158,21 @@ export default Ember.Controller.extend({
 					todo.set('checked', true);
 					todo.set('recordStatus', 2);  //设置为完成状态
 				}
-			  	todo.save();
+				_this.updateById(param, todo);
 			});
-
 		},
 		//  修改星号状态，todo列表以星号状态排序，有星号的排前面
 		changeStarStatus: function(params) {
+            var _this = this;
 			this.store.findRecord('todo-item', params).then(function(todo) {
 				if (todo.get('star')) {
 					todo.set('star', false);
 				} else {
 					todo.set('star', true);
 				}
-				todo.save();
+				// todo.save();
+				
+				_this.updateById(params, todo);
 			});
 		},
 		//  设置过滤条件为参数值
@@ -195,4 +201,25 @@ export default Ember.Controller.extend({
 		}
 
 	}  //end actions
+	/**
+	 * 更新todo
+	 * @param  {[type]} param [todo的id]
+	 * @param  {[type]} todo  [model名称]
+	 * @return {[type]}       [void]
+	 */
+	,updateById: function(param, todo) {
+
+        Ember.$.ajax({
+            url: config.apiBaseUrl + '/todo-item/update/'+param,
+            type: 'POST',
+            data: JSON.stringify(todo),
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json'
+        }).then(function(response) {
+        	// Ember.run(null, resolve, response);
+        	console.log('response = ' + response);
+        }, function(xhr, status, error) {
+        	// Ember.run(null, reject, xhr);
+        });
+	}
 });

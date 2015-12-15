@@ -11,15 +11,7 @@
 </div>
 
 <script>
-// just for the demos, avoids form submit
-//$.extend( $.validator.defaults, settings );
-jQuery.validator.setDefaults({
-  debug: true,
-  // success: "parsley-success",
-  // errorClass: 'parsley-error',
-  // errorElement: 'input'
-});
-$("#parsley-validate").validate({
+$("#register-form-validate").validate({
 	rules: {
 		email: {
 	        required: true,
@@ -53,9 +45,10 @@ $("#parsley-validate").validate({
 	    }
 	}
 });
+
 </script>
 
-<form class="form-horizontal" role="form" id="parsley-validate" {{action 'register' on='submit'}}>
+<form class="form-horizontal" role="form" id="register-form-validate" {{action 'register' on='submit'}}>
 
   <div class="form-group">
     <div class="col-md-12 col-sm-12">
@@ -96,17 +89,20 @@ $("#parsley-validate").validate({
           {{input type="file" multiple="" name="file"}}
         </span>
       </span>
-      <input type="text" class="form-control file-input-show" placeholder="上传头像" name="userPic" readonly="true" value=userPic>
+      {{input type="text" class="form-control file-input-show" placeholder="上传头像" name="userPic" readonly="true" value=userPic}}
     </div>
     </div>
   </div>
 
 
   <div class="form-group form-footer">
-    <div class="col-sm-offset-5 col-sm-8">
-      <button type="submit" class="btn btn-greensea">注册</button>
-      <button type="reset" class="btn btn-slategray">清空</button>
+    <div class="" style="">
+      <button type="submit" class="btn btn-greensea col-sm-8 col-sm-offset-2">注册</button>
+      <!-- <button type="reset" class="btn btn-slategray">清空</button>  -->
     </div>
   </div>
 
+  <div style="color: white;text-align: center;" class="form-group form-footer">
+    已经拥有帐户了?{{#link-to 'login'}} 登录{{/link-to}}
+  </div>
 </form>
