@@ -1,7 +1,4 @@
 {{! app/templates/index.hbs  APP首页 }}
-<!-- Preloader -->
-<div class="mask"><div id="loader"></div></div>
-<!--/Preloader -->
 
   <!-- Wrap all page content here -->
   <div id="wrap">
@@ -214,8 +211,6 @@
       </div>
 
 
-
-
       <!-- 右侧设置todo项详细信息面板，布局有问题，暂时注释掉 -->
       <!-- {{#right-item-panel}}{{/right-item-panel}} -->
 
@@ -226,3 +221,8 @@
 
   </div>
   <!-- Wrap all page content end -->
+<!-- Preloader -->
+<div class="mask {{if todoTotlaCount 'hidden-mask-loading' 'show-mask-loading'}}">
+  <div id="loader" class="{{if todoTotlaCount 'hidden-mask-loading' 'show-mask-loading'}}"></div>
+</div>
+<!--/Preloader -->

@@ -14,8 +14,9 @@ export default Ember.Component.extend({
             // console.log(this.transitionToRoute('introduction'));
 			var user = this.getProperties('username', 'password', 'email', 'userPic');
             //  如果没有设置头像，默认设置一个头像
-            if (!user.userPic)
+            if (!user.userPic) {
                 user.userPic = "";
+            }
 
             this.set('isShowOrHide', true);
 			var __this = this;

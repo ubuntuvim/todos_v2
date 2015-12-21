@@ -1,3 +1,10 @@
+.show-mask-loading {
+  display: block;
+}
+.hidden-mask-loading {
+  display: none;
+}
+
 .show-todos-list-style {
     border-bottom: 1px dotted #ccc;
     min-height: 45px;

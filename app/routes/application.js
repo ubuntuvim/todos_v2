@@ -11,11 +11,7 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
  */
 export default Ember.Route.extend(ApplicationRouteMixin, {
 
-	//  获取firebase数据并返回到页面
-	model: function() {
-		return this.store.findAll('todo-item');
-		// return this.store.findRecord('todoItem', 1);
-	},
+	
 	actions: {
         invalidateSession: function() {
             this.get('session').invalidate();

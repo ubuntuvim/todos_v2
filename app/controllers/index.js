@@ -13,20 +13,25 @@ export default Ember.Controller.extend({
     queryParams: ['queryValue', { recordStatus: 'recordStatus', refreshModel: true }],
     queryValue: '',
     //todo项状态recordStatus：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
-    recordStatus: 1,  //默认显示未完成
+    recordStatus: 'all',  //默认显示未完成
 
     //  根据是否完成过滤
     completedList: Ember.computed('recordStatus', 'model', function() {
+
 	  var recordStatus = this.get('recordStatus');
 	  // console.log('recordStatus = ' + recordStatus);
       var todo = this.get('model');
 
       //  直接根据模板设置的过滤条件过滤数据
       if (1 === recordStatus) {  //
-
+      	this.set('recordStatus', 'xxx');
       	this.set('showNCAll', true);  //设置点击的按钮为激活状态
       	this.set('showCAll', false);  // 另外两个设置为非激活
       	this.set('showAll', false);  //
+      	// store.filter('post', { unread: true }, function(post) {
+      	this.set('recordStatus', recordStatus);
+      	console.log('recordStatus >> = ' + this.get('recordStatus'));
+
 
         return todo.filterBy('recordStatus', 1);
 
@@ -38,30 +43,42 @@ export default Ember.Controller.extend({
 
       	return todo.filterBy('recordStatus', 2);
 
-      } else if ('3' === recordStatus) {
+      } else if (3 === recordStatus) {
 
       	// 删除状态，但是可以恢复
       	return todo.filterBy('recordStatus', 3);
 
-      } else if ('4' === recordStatus) {
+      } else if (4 === recordStatus) {
       	// 删除状态，不可恢复
       	return todo.filterBy('recordStatus', 4);
 
-      } else {   //  全部数据
+      } else if ('all' === recordStatus) {  //  全部数据
 
       	this.set('showNCAll', false);  //
       	this.set('showCAll', false);  // 另外两个设置为非激活
       	this.set('showAll', true);  //设置点击的按钮为激活状态
 
       	return todo;
+      } else { 
+      	todo.filterBy('recordStatus', 1);
+      	this.set('showNCAll', true);  //设置点击的按钮为激活状态
+      	this.set('showCAll', false);  // 另外两个设置为非激活
+      	this.set('showAll', false);  //
+
+      	return todo;
+      	// return todo.filterBy('recordStatus', 1);
       }
     }),
 
     // 查询，返回的todos查询的数据
-    todos: Ember.computed('queryValue', 'completedList', function() {
+    queryFilterTodo: Ember.computed('queryValue', 'completedList', 'recordStatus', function() {
       var queryValue = this.get('queryValue');
+      // console.log('queryValue = ' + queryValue);
       var todo = this.get('completedList');
+      var recordStatus = this.get('recordStatus');
+      console.log('recordStatus = ' + recordStatus);
       if (queryValue) {
+      	
           return todo.filter(function(td) {
           	  //  通过判断包含的方式实现模糊查询效果
         	  return td.get('title').indexOf(queryValue) !== -1;
@@ -74,7 +91,8 @@ export default Ember.Controller.extend({
 
 	// using a custom sort function
 	// http://emberjs.com/api/classes/Ember.computed.html#method_sort
-	orderByCreateTime: Ember.computed.sort('todos', function(a, b){
+	orderByCreateTime: Ember.computed.sort('queryFilterTodo', function(a, b){
+		
 	  // 比较创建的时间，新创建的排最后
 	  if (a.timestamp > b.timestamp) {
 		  return 1;
@@ -87,15 +105,15 @@ export default Ember.Controller.extend({
 
     //  排序设置，形成排序链，todos查询 --> orderByCreateTime(创建时间升序)  --> orderByStarStatusFromList(根据星号标记降序)
     // using standard ascending sort
-    todosSorting: ['star:desc'],
-    orderByStarStatusFromList: Ember.computed.sort('orderByCreateTime', 'todosSorting'),
+    orderField: ['star:desc'],
+    orderByStarStatusFromList: Ember.computed.sort('orderByCreateTime', 'orderField'),
 
 
     // testTodo: filterByQuery( 'todo-item', ['title'], 'query'),
 
 	//  获取Store中所有的todo-item数据
 	todosForTotla: Ember.computed(function() {
-      return this.store.peekAll('todo-item');
+      return this.store.findAll('todo-item');
   	}),
 	// 获取删除状态的todo数据
 	delRecordList: Ember.computed('todosForTotla', function() {
@@ -159,6 +177,7 @@ export default Ember.Controller.extend({
 					todo.set('recordStatus', 2);  //设置为完成状态
 				}
 				_this.updateById(param, todo);
+				// todo.save();
 			});
 		},
 		//  修改星号状态，todo列表以星号状态排序，有星号的排前面
@@ -181,7 +200,7 @@ export default Ember.Controller.extend({
 		},
 		//  删除todo，改变状态并不是真的删除.recordStatus->3
 		remoteTodoItem: function(params) {
-			// console.log('delete.....');
+			console.log('delete.....');
 			this.store.findRecord('todo-item', params).then(function(todo) {
 				todo.set('recordStatus', 3);  //改变todo的状态为3，删除状态
 				todo.save();
@@ -208,18 +227,20 @@ export default Ember.Controller.extend({
 	 * @return {[type]}       [void]
 	 */
 	,updateById: function(param, todo) {
-
-        Ember.$.ajax({
-            url: config.apiBaseUrl + '/todo-item/update/'+param,
-            type: 'POST',
-            data: JSON.stringify(todo),
-            contentType: 'application/json;charset=utf-8',
-            dataType: 'json'
-        }).then(function(response) {
-        	// Ember.run(null, resolve, response);
-        	console.log('response = ' + response);
-        }, function(xhr, status, error) {
-        	// Ember.run(null, reject, xhr);
-        });
+		todo.save();
+		// var _this = this;
+  //       Ember.$.ajax({
+  //           url: config.apiBaseUrl + '/todo-item/update/'+param,
+  //           type: 'POST',
+  //           data: JSON.stringify(todo),
+  //           contentType: 'application/json;charset=utf-8',
+  //           dataType: 'json'
+  //       }).then(function(response) {
+  //       	// Ember.run(null, resolve, response);
+  //       	// console.log('response = ' + response);
+  //       	// _this.store.pushPayload(todo);
+  //       }, function(xhr, status, error) {
+  //       	// Ember.run(null, reject, xhr);
+  //       });
 	}
 });
