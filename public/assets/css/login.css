@@ -191,3 +191,11 @@ body #content-login.full-page .inside-block form section.log-in span {
   padding-left:0 !important;
   padding-right:0 !important;
 }
+
+/* 控制是否显示进度提示 */
+.showProcessTool {
+  display: block !important;
+}
+.hiddenProcessTools {
+  display: none !important;
+}

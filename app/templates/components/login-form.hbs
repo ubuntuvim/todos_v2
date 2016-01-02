@@ -1,7 +1,7 @@
 {{! app/templates/components/login-form.hbs }}
 
 <!-- 页面顶部的登录提示，只要控制显隐状态即可  -->
-<div class="ns-box ns-bar ns-effect-exploader ns-type-notice ns-show" style="{{showOrHide}}" id="login-tip">
+<div class="ns-box ns-bar ns-effect-exploader ns-type-notice ns-show {{if isShow 'showProcessTool' 'hiddenProcessTools'}}" id="login-tip">
     <div class="ns-box-inner">
         {{#if errorMessage}}
         {{errorMessage}}
@@ -38,7 +38,8 @@
 
   </section>
 
-  <button class="btn btn-greensea col-md-4 col-xs-4 col-md-offset-4 col-xs-offset-4" type="submit" id="loginButton">
+  <button class="btn btn-greensea col-md-4 col-xs-4 col-md-offset-4 col-xs-offset-4"
+    type="submit" id="loginButton" disabled={{enabled}}>
     登录</button>
     <!--
     &nbsp;&nbsp;
@@ -52,9 +53,31 @@
 </section>
 
 <section class="log-in col-md-4 col-xs-4 col-md-offset-4 col-xs-offset-4 clear-pd-lr" style="margin-top: 20px;">
+
+
+<div class="widget-login mt30">
+    <a href="#" {{action 'googleLogin'}} class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google">
+      <span class="icon-sn-google"></span>
+      <strong class="visible-xs-inline">Google 账号</strong>
+    </a>
+    <a href="#" {{action 'githubLogin'}} class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github">
+      <span class="icon-sn-github"></span>
+      <strong class="visible-xs-inline">Github 账号</strong>
+    </a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+</div>
+
+<!--
  <button class="btn btn-slategray pull-left">新浪微博登录</button>&nbsp;&nbsp;
  <button class="btn btn-slategray">QQ登录</button>&nbsp;&nbsp;
  <button class="btn btn-slategray pull-right">Github登录</button>
+-->
+
 </section>
 <script>
 // just for the demos, avoids form submit

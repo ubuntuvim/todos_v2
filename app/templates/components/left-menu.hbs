@@ -1,48 +1,31 @@
 <!--  左侧菜单  -->
 
 {{!yield}}
-<ul class="nav navbar-nav side-nav" id="sidebar">
-              
-  <li class="collapsed-content"> 
-    <ul>
-      <li class="search"><!-- Collapsed search pasting here at 768px --></li>
-    </ul>
-  </li>
 
-  <li class="navigation" id="navigation">
-    <a href="#" class="sidebar-toggle" data-toggle="#navigation">项目 
-    <i class="fa fa-angle-up"></i></a>
-    
-    <ul class="menu">
-      
-      <li>
-        <a href="/">
-          <i class="fa fa-tachometer"></i> 项目一
-          <span class="badge badge-success" style="margin-right: 30px;">{{noCompletedTodoCount}}</span>
-          <span class="badge badge-transparent-black">{{todoTotlaCount}}</span>
-        </a>
-        
-      </li>
 
-      <li class="">
-        <a href="#">
-          <i class="fa fa-tachometer"></i> 项目二
-          <span class="badge badge-success" style="margin-right: 30px;">2</span>
-          <span class="badge badge-transparent-black">32</span>
-        </a>
-      </li>
+<li class="collapsed-content">
+  <ul>
+    <li class="search"><!-- Collapsed search pasting here at 768px --></li>
+  </ul>
+</li>
 
-      <li>
-        <a href="/">
-          <i class="fa fa-tint"></i> 项目三
-          <span class="badge badge-success" style="margin-right: 30px;">12</span>
-          <span class="badge badge-transparent-black">65</span>
-        </a>
-        
-      </li>
+<li class="navigation" id="navigation">
+  <a href="#" class="sidebar-toggle" data-toggle="#navigation">分类
+      <!-- 点击加号弹出一个表单，用于增加分类，由于弹出层的原因放在index.hbs才不会被遮盖 -->
+  <i class="fa fa-plus" data-toggle="modal" data-target="#addClassifyForm"></i></a>
 
-    </ul>
+  <ul class="menu">
 
-  </li>
-  
-</ul>
+    {{#each projects as |item|}}
+        <li class="li-selector">
+          <a href="{{__BASEURL__}}#?proj=trip" onclick="setIcon(this)">
+            <i class="fa fa-list" {{action 'editClassify' item.id}}></i> {{item.projName}}
+            <span class="badge badge-success" style="margin-right: 30px;">{{completedTodoCount}}</span>
+            <span class="badge badge-transparent-black">{{todoTotlaCount}}</span>
+          </a>
+        </li>
+    {{/each}}
+
+  </ul>
+
+</li>

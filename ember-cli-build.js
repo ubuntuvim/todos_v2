@@ -27,6 +27,7 @@ module.exports = function(defaults) {
   app.import("bower_components/jquery-validation/dist/jquery.validate.js");
   app.import("bower_components/jquery-validation/src/localization/messages_zh.js");
 
+
   // app.import("vendor/fonts/font-awesome.css");
   // app.import("vendor/css/jquery.mmenu.all.css");
   // app.import("vendor/css/minimal.css");

@@ -1,8 +1,9 @@
 # ddlisting天天列表
 主页：[http://www.ddlisting.com](http://www.ddlisting.com)
 
-ddlisting的主旨是：**大事化小，小事化了**。
-<p>&nbsp;&nbsp;&nbsp;&nbsp;通过分割，把一件复杂的事情简化成一件件小todo项，积小成大，最终达到完成复杂事情的目的。
+ddlisting的主旨是：**天天清，天天轻**。
+<p>&nbsp;&nbsp;&nbsp;&nbsp;
+通过分割，把一件复杂的事情简化成一件件小todo项，积小成大，最终达到完成复杂事情的目的。
 </p>
 # 项目设计
 

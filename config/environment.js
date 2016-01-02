@@ -80,13 +80,13 @@ module.exports = function(environment) {
   }
 
 
-  ENV['ember-simple-auth'] = {
-        store: 'simple-auth-session-store:local-storage',
-        authorizer: 'authorizer:oauth2-anthenrizer',
-        crossOriginWhitelist: [ afterLoginUrl ],
-        routeAfterAuthentication: '/',  //登录成功后跳转到的页面
-        authenticationRoute: 'login'  //  登录不成功转回登录页面
-  };
+  // ENV['ember-simple-auth'] = {
+  //       store: 'simple-auth-session-store:local-storage',
+  //       authorizer: 'authorizer:firebase',
+  //       crossOriginWhitelist: [ afterLoginUrl ],
+  //       routeAfterAuthentication: '/',  //登录成功后跳转到的页面
+  //       authenticationRoute: 'login'  //  登录不成功转回登录页面
+  // };
 
   return ENV;
 };

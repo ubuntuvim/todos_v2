@@ -13,7 +13,7 @@ $(function(){
       $('body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a > span').show();
     }
   });
-   
+
 
   //weather icons
   // var icons = new Skycons({"color": "white"});
@@ -66,7 +66,7 @@ $(function(){
   // $("").click(function() {
 
   // });
-  
+
   // 点击回收站，从页面底部向上展开一个列表，显示可以恢复的数据
   // $("#trash-list").mmenu({
   //    offCanvas: {
@@ -89,9 +89,9 @@ $(function(){
   // })
 
   $('#loginButton').on('click', function () {
-    $("#loginPageTip").show();  
+    $("#loginPageTip").show();
   });
-  
+
   /**
    * 点击登录之后在登录页面顶部显示一个进度条，以示正在登录，
    * @param  loginButton 触发按钮的id
@@ -130,7 +130,7 @@ function test(v) {
 
 //  当鼠标移到列表上，显示列表的工具图标
 function showToolsIcon(self) {
-  //  设置显示todo项前面的钩钩 
+  //  设置显示todo项前面的钩钩
   // $($($($(self).children()[0]).children()[0]).children()[0]).css("opacity", '1');
   for (var i = 2; i <= 4; i++) {
     $($($(self).children()[0]).children()[i]).show();
@@ -139,7 +139,7 @@ function showToolsIcon(self) {
 
 //  当鼠标从列表上移开，隐藏列表的工具图标
 function hideToolsIcon(self) {
-  //  隐藏（通过设置透明）todo项前面的钩钩 
+  //  隐藏（通过设置透明）todo项前面的钩钩
   // $($($($(self).children()[0]).children()[0]).children()[0]).css("opacity", '0');
   for (var i = 2; i <= 4; i++) {
     $($($(self).children()[0]).children()[i]).hide();
@@ -147,3 +147,20 @@ function hideToolsIcon(self) {
 }
 
 
+// 设置被点击的菜单图标为edit，设置时候要先重置所有菜单图标为fa-list，在设置被点击的菜单为fa-edit
+function setIcon(self) {
+    //  重置所有的菜单图标
+    $(".li-selector > a > i").each(function() {
+        $(this).removeClass("fa-edit zoomIn");
+    });
+    var child0 = $(self).children()[0];
+    $(child0).addClass("fa-edit");
+    $(child0).addClass('animated zoomIn');
+    // 重置选中状态
+    $(".li-selector").each(function() {
+        $(this).removeClass("active");
+    });
+    //  获取被点击a标签的父元素
+    var parent0 = $(self).parent();
+    $(parent0).addClass("active");
+}

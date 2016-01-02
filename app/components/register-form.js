@@ -1,58 +1,51 @@
 import Ember from 'ember';
+// import Firebase from 'firebase';
 
 import config from '../config/environment';
 
 export default Ember.Component.extend({
 
     session: Ember.inject.service('session'),
+    firebase: Ember.inject.service('firebase'),
 	isShowOrHide: false,
+    enabled: false,
 
 	actions: {
 
 		register: function() {
 
-            // console.log(this.transitionToRoute('introduction'));
-			var user = this.getProperties('username', 'password', 'email', 'userPic');
-            //  如果没有设置头像，默认设置一个头像
-            if (!user.userPic) {
-                user.userPic = "";
-            }
+            var _this = this;
+            //  设置提交按钮为不可用
+            this.set('enabled', true);
 
-            this.set('isShowOrHide', true);
-			var __this = this;
-			Ember.$.ajax({
-                url: config.apiBaseUrl + '/user/register',
-                type: 'POST',
-	            // data: JSON.stringify({
-	            //     username: options.username,
-	            //     email: options.email,
-	            //     userPic: options.userPic,
-	            //     password: options.password
-	            // }),
-	            data: JSON.stringify(user),
-                contentType: 'application/json;charset=utf-8',
-                dataType: 'json'
-            }).then(function(res) {
-            	if ('1' === res.msgCode) {  //注册成功
-            		var user = { email: res.data.email, password: res.data.password };
-                    // 再调用验证登录方法，设置登录信息到session中
-	                __this.get('session').authenticate('authenticator:oauth2-authenticator', user)
-						.then(function(response) {  // 登录成功
-                            __this.get('session').set('session.isAuthenticated', true);
-                            __this.get('session').set('isAuthenticated', true);
-                            //  现转到介绍页面
-                            window.location.href = config.localeBaseUrl + "/introduction";
-						}, function(err) {  //登录失败
-						});
-                    // window.location.href = config.localeBaseUrl + "/introduction";
+            this.get('firebase').createUser({
+                email: _this.get('email'),
+                password: _this.get('password')
+            }, function(error, userData) {
+                if (error) {
+                    console.log("error = " + error);
+                    if ('EMAIL_TAKEN' === error.code) {
+                        _this.set('errorMessage', '此邮箱已经注册过了，请换一个邮箱注册。');
+                    }
 
-            	} else {  //注册失败
-                    __this.set('isShowOrHide', true);
-                    __this.set('errorMessage', res.msg);
-            	}
+                    _this.set('enabled', false);
+                    _this.set('isShowOrHide', true);
 
-            }, function(xhr, status, error) {  //  注册失败
-
+                } else {
+                    _this.set('errorMessage', '注册成功，正在跳转到首页...');
+                    _this.set('isShowOrHide', true);
+                    // console.log('注册成功直接登录到首页');
+                    if (userData.uid) {
+                        _this.get('session').authenticate('authenticator:firebase', {
+                            'email': _this.get('email'),
+                            'password': _this.get('password')
+                        }).then(function() {  // 登录成功
+                            // _this.set('isShowOrHide', true);
+                        }, function(msg) {  //登录失败
+                            // _this.set('isShowOrHide', true);
+            			});
+                    }
+                }
             });
 		},
 		//  点击“关闭”隐藏提示进度条

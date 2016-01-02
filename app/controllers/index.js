@@ -9,82 +9,79 @@ import config from '../config/environment';
  * 处理界面的action
  */
 export default Ember.Controller.extend({
+
 	//  查询，根据title值查询
     queryParams: ['queryValue', { recordStatus: 'recordStatus', refreshModel: true }],
-    queryValue: '',
+    queryValue: null,
     //todo项状态recordStatus：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
-    recordStatus: 'all',  //默认显示未完成
+    recordStatus: '1',  //默认显示未完成
 
-    //  根据是否完成过滤
-    completedList: Ember.computed('recordStatus', 'model', function() {
+	//  获取Store中所有的todo-item数据
+	todosForTotla: Ember.computed(function() {
+      return this.store.findAll('todo-item');
+  	}),
+
+    //  根据是否完成过滤 ember-data 2.0后的版本filterBy方法作为插件的方式支持
+    //  并且使用在计算属性时候computed方法的参数有些不同了，需要指定过滤的属性
+    completedList: Ember.computed('todosForTotla.@each.recordStatus','recordStatus', function() {
 
 	  var recordStatus = this.get('recordStatus');
-	  // console.log('recordStatus = ' + recordStatus);
-      var todo = this.get('model');
+	//   console.log('recordStatus = ' + recordStatus);
+      var todo = this.get('todosForTotla');  //  获取所有的todo-item
 
       //  直接根据模板设置的过滤条件过滤数据
-      if (1 === recordStatus) {  //
-      	this.set('recordStatus', 'xxx');
+      if ('1' === recordStatus) {  //
+
       	this.set('showNCAll', true);  //设置点击的按钮为激活状态
       	this.set('showCAll', false);  // 另外两个设置为非激活
       	this.set('showAll', false);  //
-      	// store.filter('post', { unread: true }, function(post) {
-      	this.set('recordStatus', recordStatus);
-      	console.log('recordStatus >> = ' + this.get('recordStatus'));
 
+        return todo.filterBy('recordStatus', parseInt(recordStatus));
+        // return todo.filter(function(td) {
+        //     return td.get('recordStatus') === 1 || td.get('recordStatus') === '1';
+        // });
 
-        return todo.filterBy('recordStatus', 1);
-
-      } else if (2 === recordStatus)  {  //
+      } else if ('2' === recordStatus)  {  //
 
       	this.set('showNCAll', false);  //设置点击的按钮为激活状态
       	this.set('showCAll', true);  //
       	this.set('showAll', false);  //另外两个设置为非激活
 
-      	return todo.filterBy('recordStatus', 2);
+      	return todo.filterBy('recordStatus', parseInt(recordStatus));
 
-      } else if (3 === recordStatus) {
+      } else if ('3' === recordStatus) {
 
       	// 删除状态，但是可以恢复
-      	return todo.filterBy('recordStatus', 3);
+      	return todo.filterBy('recordStatus', parseInt(recordStatus));
 
-      } else if (4 === recordStatus) {
+      } else if ('4' === recordStatus) {
       	// 删除状态，不可恢复
-      	return todo.filterBy('recordStatus', 4);
+      	return todo.filterBy('recordStatus', parseInt(recordStatus));
 
-      } else if ('all' === recordStatus) {  //  全部数据
+      } else {  //  全部数据
 
       	this.set('showNCAll', false);  //
       	this.set('showCAll', false);  // 另外两个设置为非激活
       	this.set('showAll', true);  //设置点击的按钮为激活状态
 
       	return todo;
-      } else { 
-      	todo.filterBy('recordStatus', 1);
-      	this.set('showNCAll', true);  //设置点击的按钮为激活状态
-      	this.set('showCAll', false);  // 另外两个设置为非激活
-      	this.set('showAll', false);  //
-
-      	return todo;
-      	// return todo.filterBy('recordStatus', 1);
       }
+
     }),
 
     // 查询，返回的todos查询的数据
-    queryFilterTodo: Ember.computed('queryValue', 'completedList', 'recordStatus', function() {
+    queryFilterTodo: Ember.computed('queryValue', 'completedList', function() {
       var queryValue = this.get('queryValue');
-      // console.log('queryValue = ' + queryValue);
+    //   console.log('queryValue = ' + queryValue);
       var todo = this.get('completedList');
-      var recordStatus = this.get('recordStatus');
-      console.log('recordStatus = ' + recordStatus);
       if (queryValue) {
-      	
-          return todo.filter(function(td) {
-          	  //  通过判断包含的方式实现模糊查询效果
-        	  return td.get('title').indexOf(queryValue) !== -1;
-          });
-      } else {
-          return todo;
+
+           return todo.filter(function(td) {
+        	  //  通过判断包含的方式实现模糊查询效果
+      	      return td.get('title').indexOf(queryValue) !== -1;
+           });
+       } else {
+           return todo;
       }
 
     }),
@@ -92,7 +89,7 @@ export default Ember.Controller.extend({
 	// using a custom sort function
 	// http://emberjs.com/api/classes/Ember.computed.html#method_sort
 	orderByCreateTime: Ember.computed.sort('queryFilterTodo', function(a, b){
-		
+
 	  // 比较创建的时间，新创建的排最后
 	  if (a.timestamp > b.timestamp) {
 		  return 1;
@@ -108,13 +105,6 @@ export default Ember.Controller.extend({
     orderField: ['star:desc'],
     orderByStarStatusFromList: Ember.computed.sort('orderByCreateTime', 'orderField'),
 
-
-    // testTodo: filterByQuery( 'todo-item', ['title'], 'query'),
-
-	//  获取Store中所有的todo-item数据
-	todosForTotla: Ember.computed(function() {
-      return this.store.findAll('todo-item');
-  	}),
 	// 获取删除状态的todo数据
 	delRecordList: Ember.computed('todosForTotla', function() {
 		var todo = this.get('todosForTotla');
@@ -190,10 +180,11 @@ export default Ember.Controller.extend({
 					todo.set('star', true);
 				}
 				// todo.save();
-				
+
 				_this.updateById(params, todo);
 			});
 		},
+
 		//  设置过滤条件为参数值
 		showByCondition: function(params) {
 			this.set('recordStatus', params);

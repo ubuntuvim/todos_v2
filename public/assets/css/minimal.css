@@ -613,15 +613,19 @@ body .navbar .navbar-nav.side-nav {
     body .navbar .navbar-nav.side-nav > li > a.sidebar-toggle {
       font-family: "Roboto Condensed", sans-serif;
       font-size: 11px;
-      color: rgba(0, 0, 0, 0.3);
+      /*color: rgba(0, 0, 0, 0.3);*/
       text-transform: uppercase;
-      font-weight: 700; }
+      font-weight: 700;
+      cursor: default;
+    }
       body .navbar .navbar-nav.side-nav > li > a.sidebar-toggle > i {
         font-size: 14px;
         line-height: 45px;
+        cursor: pointer;
         float: right; }
       body .navbar .navbar-nav.side-nav > li > a.sidebar-toggle:hover {
-        color: rgba(0, 0, 0, 0.4); }
+        /*color: rgba(0, 0, 0, 0.4); */
+    }
       body .navbar .navbar-nav.side-nav > li > a.sidebar-toggle.underline {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         padding: 0;
@@ -649,7 +653,8 @@ body .navbar .navbar-nav.side-nav {
           margin-right: 8px;
           width: 15px;
           display: inline-block;
-          text-align: center; }
+          text-align: center;
+      }
         body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a > b.dropdown-plus {
           float: right;
           line-height: 40px;
@@ -679,7 +684,7 @@ body .navbar .navbar-nav.side-nav {
           text-decoration: none; }
         body .navbar .navbar-nav.side-nav > li.navigation .menu > li > a .badge {
           position: absolute;
-          top: 8px;
+          top: 11px;
           /*left: 23px;*/
           right: 2px;
           z-index: 9;
