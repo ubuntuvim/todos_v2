@@ -1,0 +1,67 @@
+[class*=btn-sn-], [class*=btn-sn-]:active, [class*=btn-sn-]:focus, [class*=btn-sn-]:hover {
+    border: none;
+    color: #fff;
+}
+.btn-sn-google {
+    background: #4285F4;
+}
+.pr-5, .pr5 {
+    padding-right: 5px;
+}
+.pl-5, .pl5 {
+    padding-left: 5px;
+}
+.mb-5, .mb5 {
+    margin-bottom: 5px;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn, .btn-group, .btn-group-vertical, .caret, .checkbox-inline, .fa-stack, .radio-inline, img {
+    vertical-align: middle;
+}
+
+[class*=btn-sn-] [class*=icon-sn-] {
+    background-color: transparent;
+}
+[class*=icon-sn-] {
+    display: inline-block;
+    background-image: url(../../images/3th-login/social-icons/icon-sn.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-background-size: auto 20px;
+    -o-background-size: auto 20px;
+    -webkit-background-size: auto 20px;
+    background-size: auto 20px;
+}
+.icon-sn-google {
+    background-color: #4285F4;
+    background-position: 0 0;
+}
