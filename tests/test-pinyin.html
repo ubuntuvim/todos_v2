@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        var $PinYin = new Object();
+        var $ = function(o) { if (o) { return document.getElementById(o); } }
+        $PinYin.ds = {};
+        $PinYin.change = function(ch) { for (var n in $PinYin.ds) { if ($PinYin.ds[n].indexOf(ch) != -1) return n; } return ch; }
+        $PinYin.search = function(val) {
+            var py = "";
+            for (var i = 0; i < val.length; i++) {
+                var ch = val.charAt(i);
+                if (/^[\u4E00-\u9FA5]$/.test(ch)) ch = $PinYin.change(ch);
+                py += ch
+            }
+            return py;
+        }
+        $PinYin.searchCap = function(val) {
+            var py = "";
+            for (var i = 0; i < val.length; i++) {
+                var ch = val.charAt(i);
+                if (/^[\u4E00-\u9FA5]$/.test(ch)) ch = $PinYin.change(ch);
+                py += ch.charAt(0);
+            }
+            //return py;
+            $('en').value = py;
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="ch"  onblur="$PinYin.searchCap(this.value)"/>
+<input type="text" id="en" />
+</body>
+</html>
