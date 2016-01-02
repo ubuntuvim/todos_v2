@@ -1,7 +1,6 @@
 // app/controllers/index.js
 
 import Ember from 'ember';
-// import filterByQuery from 'ember-cli-filter-by-query/util/filter';
 
 import config from '../config/environment';
 
