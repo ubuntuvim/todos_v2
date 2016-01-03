@@ -34,12 +34,16 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-	  editClassify: function(param) {
-		  var classify = this.store.findRecord("project", param);
-		  Ember.$('#addClassifyForm').modal('toggle');
-		  console.log('classify.projName = ' + classify.get('projName'));
+	  toEditClassify: function(param) {
+		  var cfy = this.store.peekRecord("project", param);
+		  Ember.$('#editClassifyModal').modal('toggle');
+		  //  设置信息到编辑表单，被设置的表单放在index.hbs（遮盖层的原因）
+		  Ember.$("#projName1").val(cfy.get('projName'));
+		  Ember.$("#projCode1").val(cfy.get('projCode'));
+		  Ember.$("#projId1").val(cfy.get('id'));
 
-		  return classify;
+		//   Ember.$("#timestamp1").val(cfy.get('timestamp'));
+		//   Ember.$("#todoItems1").val(cfy.get('todoItems'));
 	  }
   }
 

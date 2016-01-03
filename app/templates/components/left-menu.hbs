@@ -2,7 +2,6 @@
 
 {{!yield}}
 
-
 <li class="collapsed-content">
   <ul>
     <li class="search"><!-- Collapsed search pasting here at 768px --></li>
@@ -19,7 +18,7 @@
     {{#each projects as |item|}}
         <li class="li-selector">
           <a href="{{__BASEURL__}}#?proj=trip" onclick="setIcon(this)">
-            <i class="fa fa-list" {{action 'editClassify' item.id}}></i> {{item.projName}}
+            <i class="fa fa-list" {{action 'toEditClassify' item.id}}></i> {{item.projName}}
             <span class="badge badge-success" style="margin-right: 30px;">{{completedTodoCount}}</span>
             <span class="badge badge-transparent-black">{{todoTotlaCount}}</span>
           </a>

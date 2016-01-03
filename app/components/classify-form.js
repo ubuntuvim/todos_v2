@@ -4,6 +4,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+    classify: null,
+
     actions: {
         // 新增分类
         addClassify: function() {
@@ -22,7 +24,7 @@ export default Ember.Component.extend({
                 // userId:   // 用户id
                 todoItems: null  //关联todo
 			});
-			// proj.save();
+			proj.save();
 			// 隐藏弹出的表单
             Ember.$('#addClassifyForm').modal('toggle');
         }
