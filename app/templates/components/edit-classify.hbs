@@ -1,0 +1,35 @@
+{{!编辑分类}}
+
+<!-- 新增分类 注意id：addClassifyForm与组建类关联了 -->
+<div class="modal fade" id="editClassifyModal" tabindex="9999" role="dialog" aria-labelledby="editModalLabel">
+
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="editModalLabel" style="text-align: center; font-weight: bold;">编辑分类</h4>
+      </div>
+      <div class="modal-body" style="padding: 0 15px;">
+          <div class="form-group">
+            {{input type="text" class="form-control" id="projName1"
+                value=projName placeholder="分类名称"}}
+
+            {{input type="hidden" value=id id="projId1"}}
+            <!-- {{input type="hidden" value=timestamp id="timestamp1"}}
+            {{input type="hidden" value=projStatus id="projStatus1"}}
+            {{input type="hidden" value=todoItems id="todoItems1"}} -->
+          </div>
+          <!-- <div class="form-group">
+            <input type="text" class="form-control" id="recipient-name" value={{classify.projName}}>
+          </div> -->
+      </div>
+      <div class="modal-footer" style="padding: 10px 15px;">
+          {{button-with-confirmation type="button" class="btn btn-sm btn-red pull-left"
+           text="您确定要删除这个分类吗？" onConfirm=(action 'delClassify')}}
+
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-sm btn-greensea" {{action 'editClassify'}}>保存</button>
+      </div>
+    </div>
+  </div>
+
+</div>
