@@ -17,10 +17,11 @@ export default Ember.Component.extend({
             var _this = this;
             //  设置提交按钮为不可用
             this.set('enabled', true);
+            var pwd = md5(this.get('password'));  // md5加密
 
             this.get('firebase').createUser({
                 email: _this.get('email'),
-                password: _this.get('password')
+                password: pwd
             }, function(error, userData) {
                 if (error) {
                     console.log("error = " + error);
@@ -38,7 +39,7 @@ export default Ember.Component.extend({
                     if (userData.uid) {
                         _this.get('session').authenticate('authenticator:firebase', {
                             'email': _this.get('email'),
-                            'password': _this.get('password')
+                            'password': _this.get('password')  // 在firebase里加密
                         }).then(function() {  // 登录成功
                             // _this.set('isShowOrHide', true);
                         }, function(msg) {  //登录失败
