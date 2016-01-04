@@ -2,7 +2,7 @@
 
 import Ember from 'ember';
 import Firebase from 'firebase';
-// import LocalStorageStore from 'ember-simple-auth/session-stores/local-storage';
+import LocalStorageStore from 'ember-simple-auth/session-stores/local-storage';
 
 //  导入全局配置
 import config from '../config/environment';
@@ -28,14 +28,14 @@ export default Ember.Component.extend({
 
 			//  显示进度提示
 			this.set('isShow', true);
-
+            // this.get('session').set('LOGIN_USER_EMAIL', that.get('email'));
+            // LocalStorageStore.persist(that.get('email'));
 			this.get('session').authenticate('authenticator:firebase', {
                 'email': that.get('email'),
                 'password': that.get('password')
             }).then(function() {  // 登录成功
-
             }, function(msg) {  //登录失败
-
+                Ember.Logger.info(msg);
                 that.set('enabled', false);
             	// 根据返回的错误码显示不同的信息
 				if ('INVALID_PASSWORD' === msg.code) {
@@ -47,19 +47,6 @@ export default Ember.Component.extend({
 				}
 
 			});
-
-
-			// this.get('session').authenticate('authenticator:oauth2-authenticator', user)
-			// 	.then(function(response) {  // 登录成功
-			// 		that.set('errorMessage', '登录成功。');
-
-			// 		//  登录成功直接跳转到APP首页
-   //              	window.location.href = config.localeBaseUrl;
-			// 	}, function(msg) {  //登录失败
-			// 		//  登录失败的跳转回login页面，并把提示信息response返回到界面
-	  //               //  login页面要在config/environment.js里配置
-			// 		that.set('errorMessage', msg);
-			// 	});
 		},
 		//  当用户名和密码输入框发生改变就隐藏进度提示
 		hideTipOnChange: function() {
@@ -98,7 +85,6 @@ export default Ember.Component.extend({
 			this.set('isShow', true);
 
 			this.get('session').authenticate('authenticator:google-oauth2').then(function(data) {  // 登录成功
-                console.log('登录成功 ' + data);
                 // that.set('isShow', true);
 				// 跳转到首页，如果不用这个跳转默认使用ember的transitionTo()跳转，页面没有加载效果
                 window.location.href = config.localeBaseUrl;

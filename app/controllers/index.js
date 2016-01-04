@@ -9,24 +9,44 @@ import config from '../config/environment';
  */
 export default Ember.Controller.extend({
 
+    session: Ember.inject.service('session'),
 	//  查询，根据title值查询
-    queryParams: ['queryValue', { recordStatus: 'recordStatus', refreshModel: true }],
+    queryParams: ['queryValue', 'projCode', 'recordStatus'],
     queryValue: null,
+    projCode: 'myTodos',
     //todo项状态recordStatus：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
     recordStatus: '1',  //默认显示未完成
+    userId: null,
 
 	//  获取Store中所有的todo-item数据
 	todosForTotla: Ember.computed(function() {
       return this.store.findAll('todo-item');
   	}),
 
+    // 过滤其他用户，只显示当前登录用户的数据
+    todosFilterByUserId: Ember.computed('todosForTotla.@each.user', function() {
+        var userId = this.getUserIdFromSession();
+        return this.get('todosForTotla').filterBy('user', userId);
+    }),
+
+    // 根据选中左侧的分类过滤
+    classifyList: Ember.computed('todosFilterByUserId.@each.project','todosFilterByUserId', 'projCode', function() {
+        var pc = this.get('projCode');
+        var todos = this.get('todosFilterByUserId');
+        if (pc) {
+            return todos.filterBy('project', pc);
+        } else {
+            return todos;
+        }
+    }),
+
     //  根据是否完成过滤 ember-data 2.0后的版本filterBy方法作为插件的方式支持
     //  并且使用在计算属性时候computed方法的参数有些不同了，需要指定过滤的属性
-    completedList: Ember.computed('todosForTotla.@each.recordStatus','recordStatus', function() {
+    completedList: Ember.computed('classifyList.@each.recordStatus','recordStatus', function() {
 
 	  var recordStatus = this.get('recordStatus');
 	//   console.log('recordStatus = ' + recordStatus);
-      var todo = this.get('todosForTotla');  //  获取所有的todo-item
+      var todo = this.get('classifyList');  //  获取所有的todo-item
 
       //  直接根据模板设置的过滤条件过滤数据
       if ('1' === recordStatus) {  //
@@ -110,27 +130,41 @@ export default Ember.Controller.extend({
 		return todo.filterBy('recordStatus', 3);
 	}),
 
-	//  获取未完成的todo数量
-	noCompletedTodoCount: Ember.computed('todosForTotla.@each.recordStatus', function() {
-      return this.get('todosForTotla').filterBy('recordStatus', 1).get('length');
+	//  获取未完成的todo数量，不分类型，只要是登录用户的都显示
+	noCompletedTodoCount: Ember.computed('classifyList.@each.recordStatus', function() {
+      return this.get('classifyList').filterBy('recordStatus', 1).get('length');
     }),
-	//  获取已经完成的todo数量
-	completedTodoCount: Ember.computed('todosForTotla.@each.recordStatus', function() {
-      return this.get('todosForTotla').filterBy('recordStatus', 2).get('length');
+	//  获取已经完成的todo数量，不分类型，只要是登录用户的都显示
+	completedTodoCount: Ember.computed('classifyList.@each.recordStatus', function() {
+      return this.get('classifyList').filterBy('recordStatus', 2).get('length');
     }),
-    //  获取设置为删除状态3的todo数量，可恢复
-	recoverableTodoCount: Ember.computed('todosForTotla.@each.recordStatus', function() {
-      return this.get('todosForTotla').filterBy('recordStatus', 3).get('length');
+    //  获取设置为删除状态3的todo数量，可恢复，不分类型，只要是登录用户的都显示
+	recoverableTodoCount: Ember.computed('classifyList.@each.recordStatus', function() {
+      return this.get('classifyList').filterBy('recordStatus', 3).get('length');
     }),
-    //  获取todo总数量
-	todoTotlaCount: Ember.computed('todosForTotla.@each.recordStatus', function() {
-      return this.get('todosForTotla').get('length');
+    //  获取todo总数量，不分类型，只要是登录用户的都显示
+	todoTotlaCount: Ember.computed('classifyList.@each.recordStatus', function() {
+      return this.get('classifyList').get('length');
+    }),
+    loadingMaskFlag: Ember.computed('orderByStarStatusFromList', function() {
+        var v = this.get('orderByStarStatusFromList');
+        if (v) {
+            return true;
+        } else {
+            return false;
+        }
     }),
 
 	actions: {
 		//  新建todo
 		createNewTodoItem: function() {
 			var title = this.get('title');
+            var userId = this.getUserIdFromSession();
+            var project = this.get('projCode');
+            // 如果未选中任何分类默认放在"我的Todo"分类中
+            if (Ember.isEmpty(project))
+                project = "myTodos";
+
 			var todoItem = this.store.createRecord('todo-item', {
 				title: title,
 			    checked: false,
@@ -139,14 +173,14 @@ export default Ember.Controller.extend({
 			    recordStatus: 1,  //todo项状态：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
 			    startDate: new Date(),  //任务开始时间
 			    endDate: new Date(),  //任务结束时间
-			    isPublish: 1  //是否公开：1-公开(任何人都可以看到)；0-不公开(自己看)
+			    isPublish: 1,  //是否公开：1-公开(任何人都可以看到)；0-不公开(自己看)
 
 			    // 这些关系属性暂时还没有，后面完善之后再添加关联关系
 			    // ,childTodos: null,  //如果当前todo有子todo则这个属性指向子todo
 			    // parentTodo: null,  //如果当前todo是子todo则这个属性指向自己的父todo
-			    // user: null,
+			    user: userId,
 			    // comments: null,
-			    // project: null  //所属项目
+			    project: project  //所属项目
 			});
 			todoItem.save();
 			//  清空页面值
@@ -154,7 +188,7 @@ export default Ember.Controller.extend({
 		},
 		//  完成todo
 		completedTodoItem: function(param) {
-            console.log('param >>> ' + param);
+
 			// 修改本todo的完成状态
             var _this = this;
 		    this.store.findRecord('todo-item', param).then(function(todo) {
@@ -190,7 +224,7 @@ export default Ember.Controller.extend({
 		},
 		//  删除todo，改变状态并不是真的删除.recordStatus->3
 		remoteTodoItem: function(params) {
-			console.log('delete.....');
+
 			this.store.findRecord('todo-item', params).then(function(todo) {
 				todo.set('recordStatus', 3);  //改变todo的状态为3，删除状态
 				todo.save();
@@ -207,8 +241,13 @@ export default Ember.Controller.extend({
 			}, function(error) {
 				console.log('撤销删除失败！['+error+']');
 			});
-		}
-
+		},
+        //  这个方法是在left-menu.hbs中触发，
+        // 详情请参考：http://emberjs.com/api/classes/Ember.Component.html#method_send
+        setProjCoce: function(data) {
+            //  修改分类参数
+            this.set('projCode', data);
+        }
 	}  //end actions
 	/**
 	 * 更新todo
@@ -232,5 +271,8 @@ export default Ember.Controller.extend({
   //       }, function(xhr, status, error) {
   //       	// Ember.run(null, reject, xhr);
   //       });
-	}
+	},
+    getUserIdFromSession: function() {
+        return this.get('session').get('data').authenticated.uid;
+    }
 });

@@ -1,6 +1,6 @@
 <!--  右上角消息提示  -->
 {{!yield}}
-<ul class="nav navbar-nav quick-actions">
+<!-- <ul class="nav navbar-nav quick-actions"> -->
 	<li class="dropdown divided">
 
 	  <a class="dropdown-toggle button" data-toggle="dropdown" href="#">
@@ -57,7 +57,7 @@
 	    <img src="assets/images/profile-photo.jpg" alt />
 	  </div>
 	  <a class="dropdown-toggle options" data-toggle="dropdown" href="#">
-	    John Douey <i class="fa fa-caret-down"></i>
+	    {{userEmail}}{{!session.data.authenticated.LOGIN_USER_EMAIL}} <i class="fa fa-caret-down"></i>
 	  </a>
 	  <!-- 背景色设置 -->
 	  <ul class="dropdown-menu arrow settings">
@@ -99,4 +99,4 @@
 	    </li>
 	  </ul>
 	</li>
-</ul>
+<!-- </ul> -->

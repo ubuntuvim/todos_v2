@@ -14,6 +14,7 @@ export default Base.extend({
         this._super();
     },
     firebase: null,
+    session: Ember.inject.service('session'),
     restore: function(data) {
 
         var _this = this;
@@ -44,6 +45,7 @@ export default Base.extend({
         var _this = this;
 
         return new Promise(function(resolve, reject) {
+            _this.get('session').set('LOGIN_USER_EMAIL', options.email);
 
             _this.get('firebase').authWithPassword({
                 'email': options.email,
@@ -53,6 +55,8 @@ export default Base.extend({
                     if (error) {
                         reject(error);
                     } else {
+                        // 设置用户信息到session中
+                        _this.get('session').set('LOGIN_USER_ID', authData.uid);
                         resolve(authData);
                     }
                 });

@@ -16,7 +16,7 @@ export default DS.Model.extend({
   // 关系放在多的一方，当时model类还需要使用这个属性关联
   childTodos: DS.hasMany('todo-item', { inverse: 'parentTodo' }),  //如果当前todo有子todo则这个属性指向子todo
   parentTodo: DS.belongsTo('todo-item', { inverse: 'childTodos' }),  //如果当前todo是子todo则这个属性指向自己的父todo
-  user: DS.belongsTo('user'),
+  user: DS.attr('string'),  // 登录用户id
   // comments: DS.hasMany('comment'),  // 关系放在多的一方
-  project: DS.belongsTo('project')  //所属项目
+  project: DS.attr('string')  //所属项目编号
 });

@@ -15,8 +15,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	// },
 
 	//  获取firebase数据并返回到页面
-	model: function() {
-		return this.store.findAll('todo-item');
-		// return this.store.findRecord('todoItem', 1);
-	}
+	// model: function() {
+	// 	return this.store.peekAll('todo-item');
+	// 	// return this.store.findRecord('todoItem', 1);
+	// }
+	
 });

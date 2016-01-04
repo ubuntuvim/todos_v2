@@ -8,19 +8,27 @@
   </ul>
 </li>
 
-<li class="navigation" id="navigation">
+<li class="navigation" >
   <a href="#" class="sidebar-toggle" data-toggle="#navigation">分类
       <!-- 点击加号弹出一个表单，用于增加分类，由于弹出层的原因放在index.hbs才不会被遮盖 -->
-  <i class="fa fa-plus" data-toggle="modal" data-target="#addClassifyForm"></i></a>
+  <i class="fa fa-plus" {{action 'toAddClassifyModal'}}></i>
+</a>
 
   <ul class="menu">
-
+    <li class="li-selector active" style="cursor: pointer;">
+        <a {{action 'setProjCoce' 'myTodos'}} onclick="setIcon(this)" id="myTodos">
+            <i class="fa fa-list"></i> 我的TODO
+            {{!completed-todos-count-by-classify-cpm projCode='myTodos' store=store}}
+            {{no-completed-todos-count-by-classify projCode='myTodos' store=store}}
+        </a>
+    </li>
     {{#each projects as |item|}}
         <li class="li-selector">
-          <a href="{{__BASEURL__}}#?proj=trip" onclick="setIcon(this)">
+            <!-- {{__BASEURL__}}?projCode={{item.projCode}} -->
+          <a href="#" {{action 'setProjCoce' item.projCode}} onclick="setIcon(this)">
             <i class="fa fa-list" {{action 'toEditClassify' item.id}}></i> {{item.projName}}
-            <span class="badge badge-success" style="margin-right: 30px;">{{completedTodoCount}}</span>
-            <span class="badge badge-transparent-black">{{todoTotlaCount}}</span>
+            {{!completed-todos-count-by-classify-cpm projCode=item.projCode store=store}}
+            {{no-completed-todos-count-by-classify projCode=item.projCode store=store}}
           </a>
         </li>
     {{/each}}

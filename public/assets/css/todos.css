@@ -295,3 +295,6 @@ input[type=checkbox] {
 .feature-grid > a:hover, .hero-wrapper > a:hover {
     text-decoration: none;
 }
+.mr30 {
+    margin-right: 30px;
+}

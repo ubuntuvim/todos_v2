@@ -14,6 +14,7 @@ export default Base.extend({
         this._super();
     },
     firebase: null,
+    session: Ember.inject.service('session'),
     restore: function(data) {
 
         return new Ember.RSVP.Promise(function(resolve, reject) {
@@ -71,12 +72,16 @@ export default Base.extend({
             //     });
 
             // });
-            
+
             _this.get('firebase').authWithOAuthPopup("github", function(error, authData) {
+                _this.get('session').set('LOGIN_USER_EMAIL', authData.github.email);
+
 				Ember.run(function() {
                     if (error) {
                         reject(error);
                     } else {
+                        // 设置用户信息到session中
+                        _this.get('session').set('LOGIN_USER_ID', authData.uid);
                         resolve(authData);
                     }
                 });

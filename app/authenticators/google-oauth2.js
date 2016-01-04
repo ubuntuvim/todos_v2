@@ -14,6 +14,7 @@ export default Base.extend({
         this._super();
     },
     firebase: null,
+    session: Ember.inject.service('session'),
     restore: function(data) {
 
         return new Ember.RSVP.Promise(function(resolve, reject) {
@@ -31,10 +32,13 @@ export default Base.extend({
 
         return new Promise(function(resolve, reject) {
             _this.get('firebase').authWithOAuthPopup("google", function(error, authData) {
+                _this.get('session').set('LOGIN_USER_EMAIL', authData.google.email);
 				Ember.run(function() {
                     if (error) {
                         reject(error);
                     } else {
+                        // 设置用户信息到session中
+                        _this.get('session').set('LOGIN_USER_ID', authData.uid);
                         resolve(authData);
                     }
                 });

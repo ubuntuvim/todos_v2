@@ -2,6 +2,7 @@ import DS from 'ember-data';
 
 /**
  * 用户信息
+ 2016-01-03 作废，用户类直接使用firebase的用户管理
  */
 export default DS.Model.extend({
   userCode: DS.attr('string'),   // 用户代码，唯一标记

@@ -1,12 +1,15 @@
 //  app/components/tip-msg.js
 
 import Ember from 'ember';
+import Firebase from 'firebase';
 
 /**
  * 修改包裹组件的HTML标签为span，默认的div标签有自己的样式，破坏布局
  */
 export default Ember.Component.extend({
-	tagName: 'span',
+	// <ul class="nav navbar-nav quick-actions">
+	tagName: 'ul',
+	classNames: ['nav navbar-nav quick-actions'],
   	session: Ember.inject.service('session'),
 
 	actions: {
@@ -17,5 +20,10 @@ export default Ember.Component.extend({
 	    invalidateSession: function() {
 	        this.get('session').invalidate();
 	    }
-	}
+	},
+	userEmail: Ember.computed(function() {
+		var v = localStorage.getItem('LOGIN_USER_EMAIL');
+		console.log('localStorage ',v);
+		return v;
+	})
 });

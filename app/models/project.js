@@ -4,6 +4,7 @@ import DS from 'ember-data';
  * 可以这种todo属于某个项目
  */
 export default DS.Model.extend({
+    userId: DS.attr('string'),
     projCode: DS.attr('string'),
     projName: DS.attr('string'),
     timestamp: DS.attr('number'),  //项目创建时间

@@ -28,6 +28,7 @@ export default Ember.Component.extend({
 
               proj.save();
             });
+            this.set('projCode', projCode);
 			// 隐藏弹出的表单
             Ember.$('#editClassifyModal').modal('toggle');
         }

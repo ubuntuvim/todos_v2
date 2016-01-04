@@ -1,9 +1,5 @@
 {{! app/templates/index.hbs  APP首页 }}
 
-<!-- 点击在左侧菜单的加号弹出增加分类的表单 -->
-{{classify-form store=store}}
-{{edit-classify store=store}}
-
 
 <!-- Wrap all page content here -->
 <div id="wrap">
@@ -35,7 +31,7 @@
       {{#tip-msg}}{{/tip-msg}}
 
       <!-- 左侧菜单栏 -->
-     {{left-menu model=model store=store}}
+     {{left-menu model=model store=store setProjCoce=(action "setProjCoce")}}
 
     </div>
     <!--/.nav-collapse -->
@@ -184,9 +180,12 @@
 
 </div>
   <!-- Wrap all page content end -->
-<!-- Preloader -->
-<div class="mask {{if todoTotlaCount 'hidden-mask-loading' 'show-mask-loading'}}">
-  <div id="loader" class="{{if todoTotlaCount 'hidden-mask-loading' 'show-mask-loading'}}"></div>
+<!-- Preloader  -->
+<div class="mask {{if loadingMaskFlag 'hidden-mask-loading' 'show-mask-loading'}}">
+  <div id="loader" class="{{if loadingMaskFlag 'hidden-mask-loading' 'show-mask-loading'}}"></div>
 </div>
 
 <!--/Preloader -->
+<!-- 点击在左侧菜单的加号弹出增加分类的表单 -->
+{{classify-form store=store}}
+{{edit-classify store=store}}

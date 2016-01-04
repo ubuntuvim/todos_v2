@@ -124,10 +124,6 @@ function toggleShowRightPanel() {
   $('#content-main').addClass('main-with-from-open-right-panel');
 }
 
-function test(v) {
-  console.log('selected = ' + v);
-}
-
 //  当鼠标移到列表上，显示列表的工具图标
 function showToolsIcon(self) {
   //  设置显示todo项前面的钩钩
@@ -150,12 +146,17 @@ function hideToolsIcon(self) {
 // 设置被点击的菜单图标为edit，设置时候要先重置所有菜单图标为fa-list，在设置被点击的菜单为fa-edit
 function setIcon(self) {
     //  重置所有的菜单图标
-    $(".li-selector > a > i").each(function() {
-        $(this).removeClass("fa-edit zoomIn");
+    $(".li-selector > a > i").each(function(index) {
+        //  第一个是默认的分类不需要设置
+        if (0 !== index) {
+            $(this).removeClass("fa-edit zoomIn");
+        }
     });
     var child0 = $(self).children()[0];
-    $(child0).addClass("fa-edit");
-    $(child0).addClass('animated zoomIn');
+    if ("myTodos" !== self.id) {
+        $(child0).addClass("fa-edit");
+        $(child0).addClass('animated zoomIn');
+    }
     // 重置选中状态
     $(".li-selector").each(function() {
         $(this).removeClass("active");
