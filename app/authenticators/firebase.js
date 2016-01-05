@@ -71,7 +71,7 @@ export default Base.extend({
                         reject(error);
                     } else {
                         //  保存登录用户的Email到session中
-                        sessionStorage.setItem('LOGIN_USER_EMAIL', eml);
+                        localStorage.setItem('LOGIN_USER_EMAIL', eml);
                         resolve(authData);
                     }
                 });

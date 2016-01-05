@@ -79,8 +79,10 @@ export default Base.extend({
                     if (error) {
                         reject(error);
                     } else {
-                        //  保存登录用户的Email到session中
-                        sessionStorage.setItem('LOGIN_USER_EMAIL', authData.github.email);
+                        //  保存登录用户的Email到session中，github的第三方登录后可以获取登录邮箱
+                        //  为了与Google第三方登录一致也是显示名称
+                        localStorage.setItem('LOGIN_USER_EMAIL', authData.github.displayName);
+                        localStorage.setItem('PROFILE_IMAGE_URL', authData.github.profileImageURL);
                         resolve(authData);
                     }
                 });

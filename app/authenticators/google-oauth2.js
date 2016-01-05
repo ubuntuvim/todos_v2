@@ -37,7 +37,8 @@ export default Base.extend({
                         reject(error);
                     } else {
                         //  保存登录用户的Email到session中
-                        sessionStorage.setItem('LOGIN_USER_EMAIL', authData.google.email);
+                        localStorage.setItem('LOGIN_USER_EMAIL', authData.google.displayName);
+                        localStorage.setItem('PROFILE_IMAGE_URL', authData.google.profileImageURL);
                         resolve(authData);
                     }
                 });
