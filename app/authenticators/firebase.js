@@ -1,3 +1,6 @@
+// firebase邮箱登录处理类
+
+import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
 import Firebase from 'firebase';
 import config from '../config/environment';
@@ -15,6 +18,8 @@ export default Base.extend({
     },
     firebase: null,
     session: Ember.inject.service('session'),
+    store: Ember.inject.service('store'),
+
     restore: function(data) {
 
         var _this = this;
@@ -40,23 +45,33 @@ export default Base.extend({
         });
 
     },
+    // allUsers: Ember.computed(function() {
+    //     return this.get('store').peekAll('user');
+    // });
+    // userCountByUserId: Ember.computed('allUsers.@each.userId', function() {
+    //   return this.get('classifyList').filterBy('recordStatus', 1).get('length');
+    // }),
+
     authenticate: function(options) {
 
         var _this = this;
 
         return new Promise(function(resolve, reject) {
-            _this.get('session').set('LOGIN_USER_EMAIL', options.email);
+            var eml = options.email;
+            // var pwd = options.password;
+            var pwd = md5(options.password);  //暂时不加密，完成密码修改，新增也加密后使用
+            // var hash = md5("value");
 
             _this.get('firebase').authWithPassword({
-                'email': options.email,
-                'password': options.password
+                'email': eml,
+                'password': pwd
             }, function(error, authData) {
                 Ember.run(function() {
                     if (error) {
                         reject(error);
                     } else {
-                        // 设置用户信息到session中
-                        _this.get('session').set('LOGIN_USER_ID', authData.uid);
+                        //  保存登录用户的Email到session中
+                        sessionStorage.setItem('LOGIN_USER_EMAIL', eml);
                         resolve(authData);
                     }
                 });

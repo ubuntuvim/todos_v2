@@ -74,14 +74,13 @@ export default Base.extend({
             // });
 
             _this.get('firebase').authWithOAuthPopup("github", function(error, authData) {
-                _this.get('session').set('LOGIN_USER_EMAIL', authData.github.email);
 
 				Ember.run(function() {
                     if (error) {
                         reject(error);
                     } else {
-                        // 设置用户信息到session中
-                        _this.get('session').set('LOGIN_USER_ID', authData.uid);
+                        //  保存登录用户的Email到session中
+                        sessionStorage.setItem('LOGIN_USER_EMAIL', authData.github.email);
                         resolve(authData);
                     }
                 });

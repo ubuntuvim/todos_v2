@@ -32,13 +32,12 @@ export default Base.extend({
 
         return new Promise(function(resolve, reject) {
             _this.get('firebase').authWithOAuthPopup("google", function(error, authData) {
-                _this.get('session').set('LOGIN_USER_EMAIL', authData.google.email);
 				Ember.run(function() {
                     if (error) {
                         reject(error);
                     } else {
-                        // 设置用户信息到session中
-                        _this.get('session').set('LOGIN_USER_ID', authData.uid);
+                        //  保存登录用户的Email到session中
+                        sessionStorage.setItem('LOGIN_USER_EMAIL', authData.google.email);
                         resolve(authData);
                     }
                 });
