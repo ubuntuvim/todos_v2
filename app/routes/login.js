@@ -1,3 +1,4 @@
+//  app/routes/login.js
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -8,6 +9,7 @@ export default Ember.Route.extend({
             // window.location.href = config.localeBaseUrl;
             this.transitionTo('index');
         } else {
+            this.get('session').invalidate();
             this.transitionTo('login');
         }
     }
