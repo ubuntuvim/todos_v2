@@ -53,5 +53,6 @@ export default Ember.Component.extend({
 		hideTipOnChange: function() {
 			this.set('isShowOrHide', false);
 		}
-	}
+	}  // end actions
+
 });

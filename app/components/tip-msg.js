@@ -22,8 +22,6 @@ export default Ember.Component.extend({
 	    }
 	},
 	userEmail: Ember.computed(function() {
-		var v = localStorage.getItem('LOGIN_USER_EMAIL');
-		console.log('localStorage ',v);
-		return v;
+		return localStorage.getItem('LOGIN_USER_EMAIL');
 	})
 });
