@@ -226,13 +226,17 @@ body .navbar {
       width: 45px;
       vertical-align: top;
       overflow: hidden;
-      margin-left: 15px; }
+      /*margin-left: 15px; */
+  }
       body .navbar .navbar-nav.quick-actions .user .profile-photo img {
         width: 100%; }
     body .navbar .navbar-nav.quick-actions .user > a {
-      font-size: 12px; }
+      font-size: 12px;
+      font-weight: 700;
+       }
       body .navbar .navbar-nav.quick-actions .user > a > i {
-        margin-left: 10px; }
+        /*margin-left: 10px; */
+    }
     body .navbar .navbar-nav.quick-actions .dropdown .dropdown-menu {
       -webkit-animation-duration: 0.3s;
       -moz-animation-duration: 0.3s;
