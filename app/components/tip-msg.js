@@ -18,11 +18,11 @@ export default Ember.Component.extend({
 		 * @return {[type]} [description]
 		 */
 	    invalidateSession: function() {
-			localStorage.clear();  //销毁登录时候保存到session的数据
+			sessionStorage.clear();  //销毁登录时候保存到session的数据
 	        this.get('session').invalidate();
 	    }
 	},
 	userEmail: Ember.computed(function() {
-		return localStorage.getItem('LOGIN_USER_EMAIL');
+		return sessionStorage.getItem('LOGIN_USER_EMAIL');
 	})
 });

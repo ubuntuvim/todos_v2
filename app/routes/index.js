@@ -24,7 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	// }
 
 	// afterModel: function() {
-	// 	var data = localStorage.getItem('LOGIN_USER_EMAIL');
+	// 	var data = sessionStorage.getItem('LOGIN_USER_EMAIL');
 	// 	console.log("afterModel  >> " + data);
 	// // 	return { LOGIN_USER_EMAIL: data };
 	// }
