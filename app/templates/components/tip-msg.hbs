@@ -48,55 +48,82 @@
 
 	</li>
 
+
+	<div class="personal-center" id="personal">
+		<ul class="ddropdown-menu-personal arrow personal-settings" >
+
+  	    <li style="background-color: #fff;">
+			<!-- 背景色设置 -->
+  	      <h3>换肤:</h3>
+  	      <ul id="color-schemes">
+  	        <li><a href="#" class="bg-1"></a></li>
+  	        <li><a href="#" class="bg-2"></a></li>
+  	        <li><a href="#" class="bg-3"></a></li>
+  	        <li><a href="#" class="bg-4"></a></li>
+  	        <li><a href="#" class="bg-5"></a></li>
+  	        <li><a href="#" class="bg-6"></a></li>
+  	      </ul>
+
+  	    </li>
+
+  	    <li class="divider"></li>
+
+  	    <li class="ps-li">
+  	      <a href="#"><i class="fa fa-user"></i> 个人中心</a>
+  	    </li>
+		<li class="ps-li">
+  	      <a href="#"><span class="glyphicon glyphicon-envelope"></span> {{userEmail}}</a>
+  	    </li>
+
+  	    <!--
+  	    <li>
+  	      <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
+  	    </li>
+
+  	    <li>
+  	      <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="user-inbox">3</span></a>
+  	    </li>
+  	    -->
+
+  	    <li class="divider"></li>
+
+  	    <li class="ps-li">
+  	      <a href="#" {{action 'invalidateSession'}}><i class="fa fa-power-off"></i> 退出</a>
+  	    </li>
+  	  </ul>
+	</div>
+
 	<!-- <li class="dropdown divided">
 	  <a href="#mmenu" id="showRightMenu"><i class="fa fa-comments"></i></a>
 	</li> -->
 
 	<li class="dropdown divided user" id="current-user">
-	  <div class="profile-photo">
-	    <img src="assets/images/profile-photo.jpg" alt="头像" width="45px" height="45px" />
+	  <div class="profile-photo" onclick="showOrHidePersonal()" style="cursor: pointer;margin-right: 10px;">
+	    <img src={{profileImageURL}} alt="头像" width="45px" height="45px" />
 	  </div>
-	  <a class="dropdown-toggle options" data-toggle="dropdown" href="#" style="padding: 0 15px 0 0;">
+	  <!-- <a class="dropdown-toggle options" data-toggle="dropdown" href="#" style="padding: 0 15px 0 0;"> -->
+	  <!-- <a class="dropdown-toggle options" href="#" style="padding: 0 15px 0 0;"
+	  	onclick="showOrHidePersonal()">
 		  {{userEmail}} <i class="fa fa-caret-down"></i>
-	  </a>
-	  <!-- 背景色设置 -->
-	  <ul class="dropdown-menu arrow settings">
+	  </a> -->
 
-	    <li>
-
-	      <h3>换肤:</h3>
-	      <ul id="color-schemes">
-	        <li><a href="#" class="bg-1"></a></li>
-	        <li><a href="#" class="bg-2"></a></li>
-	        <li><a href="#" class="bg-3"></a></li>
-	        <li><a href="#" class="bg-4"></a></li>
-	        <li><a href="#" class="bg-5"></a></li>
-	        <li><a href="#" class="bg-6"></a></li>
-	      </ul>
-
-	    </li>
-
-	    <li class="divider"></li>
-
-	    <li>
-	      <a href="#"><i class="fa fa-user"></i> 个人中心</a>
-	    </li>
-
-	    <!--
-	    <li>
-	      <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
-	    </li>
-
-	    <li>
-	      <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="user-inbox">3</span></a>
-	    </li>
-	    -->
-
-	    <li class="divider"></li>
-
-	    <li>
-	      <a href="#" {{action 'invalidateSession'}}><i class="fa fa-power-off"></i> 退出</a>
-	    </li>
-	  </ul>
 	</li>
 <!-- </ul> -->
+
+<script type="text/javascript">
+	function showOrHidePersonal() {
+		if ($("#personal").is(':hidden')) {
+			$('#personal').show().addClass('animated zoomIn');;
+		} else {
+			$('#personal').hide();
+		}
+	}
+
+	$(function() {
+		$("#color-schemes li a").click(function() {
+			var d = $(this).attr("class");
+			var e = $("body").attr("class").split(" ").pop();
+			$("body").removeClass(e).addClass(d)
+		});
+	});
+</script>
