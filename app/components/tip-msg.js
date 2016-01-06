@@ -18,11 +18,20 @@ export default Ember.Component.extend({
 		 * @return {[type]} [description]
 		 */
 	    invalidateSession: function() {
-			sessionStorage.clear();  //销毁登录时候保存到session的数据
+			localStorage.clear();  //销毁登录时候保存到session的数据
 	        this.get('session').invalidate();
 	    }
 	},
 	userEmail: Ember.computed(function() {
-		return sessionStorage.getItem('LOGIN_USER_EMAIL');
+		return localStorage.getItem('LOGIN_USER_EMAIL');
+	}),
+	//  如果是第三方登录用户可以直接获取头像地址
+	profileImageURL: Ember.computed(function() {
+		var url = localStorage.getItem('PROFILE_IMAGE_URL');
+		if (url) {
+			return url;
+		} else { //  第三方用户没有设置头像默认显示项目设置的头像
+			return "assets/images/profile-photo.jpg";
+		}
 	})
 });
