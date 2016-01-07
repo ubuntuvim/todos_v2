@@ -2,6 +2,8 @@
 
 {{!yield}}
 
+<!-- <ul class="nav navbar-nav side-nav collapsed" id="sidebar" tabindex="5000" style="overflow: hidden; outline: none;"> -->
+
 <li class="collapsed-content">
   <ul>
     <li class="search"><!-- Collapsed search pasting here at 768px --></li>
@@ -36,3 +38,19 @@
   </ul>
 
 </li>
+
+<!-- </ul> -->
+
+<script type="text/javascript">
+$(function() {
+    $("#sidebar .menu > li").hover(function() {
+        // console.log('this.......');
+        $(this).addClass("hovered");
+        $("#sidebar").addClass("open");
+    }, function() {
+        $(this).removeClass("hovered");
+        $("#sidebar").removeClass("open");
+    });
+});
+
+</script>
