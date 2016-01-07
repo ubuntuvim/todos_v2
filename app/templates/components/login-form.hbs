@@ -64,12 +64,12 @@
       <span class="icon-sn-github"></span>
       <strong class="visible-xs-inline">Github 账号</strong>
     </a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo" onclick="return tip()"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq" onclick="return tip()"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat" onclick="return tip()"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm" onclick="return tip()"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm" onclick="return tip()"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm" onclick="return tip()"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
 </div>
 
 <!--
@@ -80,6 +80,10 @@
 
 </section>
 <script>
+function tip() {
+    alert("功能正在加班开发中，请稍等时日！");
+    return false;
+}
 // just for the demos, avoids form submit
 // jQuery.validator.setDefaults({
 //   debug: true
