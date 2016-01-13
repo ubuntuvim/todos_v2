@@ -440,4 +440,12 @@ input[type=checkbox] {
 #color-schemes > li > a.bg-6 {
 	background: url(/assets/images/backgrounds/thumbs/6.jpg) center center no-repeat;
 }
-        
+
+/* todo创建时间 */
+.todo-create-date {
+    color: #EEE;
+    position: absolute;
+    right: 20px;
+    font-size: 13px;
+    top: 23px;
+}

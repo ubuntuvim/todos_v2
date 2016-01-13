@@ -127,19 +127,25 @@ function toggleShowRightPanel() {
 //  当鼠标移到列表上，显示列表的工具图标
 function showToolsIcon(self) {
   //  设置显示todo项前面的钩钩
-  // $($($($(self).children()[0]).children()[0]).children()[0]).css("opacity", '1');
-  for (var i = 2; i <= 4; i++) {
-    $($($(self).children()[0]).children()[i]).show();
-  }
+  $(self).children('div').children('.todo-list-common').each(function() {
+      $(this).show();
+  });
+  // 隐藏创建时间
+  $(self).children('div').children('.todo-create-date').each(function() {
+      $(this).hide();
+  });
 }
 
 //  当鼠标从列表上移开，隐藏列表的工具图标
 function hideToolsIcon(self) {
   //  隐藏（通过设置透明）todo项前面的钩钩
-  // $($($($(self).children()[0]).children()[0]).children()[0]).css("opacity", '0');
-  for (var i = 2; i <= 4; i++) {
-    $($($(self).children()[0]).children()[i]).hide();
-  }
+  $(self).children('div').children('.todo-list-common').each(function() {
+      $(this).hide();
+  });
+  // 隐藏创建时间
+  $(self).children('div').children('.todo-create-date').each(function() {
+      $(this).attr("top","0").show();
+  });
 }
 
 
@@ -165,5 +171,3 @@ function setIcon(self) {
     var parent0 = $(self).parent();
     $(parent0).addClass("active");
 }
-
-    
