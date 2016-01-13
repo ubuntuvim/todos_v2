@@ -31,7 +31,6 @@
                      onclick={{action "completedTodoItem" item.id}}>
                     {{item.title}}
                     </label>
-
                     <span class="glyphicon glyphicon-star todo-list-common todo-list-star {{if item.star 'todo-list-star-ed' 'todo-list-star'}}"
                     onclick={{action "changeStarStatus" item.id}}></span>
 
@@ -41,6 +40,9 @@
 
                     <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"
                       onclick={{action 'remoteTodoItem' item.id}}></span>
+
+                      <!-- 鼠标没移动到TODO上时在右侧工具啊按钮位置显示TODO的创建时间 -->
+
                   </div>
                 </li>
                 {{/each}}
@@ -125,4 +127,3 @@
     <!--
   </div>
   -->
-  

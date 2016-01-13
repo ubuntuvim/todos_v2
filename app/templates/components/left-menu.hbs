@@ -17,7 +17,7 @@
 </a>
 
   <ul class="menu">
-    <li class="li-selector active" style="cursor: pointer;">
+    <li class="li-selector active" style="cursor: pointer;" onmousemove="msov(this)" onmouseout="msot(this)">
         <a {{action 'setProjCoce' 'myTodos'}} onclick="setIcon(this)" id="myTodos">
             <i class="fa fa-list"></i> 我的TODO
             {{!completed-todos-count-by-classify-cpm projCode='myTodos' store=store}}
@@ -25,7 +25,7 @@
         </a>
     </li>
     {{#each projects as |item|}}
-        <li class="li-selector">
+        <li class="li-selector" onmousemove="msov(this)" onmouseout="msot(this)">
             <!-- {{__BASEURL__}}?projCode={{item.projCode}} -->
           <a href="#" {{action 'setProjCoce' item.projCode}} onclick="setIcon(this)">
             <i class="fa fa-list" {{action 'toEditClassify' item.id}}></i> {{item.projName}}
@@ -42,15 +42,24 @@
 <!-- </ul> -->
 
 <script type="text/javascript">
-$(function() {
-    $("#sidebar .menu > li").hover(function() {
-        // console.log('this.......');
-        $(this).addClass("hovered");
-        $("#sidebar").addClass("open");
-    }, function() {
-        $(this).removeClass("hovered");
-        $("#sidebar").removeClass("open");
-    });
-});
+function msov(self) {
+    $(self).addClass("hovered");
+    $("#sidebar").addClass("open");
+}
+function msot(self) {
+    $(self).removeClass("hovered");
+    $("#sidebar").removeClass("open");
+}
+// $(function() {
+//     $(".menu > li").hover(function() {
+//         console.log('this.......');
+//         $(this).addClass("hovered");
+//         $("#sidebar").addClass("open");
+//     }, function() {
+//         console.log('this.22222......');
+//         $(this).removeClass("hovered");
+//         $("#sidebar").removeClass("open");
+//     });
+// });
 
 </script>

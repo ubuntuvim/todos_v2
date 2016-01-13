@@ -75,6 +75,11 @@
                      {{item.title}}
                      </label>
 
+                     <!-- todo创建时间 -->
+                     <span class="todo-create-date">
+                      {{format-date item.timestamp}}
+                      </span>
+
                      <span class="glyphicon glyphicon-star todo-list-common todo-list-star {{if item.star 'todo-list-star-ed' 'todo-list-star'}}"
                      onclick={{action "changeStarStatus" item.id}}></span>
 
