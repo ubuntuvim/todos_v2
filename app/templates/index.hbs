@@ -87,8 +87,9 @@
                       onclick="toggleShowRightPanel()">
                      </span>
 
-                     <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"
-                       onclick={{action 'remoteTodoItem' item.id}}></span>
+                     <!-- 删除不放在TODO列表上，只留编辑，星号标记这个两个功能，删除放在点击编辑出来的界面中。 -->
+                     <!-- <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"
+                       onclick={{action 'remoteTodoItem' item.id}}></span> -->
                    </div>
                  </li>
                  {{/each}}
