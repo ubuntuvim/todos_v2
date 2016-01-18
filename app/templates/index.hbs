@@ -70,7 +70,7 @@
                      <span class="todo-list-ok-wc" onclick={{action "completedTodoItem" item.id}}>
                        <span class="glyphicon glyphicon-ok {{if item.checked 'todo-list-ok-btn-checked' 'todo-list-ok-btn'}}"></span>
                      </span>
-                     <label class="{{if item.checked 'label-font-style-checked' 'label-font-style'}}"
+                     <label class="{{if item.checked 'label-font-style-checked' 'label-font-style'}} auto-hide-overflow-font"
                       onclick={{action "completedTodoItem" item.id}}>
                      {{item.title}}
                      </label>
@@ -195,3 +195,17 @@
 <!-- 点击在左侧菜单的加号弹出增加分类的表单 -->
 {{classify-form store=store}}
 {{edit-classify store=store}}
+
+<script type="text/javascript">
+$(document).ready(function(){
+//限制字符个数
+$(".zxx_text_overflow_5").each(function(){
+    console.log('xxxxxxx');
+    var maxwidth=23;
+    if($(this).text().length>maxwidth){
+        $(this).text($(this).text().substring(0,maxwidth));
+        $(this).html($(this).html()+'...');
+    }
+});
+});
+</script>

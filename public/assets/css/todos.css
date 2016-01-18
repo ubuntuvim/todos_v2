@@ -122,20 +122,20 @@ input[type=checkbox] {
 }
 
 .todo-list-edit {
-	right: 40px;
+	right: 10px;
 }
 
 .todo-list-star {
-	right: 70px;
+	right: 39px;
   opacity: 0.3;
 }
 .todo-list-star-ed {
-  right: 70px;
+  right: 39px;
   opacity: 1;
 }
 
 .todo-list-tag {
-	right: 70px;
+	right: 39px;
 }
 
 .main-with-from-open-right-panel {
@@ -448,4 +448,12 @@ input[type=checkbox] {
     right: 20px;
     font-size: 13px;
     top: 23px;
+}
+/* 自动隐藏超过TODO宽度的字体，并且用省略号替换 */
+.auto-hide-overflow-font {
+    width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: -5px;
 }
