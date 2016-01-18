@@ -77,13 +77,15 @@ export default Ember.Controller.extend({
       	// 删除状态，不可恢复
       	return todo.filterBy('recordStatus', parseInt(recordStatus));
 
-      } else {  //  全部数据
+      } else {  //  显示飞删除状态数据
 
       	this.set('showNCAll', false);  //
       	this.set('showCAll', false);  // 另外两个设置为非激活
       	this.set('showAll', true);  //设置点击的按钮为激活状态
 
-      	return todo;
+      	return todo.filter(function(td) {
+            return td.get('recordStatus') === 1 || td.get('recordStatus') === 2;
+        });
       }
 
     }),
@@ -142,9 +144,14 @@ export default Ember.Controller.extend({
 	recoverableTodoCount: Ember.computed('classifyList.@each.recordStatus', function() {
       return this.get('classifyList').filterBy('recordStatus', 3).get('length');
     }),
+    notRecoverableTodoCount: Ember.computed('classifyList.@each.recordStatus', function() {
+        return this.get('classifyList').filter(function(td) {
+            return td.get('recordStatus') === 1 || td.get('recordStatus') === 2;
+        });
+    }),
     //  获取todo总数量，不分类型，只要是登录用户的都显示
-	todoTotlaCount: Ember.computed('classifyList.@each.recordStatus', function() {
-      return this.get('classifyList').get('length');
+	todoTotlaCount: Ember.computed('notRecoverableTodoCount', function() {
+      return this.get('notRecoverableTodoCount').get('length');
     }),
     loadingMaskFlag: Ember.computed('orderByStarStatusFromList', function() {
         var v = this.get('orderByStarStatusFromList');
