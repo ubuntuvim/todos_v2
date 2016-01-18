@@ -24,7 +24,7 @@
       </div>
       <div class="modal-footer" style="padding: 10px 15px;">
           {{button-with-confirmation type="button" class="btn btn-sm btn-red pull-left"
-           text="您确定要删除这个分类吗？" onConfirm=(action 'delClassify')}}
+           text="删除此分类会把所属的所有TODO也删除，请确认？" onConfirm=(action 'delClassify')}}
 
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
         <button type="button" class="btn btn-sm btn-greensea" {{action 'editClassify'}}>保存</button>
