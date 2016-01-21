@@ -27,13 +27,6 @@ module.exports = function(defaults) {
   app.import("bower_components/jquery-validation/dist/jquery.validate.js");
   app.import("bower_components/jquery-validation/src/localization/messages_zh.js");
 
-  //  右侧TODO样式
-  app.import("node_modules/effeckt/css/modules/off-screen-nav.css");
-  app.import("node_modules/effeckt/js/modules/off-screen-nav.js");
-  // 时间选择器
-  app.import("node_modules/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js");
-  app.import("node_modules/bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.zh-CN.js");
-
 
   // app.import("vendor/fonts/font-awesome.css");
   // app.import("vendor/css/jquery.mmenu.all.css");
