@@ -111,18 +111,9 @@ $(function(){
   //       }).show();
   //   });
 
+
 });  // function() {}
 
-
-/**
- * 点击列表项 的编辑按钮，在右侧显示输入框
- * @return {[type]} [description]
- */
-function toggleShowRightPanel() {
-  $('html').addClass('mm-right mm-next mm-opened mm-opening');
-  $('#mmenu').addClass('mm-current mm-opened');
-  $('#content-main').addClass('main-with-from-open-right-panel');
-}
 
 //  当鼠标移到列表上，显示列表的工具图标
 function showToolsIcon(self) {
@@ -170,4 +161,12 @@ function setIcon(self) {
     //  获取被点击a标签的父元素
     var parent0 = $(self).parent();
     $(parent0).addClass("active");
+}
+
+// 鼠标移动到右侧TODO设置面板的关闭按钮上的效果
+function addRotate(self) {
+    $(self).addClass('animated rotateIn');
+}
+function removeRotate(self) {
+    $(self).removeClass('animated rotateIn');
 }

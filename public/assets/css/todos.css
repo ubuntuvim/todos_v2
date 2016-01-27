@@ -457,3 +457,93 @@ input[type=checkbox] {
     overflow: hidden;
     margin-bottom: -5px;
 }
+
+/* 右侧TODO面板 */
+.right-panel {
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    display: none;
+    background-color: #f2f2f2;
+
+    -webkit-border-radius: 0 0 2px 2px;
+	-moz-border-radius: 0 0 2px 2px;
+	-ms-border-radius: 0 0 2px 2px;
+	-o-border-radius: 0 0 2px 2px;
+	border-radius: 0 0 2px 2px;
+	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176);
+	-webkit-animation-duration: 0.3s;
+	-moz-animation-duration: 0.3s;
+	animation-duration: 0.3s;
+
+    padding: 20px 15px 0 15px;
+
+    overflow: auto;
+}
+/* 右侧面板顶部关闭按钮样式 */
+.right-panel-close-btn {
+    top: -10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* 右侧面板底部关闭按钮样式 */
+.right-panel-close-btn-btom {
+    position: absolute;
+    top: 90%;
+    cursor: pointer;
+    font-size: 16px
+}
+/* 右侧面板底部删除按钮样式 */
+.right-panel-del-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 55px;
+}
+/* 底部折叠按钮 */
+.right-panel-right-btn {
+    position: absolute;
+    bottom: 55px;
+}
+/* 分隔线公共部分 */
+.common-divider {
+    bottom: 10px !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+/* 分割线 */
+#right-panel-id .divider {
+    width: 100%;
+    background-color: #e5e5e5 !important;
+    opacity: 1 !important;
+    height: 1px;
+    position: absolute;
+    bottom: 90px;
+    margin-left: -15px;
+}
+/* 评论输入框 */
+.todo-comment-style {
+    position: absolute;
+    right: 2%;
+    width: 96%;
+    left: 2%;
+    bottom: 100px;
+}
+/* 起止日期样式 */
+.todo-date {
+    width: 160px;
+    display: inline;
+}
+.todo-start-date {
+    float: left;
+    margin-left: 15px;
+}
+.todo-end-date {
+    /*float: right;
+    margin-right: 15px;*/
+}
+.data-divider-flag {
+    margin: 0 5px 0 10px;
+}
