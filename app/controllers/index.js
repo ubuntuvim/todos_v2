@@ -23,10 +23,17 @@ export default Ember.Controller.extend({
       return this.store.findAll('todo-item');
   	}),
 
+    // 不显示子任务
+    noShowSubTodoList: Ember.computed('todosForTotla.@each.isChildOrParent', function() {
+        return this.get('todosForTotla').filter(function(td) {
+            return td.get('isChildOrParent') != 1 && td.get('isChildOrParent') != 2;
+        });
+    }),
+
     // 过滤其他用户，只显示当前登录用户的数据
-    todosFilterByUserId: Ember.computed('todosForTotla.@each.user', function() {
+    todosFilterByUserId: Ember.computed('noShowSubTodoList.@each.user', function() {
         var userId = this.getUserIdFromSession();
-        return this.get('todosForTotla').filterBy('user', userId);
+        return this.get('noShowSubTodoList').filterBy('user', userId);
     }),
 
     // 根据选中左侧的分类过滤
@@ -254,6 +261,26 @@ export default Ember.Controller.extend({
         setProjCoce: function(data) {
             //  修改分类参数
             this.set('projCode', data);
+        },
+        // 显示TODO的编辑面板
+        toggleShowRightPanel: function(params) {
+            console.log('index params ', params);
+            var obj = Ember.$("#right-panel-id");
+            if (obj.hasClass("fadeInRight")) {  //  如果展开状态
+                obj.removeClass("fadeInRight");
+                obj.show().addClass('animated fadeOutRight');  //
+            } else {
+                obj.removeClass("fadeOutRight");
+                obj.show().addClass('animated fadeInRight');
+            }
+            // 设置选中的TODO数据设置到表单上
+            var todo = this.store.peekRecord('todo-item', params);
+            //  设置标题
+            Ember.$("#edit-todo-title-div").html(todo.get('title'));
+            // this.set('todoTitleValueFromIndex', todo.get('title'));
+            Ember.$("#todoId").val(todo.get('id'));
+            Ember.$("#projCodeId").val(todo.get('project'));
+
         }
 	}  //end actions
 	/**
