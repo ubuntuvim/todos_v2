@@ -2,12 +2,12 @@
 
 import Ember from 'ember';
 
-import config from '../config/environment';
+// import config from '../config/environment';
 
 /**
  * 处理界面的action
  */
-export default Ember.Controller.extend({
+export default Ember.Controlle.extend({
 
     session: Ember.inject.service('session'),
 	//  查询，根据title值查询
@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
     // 不显示子任务
     noShowSubTodoList: Ember.computed('todosForTotla.@each.isChildOrParent', function() {
         return this.get('todosForTotla').filter(function(td) {
-            return td.get('isChildOrParent') != 1 && td.get('isChildOrParent') != 2;
+            return td.get('isChildOrParent') !== 1 && td.get('isChildOrParent') !== 2;
         });
     }),
 
@@ -176,8 +176,9 @@ export default Ember.Controller.extend({
             var userId = this.getUserIdFromSession();
             var project = this.get('projCode');
             // 如果未选中任何分类默认放在"我的Todo"分类中
-            if (Ember.isEmpty(project))
+            if (Ember.isEmpty(project)) {
                 project = "myTodos";
+            }
 
 			var todoItem = this.store.createRecord('todo-item', {
 				title: title,
@@ -282,14 +283,14 @@ export default Ember.Controller.extend({
             Ember.$("#projCodeId").val(todo.get('project'));
 
         }
-	}  //end actions
+	},  //end actions
 	/**
 	 * 更新todo
 	 * @param  {[type]} param [todo的id]
 	 * @param  {[type]} todo  [model名称]
 	 * @return {[type]}       [void]
 	 */
-	,updateById: function(param, todo) {
+	updateById: function(param, todo) {
 		todo.save();
 		// var _this = this;
   //       Ember.$.ajax({
