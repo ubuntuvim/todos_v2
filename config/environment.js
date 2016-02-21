@@ -47,7 +47,7 @@ module.exports = function(environment) {
     var baseUrl = "http://localhost";
     // 配置全局变量
     ENV.apiBaseUrl = baseUrl+':3001/api';
-    ENV.localeBaseUrl = baseUrl + ":4200";
+    ENV.localeBaseUrl = baseUrl + ":4200/todoitems";
     afterLoginUrl = baseUrl;
 
     ENV.globalTitle = globalTitle;
@@ -71,7 +71,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    var baseUrl = "http://www.ddlisting.com";
+    var baseUrl = "http://www.ddlisting.com/todoitems";
     // 配置全局变量
     ENV.apiBaseUrl = baseUrl+':3001/api';
     ENV.localeBaseUrl = baseUrl;
@@ -81,10 +81,10 @@ module.exports = function(environment) {
 
 
   // ENV['ember-simple-auth'] = {
-  //       store: 'simple-auth-session-store:local-storage',
-  //       authorizer: 'authorizer:firebase',
+  //       // store: 'simple-auth-session-store:local-storage',
+  //       // authorizer: 'authorizer:firebase',
   //       crossOriginWhitelist: [ afterLoginUrl ],
-  //       routeAfterAuthentication: '/',  //登录成功后跳转到的页面
+  //       routeAfterAuthentication: '/todoitems',  //登录成功后跳转到的页面
   //       authenticationRoute: 'login'  //  登录不成功转回登录页面
   // };
 

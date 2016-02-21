@@ -1,3 +1,6 @@
+.no-text-decoration {
+    text-decoration:none !important;
+}
 .show-mask-loading {
   display: block;
 }
@@ -142,7 +145,7 @@ input[type=checkbox] {
 	padding-right: 360px !important;
 }
 
-/* 右侧面板样式  */
+/* ========================= 右侧面板样式 =========================   */
 #right-panel-title-close {
   position: absolute;
   top: 13px;
@@ -458,14 +461,14 @@ input[type=checkbox] {
     margin-bottom: -5px;
 }
 
-/* 右侧TODO面板 */
+/* ================== 右侧TODO面板 ================*/
 .right-panel {
     height: 100%;
     width: 40%;
     position: absolute;
     right: 0;
     top: 45px;
-    display: none;
+    /*display: none;*/
     background-color: #f2f2f2;
 
     -webkit-border-radius: 0 0 2px 2px;
@@ -546,4 +549,25 @@ input[type=checkbox] {
 }
 .data-divider-flag {
     margin: 0 5px 0 10px;
+}
+/* 子todo项样式 */
+.sub-todo {
+    margin-top: -10px;
+}
+.sub-todo .sub-todo-label {
+    width: 100% !important;
+}
+.sub-todo .sub-todo-input {
+    border: 0 !important;
+    border-bottom: 1px solid #ccc !important;
+    width: 100% !important;
+    background: #f2f2f2 !important;
+    margin-top: -10px !important;
+}
+.sub-todo .sub-todo-text {
+    font-size: 15px;
+}
+.sub-todo .sub-todo-text:hover {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
 }
