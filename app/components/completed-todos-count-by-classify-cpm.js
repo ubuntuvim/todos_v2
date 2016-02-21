@@ -1,6 +1,9 @@
 // 显示未完成todo数量
 import Ember from 'ember';
 
+/**
+* 暂时弃用
+*/
 export default Ember.Component.extend({
     tagName: 'span',
     classNames: [ 'badge badge-transparent-black' ],
@@ -10,7 +13,7 @@ export default Ember.Component.extend({
       return this.store.findAll('todo-item');
   	}),
 
-    // 三重过滤：1，状态为2；2，登录用户id；3，所属分类
+    // 4重过滤：1，状态为2；2，登录用户id；3，所属分类；4-不显示子任务
     completedTodoCount4Cmp: Ember.computed('todosForTotla.@each.userId',
                                         'todosForTotla.@each.recordStatus',
                                         'todosForTotla.@each.project', function() {
