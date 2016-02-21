@@ -1,0 +1,202 @@
+{{! app/templates/todo-item.hbs  APP首页 }}
+
+
+<!-- Wrap all page content here -->
+<div id="wrap">
+
+<!-- Make page fluid -->
+<div class="row">
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top"
+   role="navigation" id="navbar">
+
+    <!-- APP logo信息 -->
+    {{#logo-tag}}{{/logo-tag}}
+    <!-- Branding end -->
+
+    <!-- .nav-collapse -->
+    <div class="navbar-collapse">
+
+      <!-- 顶部刷新页面按钮 -->
+      {{#refresh-self}}{{/refresh-self}}
+
+      <!-- Search -->
+      <div class="search" id="main-search">
+        <i class="fa fa-search"></i> {{input type="text" placeholder="Search..." value=queryValue}}
+      </div>
+      <!-- Search end -->
+
+      <!-- 右上角消息提示工具栏 -->
+      {{#tip-msg}}{{/tip-msg}}
+
+      <!-- 左侧菜单栏 -->
+     {{left-menu model=model store=store setProjCoce=(action "setProjCoce")}}
+
+    </div>
+    <!--/.nav-collapse -->
+
+  </div>
+  <!-- Fixed navbar end -->
+
+
+  <!-- 主要内容区（中间部分）
+ {{#main-content model=model store=store}}{{/main-content}}
+ -->
+ <!-- 中间主要的内容区 -->
+  <div id="content-main" class="col-md-12">
+
+   <div class="main">
+     <!-- row -->
+     <div class="row">
+
+       <!-- /col-md-12 -->
+       <div class="col-md-12">
+
+           <!-- tile -->
+           <section class="tile transparent">
+             <!-- tile body -->
+             <div class="tile-body color transparent-black rounded-bottom-corners">
+               {{input type="text" placeholder="新增todo项……" class="w100p h50p bottommargin"
+                 style="height: 40px; font-size: 16px;" value=title enter="createNewTodoItem" }}
+
+               <ul class="nolisttypes" id="todolist">
+
+                 {{#each orderByStarStatusFromList as |item|}}
+                 <li class="show-todos-list-style"
+                   onmouseover="showToolsIcon(this)"
+                   onmouseout="hideToolsIcon(this)">
+                   <div class="check-transparent" style="position: relative;">
+                     <span class="todo-list-ok-wc" onclick={{action "completedTodoItem" item.id}}>
+                       <span class="glyphicon glyphicon-ok {{if item.checked 'todo-list-ok-btn-checked' 'todo-list-ok-btn'}}"></span>
+                     </span>
+                     <label class="{{if item.checked 'label-font-style-checked' 'label-font-style'}} auto-hide-overflow-font"
+                      onclick={{action "completedTodoItem" item.id}}>
+                     {{item.title}}
+                     </label>
+
+                     <!-- todo创建时间 -->
+                     <span class="todo-create-date">
+                      {{format-date item.timestamp}}
+                      </span>
+
+                     <span class="glyphicon glyphicon-star todo-list-common todo-list-star {{if item.star 'todo-list-star-ed' 'todo-list-star'}}"
+                     onclick={{action "changeStarStatus" item.id}}></span>
+
+                     <!-- <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"
+                      onclick={{action 'toggleShowRightPanel' item.id}}>
+                     </span> -->
+                     {{#link-to 'todoitems.subtodoitem' item.id}}
+                         <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit" style="display: block;">
+                     </span>
+                     {{/link-to}}
+
+                     <!-- 删除不放在TODO列表上，只留编辑，星号标记这个两个功能，删除放在点击编辑出来的界面中。 -->
+                     <!-- <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"
+                       onclick={{action 'remoteTodoItem' item.id}}></span> -->
+                   </div>
+                 </li>
+                 {{/each}}
+
+               </ul>
+
+               <ul>
+                 <span class="filter-tools-commen {{if showAll 'filter-tools-active'}}"
+                   onclick={{action 'showByCondition' 'all'}}>所有({{todoTotlaCount}})</span>
+
+                 <span class="filter-tools-commen {{if showNCAll 'filter-tools-active'}}"
+                   onclick={{action 'showByCondition' '1'}}>未完成({{noCompletedTodoCount}})</span>
+
+                 <span class="filter-tools-commen {{if showCAll 'filter-tools-active'}}"
+                   onclick={{action 'showByCondition' '2'}}>已完成({{completedTodoCount}})</span>
+
+                 <span class="filter-tools-commen filter-tools-trash">
+                 <span id="trash-tool">
+                   <span class="glyphicon glyphicon-trash"></span>
+                   回收站({{recoverableTodoCount}})
+                   </span>
+                 </span>
+               </ul>
+             </div>
+             <!-- /tile body -->
+           </section>
+
+       </div> <!-- /col-md-12 -->
+     </div>  <!-- /row -->
+
+     <!--
+     <div id="trash-list" style="height: 200px; width: 300px; background: #eee; display: none;">
+       xxxxxxx
+     </div>
+     -->
+
+
+     <!--  回收站  -->
+     <div class="row"  id="trash-list"
+           style="overflow: auto; overflow-x: hidden; height: 500px; display: none;">
+
+       <!-- /col-md-12 -->
+       <div class="col-md-12">
+
+           <!-- tile -->
+           <section class="tile transparent">
+             <!-- tile body -->
+             <div class="tile-body color transparent-black rounded-bottom-corners">
+              <ul class="trash-font-style">
+               <span class="trash-font-style">回收站</span>
+               <span id="close-trash-list" class="glyphicon glyphicon-remove trash-todo-list-common trash-todo-list-destroy"></span>
+              </ul>
+               <ul class="nolisttypes" id="todolist">
+
+                 {{#each delRecordList as |item|}}
+                 <li class="show-todos-list-style">
+                   <div class="check-transparent" style="position: relative;">
+
+                     <label class="label-font-style">
+                       {{item.title}}
+                     </label>
+
+                     <span class="glyphicon glyphicon-ok trash-todo-list-common"
+                       onclick={{action 'recoveryTodoItem' item.id}}></span>
+                   </div>
+                 </li>
+                 {{/each}}
+
+               </ul>
+
+             </div>
+             <!-- /tile body -->
+           </section>
+
+       </div> <!-- /col-md-12 -->
+
+     </div>  <!-- /row -->
+
+
+     </div>  <!-- /main -->
+
+   </div>
+
+
+
+  <!-- 右侧设置todo项详细信息面板，布局有问题，暂时注释掉
+  {{#right-item-panel}}{{/right-item-panel}}
+  -->
+  <!-- {{right-panel store=store todoTitleValueFromIndex=todoTitleValueFromIndex}} -->
+  {{outlet}}
+
+</div>
+<!-- Make page fluid-->
+
+
+</div>
+  <!-- Wrap all page content end -->
+<!-- Preloader  -->
+<div class="mask {{if loadingMaskFlag 'hidden-mask-loading' 'show-mask-loading'}}">
+  <div id="loader" class="{{if loadingMaskFlag 'hidden-mask-loading' 'show-mask-loading'}}"></div>
+</div>
+
+<!--/Preloader -->
+<!-- 点击在左侧菜单的加号弹出增加分类的表单 -->
+{{classify-form store=store}}
+{{edit-classify store=store}}
