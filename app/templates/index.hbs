@@ -1,211 +1,339 @@
-{{! app/templates/index.hbs  APP首页 }}
+{{! 项目介绍页面 }}
 
+<!-- 介绍页面样式 -->
+<link href="assets/css/intro/font_lato_default.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/intro/main.css" rel="stylesheet" type="text/css" />
 
 <!-- Wrap all page content here -->
-<div id="wrap">
+<div id="wrap" class="intro-font-color">
 
-<!-- Make page fluid -->
+<!-- row -->
 <div class="row">
 
-  <!-- Fixed navbar -->
-  <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top"
-   role="navigation" id="navbar">
+    <nav class="navbar navbar-reserve navbar-fixed-top my-navbar-transparent-black">
 
-    <!-- APP logo信息 -->
-    {{#logo-tag}}{{/logo-tag}}
-    <!-- Branding end -->
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header my-navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#introduction-header" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+              <!-- <img src="assets/images/logo/logo1.png" class="logo-style"/> -->
+              <strong>DD</strong>LISTING
+          </a>
+        </div>
 
-    <!-- .nav-collapse -->
-    <div class="navbar-collapse">
-
-      <!-- 顶部刷新页面按钮 -->
-      {{#refresh-self}}{{/refresh-self}}
-
-      <!-- Search -->
-      <div class="search" id="main-search">
-        <i class="fa fa-search"></i> {{input type="text" placeholder="Search..." value=queryValue}}
-      </div>
-      <!-- Search end -->
-
-      <!-- 右上角消息提示工具栏 -->
-      {{#tip-msg}}{{/tip-msg}}
-
-      <!-- 左侧菜单栏 -->
-     {{left-menu model=model store=store setProjCoce=(action "setProjCoce")}}
-
-    </div>
-    <!--/.nav-collapse -->
-
-  </div>
-  <!-- Fixed navbar end -->
-
-
-  <!-- 主要内容区（中间部分）
- {{#main-content model=model store=store}}{{/main-content}}
- -->
- <!-- 中间主要的内容区 -->
-  <div id="content-main" class="col-md-12">
-
-   <div class="main">
-     <!-- row -->
-     <div class="row">
-
-       <!-- /col-md-12 -->
-       <div class="col-md-12">
-
-           <!-- tile -->
-           <section class="tile transparent">
-             <!-- tile body -->
-             <div class="tile-body color transparent-black rounded-bottom-corners">
-               {{input type="text" placeholder="新增todo项……" class="w100p h50p bottommargin"
-                 style="height: 40px; font-size: 16px;" value=title enter="createNewTodoItem" }}
-
-               <ul class="nolisttypes" id="todolist">
-
-                 {{#each orderByStarStatusFromList as |item|}}
-                 <li class="show-todos-list-style"
-                   onmouseover="showToolsIcon(this)"
-                   onmouseout="hideToolsIcon(this)">
-                   <div class="check-transparent" style="position: relative;">
-                     <span class="todo-list-ok-wc" onclick={{action "completedTodoItem" item.id}}>
-                       <span class="glyphicon glyphicon-ok {{if item.checked 'todo-list-ok-btn-checked' 'todo-list-ok-btn'}}"></span>
-                     </span>
-                     <label class="{{if item.checked 'label-font-style-checked' 'label-font-style'}} auto-hide-overflow-font"
-                      onclick={{action "completedTodoItem" item.id}}>
-                     {{item.title}}
-                     </label>
-
-                     <!-- todo创建时间 -->
-                     <span class="todo-create-date">
-                      {{format-date item.timestamp}}
-                      </span>
-
-                     <span class="glyphicon glyphicon-star todo-list-common todo-list-star {{if item.star 'todo-list-star-ed' 'todo-list-star'}}"
-                     onclick={{action "changeStarStatus" item.id}}></span>
-
-                     <span class="glyphicon glyphicon-pencil todo-list-common todo-list-edit"
-                      onclick="toggleShowRightPanel()">
-                     </span>
-
-                     <!-- 删除不放在TODO列表上，只留编辑，星号标记这个两个功能，删除放在点击编辑出来的界面中。 -->
-                     <!-- <span class="glyphicon glyphicon-remove todo-list-common todo-list-destroy"
-                       onclick={{action 'remoteTodoItem' item.id}}></span> -->
-                   </div>
-                 </li>
-                 {{/each}}
-
-               </ul>
-
-               <ul>
-                 <span class="filter-tools-commen {{if showAll 'filter-tools-active'}}"
-                   onclick={{action 'showByCondition' 'all'}}>所有({{todoTotlaCount}})</span>
-
-                 <span class="filter-tools-commen {{if showNCAll 'filter-tools-active'}}"
-                   onclick={{action 'showByCondition' '1'}}>未完成({{noCompletedTodoCount}})</span>
-
-                 <span class="filter-tools-commen {{if showCAll 'filter-tools-active'}}"
-                   onclick={{action 'showByCondition' '2'}}>已完成({{completedTodoCount}})</span>
-
-                 <span class="filter-tools-commen filter-tools-trash">
-                 <span id="trash-tool">
-                   <span class="glyphicon glyphicon-trash"></span>
-                   回收站({{recoverableTodoCount}})
-                   </span>
-                 </span>
-               </ul>
-             </div>
-             <!-- /tile body -->
-           </section>
-
-       </div> <!-- /col-md-12 -->
-     </div>  <!-- /row -->
-
-     <!--
-     <div id="trash-list" style="height: 200px; width: 300px; background: #eee; display: none;">
-       xxxxxxx
-     </div>
-     -->
-
-
-     <!--  回收站  -->
-     <div class="row"  id="trash-list"
-           style="overflow: auto; overflow-x: hidden; height: 500px; display: none;">
-
-       <!-- /col-md-12 -->
-       <div class="col-md-12">
-
-           <!-- tile -->
-           <section class="tile transparent">
-             <!-- tile body -->
-             <div class="tile-body color transparent-black rounded-bottom-corners">
-              <ul class="trash-font-style">
-               <span class="trash-font-style">回收站</span>
-               <span id="close-trash-list" class="glyphicon glyphicon-remove trash-todo-list-common trash-todo-list-destroy"></span>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="introduction-header">
+          <ul class="nav navbar-nav">
+            <li class="active">{{#link-to 'introduction'}}简介{{/link-to}}</li>
+            <li>{{#link-to 'feedback'}}意见反馈{{/link-to}}</li>
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
               </ul>
-               <ul class="nolisttypes" id="todolist">
+            </li> -->
 
-                 {{#each delRecordList as |item|}}
-                 <li class="show-todos-list-style">
-                   <div class="check-transparent" style="position: relative;">
+          </ul>
+          <ul class="nav navbar-nav pull-right" style="padding-right: 20px;">
+              {{#if model}}
+                  <li class="text-right"><a href="#" {{action 'invalidateSession'}}>退出</a></li>
+              {{else}}
+                  <li class="text-right">{{#link-to 'login'}}登录{{/link-to}}</li>
+                  <li class="text-right">{{#link-to 'register'}}注册{{/link-to}}</li>
+              {{/if}}
+          </ul>
+        </div><!-- /.navbar-collapse -->
 
-                     <label class="label-font-style">
-                       {{item.title}}
-                     </label>
-
-                     <span class="glyphicon glyphicon-ok trash-todo-list-common"
-                       onclick={{action 'recoveryTodoItem' item.id}}></span>
-                   </div>
-                 </li>
-                 {{/each}}
-
-               </ul>
-
-             </div>
-             <!-- /tile body -->
-           </section>
-
-       </div> <!-- /col-md-12 -->
-
-     </div>  <!-- /row -->
-
-
-     </div>  <!-- /main -->
-
-   </div>
-
-
-
-  <!-- 右侧设置todo项详细信息面板，布局有问题，暂时注释掉
-  {{#right-item-panel}}{{/right-item-panel}}
-  -->
-
+    </nav>
 
 </div>
-<!-- Make page fluid-->
+<!-- /row -->
+</div>
+<!-- Wrap all page content end -->
 
+<div class="row myfeature1 feature-splie">
+    <div class="col-md-4 col-sm-4">
+        <div class="hero-wrapper">
+            <div class="col">
+                <h3 class="">
+                    天天清单，不一样的清单
+                </h3>
+                <p class="subline">
+                    天天清单，天天清，天天轻。
+                </p>
+                    {{#link-to 'login' class="button white button-download no-text-decoration" data-safari-modal="true"
+                    data-track="Wunderlist:Download:Header"}}
+                        已有账号请直接登录
+                    {{/link-to}}
+                    {{#link-to 'register' class="button outlined-white button-signup no-text-decoration"}}
+                        创建帐户
+                    {{/link-to}}
+          </div>
+
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8">
+            <img class="img-responsive" height="" src="http://i12.tietuku.com/adc8242b11f2e5da.jpg" />
+    </div>
+</div>
+
+<div class="row myfeature2 feature-splie" style="">
+    <div class="col-md-6 col-sm-6">
+        <img class="img-responsive" height="" src="http://i12.tietuku.com/aa9951aa685a83d8.jpg" />
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="hero-wrapper">
+
+            <div class="col">
+                <span class="wundercon blue block feature-item-icon">
+                    d
+                </span>
+                <h3>
+                    好好规划所有事情
+                </h3>
+                <p class="subline">
+                    随时管理和共享您的待办任务、工作、购物、想看的电影和生活清单。天天清单让您更轻松地完成每一件您正在规划的，生活上的大小事情。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row myfeature1 feature-splie" style="">
+    <div class="col-md-6 col-sm-6">
+        <div class="hero-wrapper">
+            <div class="col">
+                <span class="wundercon blue block feature-item-icon">
+                    e
+                </span>
+                <h3 class="">
+                    随时被提醒
+                </h3>
+                <p class="subline">
+                    您可以为任务设置到期日与提醒，和分配任务。无论那是一个办公清单或者是娱乐清单，有了天天清单，您将不会再忘记deadline。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <img class="img-responsive" src="http://i5.tietuku.com/77274060516d95d5.png" style="height:450px;" />
+    </div>
+</div>
+
+<div class="row myfeature2 feature-splie" style="">
+    <div class="col-md-4 col-sm-4">
+        <div class="hero-wrapper">
+            <div class="col">
+                <span class="wundercon blue block feature-item-icon">
+                    L
+                </span>
+                <h3 class="">
+                    与任何人协作
+                </h3>
+                <p class="subline">
+                    与您的家庭、朋友及同事共享清单。
+                    让您的办公协作变得超级便捷有效。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <img class="img-responsive" src="http://i12.tietuku.com/7fdc52d385a570e4.png" />
+    </div>
+</div>
+
+<div class="row myfeature1 feature-splie" style="">
+    <div class="feature padding-bottom padding-top platforms">
+        <div class="wrapper center">
+            <h3>
+                随时随地访问
+            </h3>
+            <p class="subline">
+                您可以在iPhone、iPad、安卓、Windows8Windows 7、Mac、Chromebook、Kindle Fire
+                和网络上免费使用天天清单，让您的生活在几乎所有设备上无缝同步。
+            </p>
+        </div>
+        <div class="wrapper center">
+            <p>
+                {{#if model.isAuthenticated}}
+                    {{#link-to 'login' class="button white button-download" data-safari-modal="true"
+                    data-track="Wunderlist:Download:Header" title="下载天天清单"}}
+                        已有账号请直接登录
+                    {{/link-to}}
+                {{else}}
+                    {{#link-to 'register' class="button outlined-white button-signup" title="创建免费帐户"}}
+                        创建帐户
+                    {{/link-to}}
+                {{/if}}
+            </p>
+            <span class="over-sized devices img-wrapper"
+            style="background-image:url(http://i5.tietuku.com/37520e8f2a7cd293.png); width:1016px; height:539px; display:inline-block;">
+            </span>
+        </div>
+    </div>
+</div>
+<div class="wunderlist-website" style="">
+
+    <div class="feature feature-splie myfeature2" style="">
+        <div class="center" id="features">
+            <h2>
+                天天清单功能一览
+            </h2>
+        </div>
+        <div class="center feature-grid">
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    ≤
+                </span>
+                <h6>
+                    清单夹
+                </h6>
+                <p class="small">
+                    将所有同类形的清单归类至单一文件夹
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    I
+                </span>
+                <h6>
+                    发表评论
+                </h6>
+                <p class="small">
+                    将所有对话集合在同一地方，所有人也可以到访。
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    L
+                </span>
+                <h6>
+                    共享清单
+                </h6>
+                <p class="small">
+                    与您的家人，好友和同事共享清单
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    ‰
+                </span>
+                <h6>
+                    支持所有设备
+                </h6>
+                <p class="small">
+                    在iOS、Mac、安卓、Windows和网络上免费使用
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    e
+                </span>
+                <h6>
+                    提醒
+                </h6>
+                <p class="small">
+                    添加提醒以确保不会忘记任务
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    c
+                </span>
+                <h6>
+                    到期日
+                </h6>
+                <p class="small">
+                    设置到期日，确保不会超过最后期限
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    N
+                </span>
+                <h6>
+                    备注
+                </h6>
+                <p class="small">
+                    添加备注以确保您的所有想法都能够被领会
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    l
+                </span>
+                <h6>
+                    通知
+                </h6>
+                <p class="small">
+                    通过推送通知、电子邮件和应用内通知了解最新动态
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    X
+                </span>
+                <h6>
+                    发邮件至天天清单
+                </h6>
+                <p class="small">
+                    只需通过发送便可以将电子邮件转变成待办任务
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    d
+                </span>
+                <h6>
+                    添加至天天清单
+                </h6>
+                <p class="small">
+                    直接从您的浏览器轻松添加网络内容
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    2
+                </span>
+                <h6>
+                    标签任务
+                </h6>
+                <p class="small">
+                    使用标签更便捷地管理任務
+                </p>
+            </a>
+            <a class="sidefeatures-item" href="/introduction">
+                <span class="wundercon sidefeatures-item-icon">
+                    Z
+                </span>
+                <h6>
+                    打印
+                </h6>
+                <p class="small">
+                    只需点击一下便可以打印您的任务和清单。
+                </p>
+            </a>
+        </div>
+        <div class="hidden center twitter-love">
+            <h2>
+                What people are saying on Twitter
+            </h2>
+            <a class="twitter-timeline" href="/Wunderlist/timelines/560473527984603136"
+            data-widget-id="565557605150769152" width="600" height="540">
+                Wunderlist Love
+            </a>
+        </div>
+    </div>
 
 </div>
-  <!-- Wrap all page content end -->
-<!-- Preloader  -->
-<div class="mask {{if loadingMaskFlag 'hidden-mask-loading' 'show-mask-loading'}}">
-  <div id="loader" class="{{if loadingMaskFlag 'hidden-mask-loading' 'show-mask-loading'}}"></div>
-</div>
-
-<!--/Preloader -->
-<!-- 点击在左侧菜单的加号弹出增加分类的表单 -->
-{{classify-form store=store}}
-{{edit-classify store=store}}
-
-<script type="text/javascript">
-$(document).ready(function(){
-//限制字符个数
-$(".zxx_text_overflow_5").each(function(){
-    console.log('xxxxxxx');
-    var maxwidth=23;
-    if($(this).text().length>maxwidth){
-        $(this).text($(this).text().substring(0,maxwidth));
-        $(this).html($(this).html()+'...');
-    }
-});
-});
-</script>
