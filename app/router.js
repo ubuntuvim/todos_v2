@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('test');
+  this.route('test', function() {
+    this.route('subtest');
+  });
   this.route('login');
   this.route('introduction');
   this.route('feedback');
@@ -14,12 +16,19 @@ Router.map(function() {
   // this.route('redirecToIndex');
 
 
-  // this.route('/', function() {
-  //   this.route('index-loading');
-  // });
   // this.route('todo-items', function() {
   //     this.route('todo-item', { path: '/:td_id'});
   // })
+  // this.route('/', function() {
+  //   this.route('subTodoItem', { path: '/:todoItem_id' });
+  // });
+
+  // this.route('/', function() {
+  //   this.route('subTodoItem', { path: '/:todoItem_id' });
+  // });
+  this.route('todoitems', function() {
+      this.route('subtodoitem', { path: '/:todoItem_id' });
+  });
 });
 
 export default Router;
