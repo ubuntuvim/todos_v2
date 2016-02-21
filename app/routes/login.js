@@ -7,7 +7,7 @@ export default Ember.Route.extend({
         //  如果已经登录过的直接转到首页
         if (this.get('session').get('data').authenticated.uid) {
             // window.location.href = config.localeBaseUrl;
-            this.transitionTo('index');
+            this.transitionTo('todoitems');
         } else {
             this.transitionTo('login');
         }
