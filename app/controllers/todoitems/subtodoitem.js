@@ -5,10 +5,11 @@ export default Ember.Controller.extend({
     session: Ember.inject.service('session'),
     tagName: 'span',
     editing: true,
+    showFlag: true,
     todoTitleValue: '',
 
     actions: {
-        
+
         // 双击显示区域转为编辑状态
         setEditingStatus: function() {
 
@@ -54,7 +55,9 @@ export default Ember.Controller.extend({
             });
         },
         saveSubTodo: function() {
-            var _this = this;
+
+            // this.store.unloadAll('todo-item');
+            // var _this = this;
 
 			var title = this.get('subTodo');
             var userId = this.getUserIdFromSession();
@@ -62,8 +65,9 @@ export default Ember.Controller.extend({
             var project = Ember.$('#projCodeId').val();
             console.log('project = ',project);
             // 如果未选中任何分类默认放在"我的Todo"分类中
-            if (Ember.isEmpty(project))
+            if (Ember.isEmpty(project)) {
                 project = "myTodos";
+            }
             var currentDateStr = new Date().Format("yyyy-MM-dd hh:mm");
             console.log('currentDateStr = ',currentDateStr);
 			var todoItem = this.store.createRecord('todo-item', {
@@ -80,21 +84,26 @@ export default Ember.Controller.extend({
 			    // comments: null,
 			    project: project  //所属项目
 			});
-			todoItem.save();
-
-            //  更新父TODO的childTodos属性值，设置父子TODO的关联关系
+            // 关系放在多的一方，父的一方并不保存他们的关系数组
             var ptodo = this.store.peekRecord('todo-item', parentId);
-            ptodo.get('childTodos').pushObject(todoItem);
-            ptodo.save();
-
-			//  清空页面值
+            todoItem.set('parentTodo', ptodo);
+			todoItem.save();
+            //  清空页面值
 			this.set('subTodo', "");
+
+            var childArr = ptodo.get('childTodos');
+            // console.log("ptodo.get('childTodos') = " + childArr);
+            childArr.push(todoItem);  // 使用方法pushObject新增的元素会重复显示在界面上
+            ptodo.save();
         },
         updateSubItemById: function() {
             console.log('updateSubItemById...');
+        },
+        completedSubTodoItem: function() {
+
         }
-    }  //  end actions,
-    ,getUserIdFromSession: function() {
+    },  //  end actions,
+    getUserIdFromSession: function() {
         return this.get('session').get('data').authenticated.uid;
     }
 });
