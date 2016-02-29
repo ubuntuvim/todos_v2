@@ -1,71 +1,115 @@
 {{! 右侧面板}}
 
 <div class="right-panel" id="right-panel-id" style="display: block;">
-{{#link-to 'todoitems'}}
-    <span class="glyphicon glyphicon-remove right-panel-close-btn"
-        title="关闭设置面板" onmouseover="addRotate(this)" onmouseout="removeRotate(this)"></span>
-{{/link-to}}
-<div class="divider"></div>
-<form>
-    <div class="form-group">
-        {{#if editing}}
-            <div contenteditable="true" id="edit-todo-title-div" ondblclick={{action 'setEditingStatus'}}>{{todoTitleValue}}</div>
-        {{else}}
-            <textarea class="form-control" rows="3" id="edit-todo-title" onblur={{action 'setEditingStatus'}}>{{todoTitleValue}}</textarea>
-        {{/if}}
+    <div class="fixed-top" id="fixed-top-id">
+        <!-- {{#link-to 'todoitems'}}
+            <span class="glyphicon glyphicon-remove right-panel-close-btn"
+                title="关闭设置面板" onmouseover="addRotate(this)" onmouseout="removeRotate(this)"></span>
+        {{/link-to}}
+        <div class="divider"></div> -->
+        <div class="form-group" style="margin-bottom: 3px;">
+            <div contenteditable="true" class="title" id="edit-todo-title-div" ondblclick={{action 'setEditingStatus'}}>
+                {{model.title}}
+            </div>
+
+            <!-- {{#if editing}}
+                <div contenteditable="true" id="edit-todo-title-div" ondblclick={{action 'setEditingStatus'}}>{{model.title}}</div>
+            {{else}}
+                <textarea class="form-control" rows="3" id="edit-todo-title" onblur={{action 'setEditingStatus'}}>{{model.title}}</textarea>
+            {{/if}} -->
+        </div>
+        <!-- <div class="divider common-divider"></div> -->
     </div>
-    <div class="divider common-divider"></div>
-  <div class="form-group">
-    <label for="startDate">起止日期</label>
-    <div class="row">
-        <input type="text" class="form-control todo-date todo-start-date"
-            placeholder="开始日期" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
-            onblur={{action 'setStartDateById' value="target.value"}} value={{startDate}}>
-        <font class="data-divider-flag">~</font>
-        <input type="text" class="form-control todo-date todo-end-date"
-            placeholder="结束日期" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
-            onblur={{action 'setEndDateById' value="target.value"}} value={{endDate}}>
+    <div class="dv"></div>
+    <div class="middle-content" id="middle-content-id">
+        <form>
+            <input hidden="hidden" id="todoId" value={{model.id}}>
+            <input hidden="hidden" id="projCodeId" value={{model.project}}>
+
+              <div class="form-group">
+                <!-- <label for="startDate">起止日期</label> -->
+                <div class="row">
+                    <input type="text" class="form-control todo-date todo-start-date"
+                        placeholder="开始日期" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
+                        onblur={{action 'setStartDateById' value="target.value"}} value={{startDate}}>
+                    <font class="data-divider-flag">~</font>
+                    <input type="text" class="form-control todo-date todo-end-date"
+                        placeholder="结束日期" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
+                        onblur={{action 'setEndDateById' value="target.value"}} value={{endDate}}>
+                </div>
+              </div>
+              <div class="form-group">
+                {{input type="text" class="form-control" id="subTodoItem" placeholder="新增子TODO项……" value=subTodo enter="saveSubTodo"}}
+              </div>
+
+              <div class="sub-todo" id="sub-todo-list">
+                  <ul class="nolisttypes" id="subTodolist">
+                      <!-- {{#each subTodoList as |subItem index|}}
+                        {{subItem.id}}
+                      {{/each}} -->
+                      {{! 不知道什么原因当新增一个子任务的时候会重复显示，但是保存到服务器的却只有一个，刷新页面后显示也是正确的。
+                        暂时还不知道怎么处理，先放着}}
+                      {{#each model.childTodos as |subItem index|}}
+                            <li class="sub-todo-list">
+                                <div class="checkbox check-transparent">
+                                    <input type="checkbox" value="1" onclick={{action "completedSubTodoItem" subItem.id}}>
+                                      <label class="sub-todo-label">
+
+                                          <input class="sub-todo-input" value={{subItem.title}} onchange={{action "updateSubItemById" subItem.id}}>
+                                      </label>
+                              </div>
+                           </li>
+                     {{/each}}
+                  </ul>
+              </div>
+
+            <!-- <div class="comment-list sub-todo">
+                {{#each model.childTodos as |subItem index|}}
+                <li class="sub-todo-list">
+                    <div class="checkbox check-transparent">
+                        <input type="checkbox" value="1" onclick={{action "completedSubTodoItem" subItem.id}}>
+                          <label class="sub-todo-label">
+                              <input class="sub-todo-input" value={{subItem.title}} onchange={{action "updateSubItemById" subItem.id}}>
+                          </label>
+                  </div>
+               </li>
+               {{/each}}
+            </div> -->
+        <!-- <div class="divider"></div> -->
+
+
+            <!-- <div class="divider common-divider" style="bottom: 5px !important;"></div> -->
+
+            <!-- <div class="form-group">
+                <input type="text" class="form-control" id="todo-comment" placeholder="添加评论">
+            </div> -->
+
+
+          <div class="form-group" style="margin-top: 20px;">
+            <!-- <label for="">备注</label> -->
+            <textarea class="form-control" id="edit-todo-remark" placeholder="添加备注信息。。"></textarea>
+          </div>
+
+        </form>
+
+    </div>  <!-- //auto-overflow-x-->
+
+    <div class="fixed-bottom">
+        <!-- <div class="divider"></div> -->
+        {{#link-to 'todoitems' class="btn btn-default btn-xs right-panel-right-btn" title="关闭设置面板"}}
+            关闭面板
+            <span class="glyphicon glyphicon-menu-right"></span>
+        {{/link-to}}
+
+        <button type="buttons" class="btn btn-danger btn-xs right-panel-del-btn">删除本任务</button>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="subTodo">子任务</label>
-    {{input type="text" class="form-control" id="subTodoItem" placeholder="新增子TODO项……" value=subTodo enter="saveSubTodo"}}
-  </div>
-
-  <!-- {{#sub-todo-item store=store}}{{/sub-todo-item}} -->
-  {{! 子TODO 在点击显示的时候在代码中手动渲染到这个div上}}
-  <div class="sub-todo" id="sub-todo-list">
-      <ul class="nolisttypes" id="subTodolist">
-      </ul>
-  </div>
-
-  <div class="form-group">
-    <label for="">备注</label>
-    <textarea class="form-control" rows="5" id="edit-todo-remark"></textarea>
-  </div>
-
-</form>
-<div class="divider common-divider" style="bottom: 5px !important;"></div>
-<div>
-    评论的内容显示区域
-</div>
-
-<div class="divider"></div>
-
-<div class="form-group-comment">
-    <input type="text" class="form-control todo-comment-style" id="todo-comment" placeholder="添加评论">
-</div>
-
-<button type="buttons" class="btn btn-default btn-xs right-panel-right-btn" {{action 'toggleShowRightPanel'}}>
-    <span class="glyphicon glyphicon-menu-right" style="top: 2px;"></span>
-</button>
-
-<button type="buttons" class="btn btn-danger btn-xs right-panel-del-btn">删除本任务</button>
 </div>
 
 <script type="text/javascript">
-function getValue(self) {
-    console.log('xxxxxx');
-    console.log($(self).val());
-}
+(function() {
+    //  获取中间部分的高度，设置高度小于 外层高度减去底部高度，
+    //  当头部的title字段改变时需要自动触发这2句代码，动态修改中间部分的高度
+    var h = $('#right-panel-id').height() - $("#fixed-top-id").height() - 100;
+    $("#middle-content-id").css("height", h);
+})();
 </script>

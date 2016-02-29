@@ -464,12 +464,12 @@ input[type=checkbox] {
 /* ================== 右侧TODO面板 ================*/
 .right-panel {
     height: 100%;
-    width: 40%;
+    width: 45%;
     position: absolute;
     right: 0;
     top: 45px;
     /*display: none;*/
-    background-color: #f2f2f2;
+    background-color: white;
 
     -webkit-border-radius: 0 0 2px 2px;
 	-moz-border-radius: 0 0 2px 2px;
@@ -482,15 +482,19 @@ input[type=checkbox] {
 	-moz-animation-duration: 0.3s;
 	animation-duration: 0.3s;
 
-    padding: 20px 15px 0 15px;
+    padding: 0 15px;
 
-    overflow: auto;
+    overflow:hidden;;
+}
+.right-panel .title {
+    font-size: 16px;
+    margin: 10px 0 0 15px;
 }
 /* 右侧面板顶部关闭按钮样式 */
 .right-panel-close-btn {
-    top: -10px;
     font-size: 16px;
     cursor: pointer;
+    position: absolute;
 }
 /* 右侧面板底部关闭按钮样式 */
 .right-panel-close-btn-btom {
@@ -503,12 +507,13 @@ input[type=checkbox] {
 .right-panel-del-btn {
     position: absolute;
     right: 15px;
-    bottom: 55px;
+    /* bottom: 55px; */
+    /*margin-top: -10px;*/
+    top: 8px;
 }
 /* 底部折叠按钮 */
 .right-panel-right-btn {
-    position: absolute;
-    bottom: 55px;
+    margin-bottom: -15px;
 }
 /* 分隔线公共部分 */
 .common-divider {
@@ -559,9 +564,9 @@ input[type=checkbox] {
 }
 .sub-todo .sub-todo-input {
     border: 0 !important;
-    border-bottom: 1px solid #ccc !important;
+    border-bottom: 1px dotted #ccc !important;
     width: 100% !important;
-    background: #f2f2f2 !important;
+    background: white !important;
     margin-top: -10px !important;
 }
 .sub-todo .sub-todo-text {
@@ -570,4 +575,37 @@ input[type=checkbox] {
 .sub-todo .sub-todo-text:hover {
     border-bottom: 1px solid #ccc;
     width: 100%;
+}
+.comment-list {
+}
+.middle-content {
+    overflow: auto;
+    padding-top: 10px;
+    overflow-x: hidden;
+}
+/* 固定顶部标题文字位置，固定底部工具栏位置 */
+.fixed-comm {
+    /*position: absolute;*/
+}
+.fixed-top {
+    /* height: 47px; */
+    position: relative;
+    /* background: #f2f2f2; */
+    /* right: 0; */
+    /* left: 0; */
+    /* width: 100%; */
+    /* top: 0px; */
+    z-index: 9999;
+    margin-left: -10px;
+    /* margin-right: -50px; */
+}
+.fixed-bottom {
+    position: absolute;
+    bottom: 20px;
+    background: #f2f2f2;
+    height: 60px;
+    width: 100%;
+    right: 0px;
+    padding-left: 20px;
+    /*padding-top: 20px;*/
 }
