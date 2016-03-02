@@ -121,6 +121,7 @@ function showToolsIcon(self) {
   $(self).children('div').children('.todo-list-common').each(function() {
       $(this).show();
   });
+  $(self).children('div').children("a").children('.todo-list-common').show();
   // 隐藏创建时间
   $(self).children('div').children('.todo-create-date').each(function() {
       $(this).hide();
@@ -133,6 +134,7 @@ function hideToolsIcon(self) {
   $(self).children('div').children('.todo-list-common').each(function() {
       $(this).hide();
   });
+  $(self).children('div').children("a").children('.todo-list-common').hide();
   // 隐藏创建时间
   $(self).children('div').children('.todo-create-date').each(function() {
       $(this).attr("top","0").show();

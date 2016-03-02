@@ -91,6 +91,7 @@ input[type=checkbox] {
 	font-size: 18px;
 	margin-top: 3px;
 	cursor: pointer;
+    color: white;
 }
 
 /* 回收站图片样式 */
@@ -583,6 +584,10 @@ input[type=checkbox] {
     padding-top: 10px;
     overflow-x: hidden;
 }
+.middle-content .remark {
+    border: 1px dotted #ccc;
+    padding: 8px;
+}
 /* 固定顶部标题文字位置，固定底部工具栏位置 */
 .fixed-comm {
     /*position: absolute;*/
@@ -598,6 +603,11 @@ input[type=checkbox] {
     z-index: 9999;
     margin-left: -10px;
     /* margin-right: -50px; */
+}
+.fixed-top textarea {
+    border: 0;
+    box-shadow: none;
+    margin-top: 10px;
 }
 .fixed-bottom {
     position: absolute;
