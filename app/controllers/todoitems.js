@@ -181,14 +181,23 @@ export default Ember.Controller.extend({
                 project = "myTodos";
             }
 
+            //  格式化时间 2016-03-09 00:44
+            var date = new Date(new Date());
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+            var D = date.getDate() + ' ';
+            var h = date.getHours() + ':';
+            var m = date.getMinutes();
+            var currentDateStr =  Y+M+D+h+m;
+
 			var todoItem = this.store.createRecord('todo-item', {
 				title: title,
 			    checked: false,
 			    timestamp: new Date().getTime(),
 			    star: false,
 			    recordStatus: 1,  //todo项状态：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
-			    startDate: new Date(),  //任务开始时间
-			    endDate: new Date(),  //任务结束时间
+			    startDate: currentDateStr,  //任务开始时间
+			    // endDate: "",  //任务结束时间
 			    isPublish: 1,  //是否公开：1-公开(任何人都可以看到)；0-不公开(自己看)
 
 			    // 这些关系属性暂时还没有，后面完善之后再添加关联关系

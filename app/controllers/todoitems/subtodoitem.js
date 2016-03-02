@@ -10,33 +10,20 @@ export default Ember.Controller.extend({
 
     actions: {
 
-        // 双击显示区域转为编辑状态
-        setEditingStatus: function() {
+        // 保存修改的title值
+        updateTitle: function(params) {
 
-            var params = Ember.$("#todoId").val();
-            console.log('dbclick params = ', params);
+            var id = Ember.$("#todoId").val();
             // 设置选中的TODO数据设置到表单上
-            var todo = this.store.peekRecord('todo-item', params);
-            var editInput = Ember.$("#edit-todo-title");
-            //  设置显示、隐藏状态
-            if (this.get('editing')) {  //  显示
-                //  设置标题
-                this.set('todoTitleValue', todo.get('title'));
-                this.set('editing', false);
-            } else {  //  转为隐藏状态时候更新title的值
-                var upTitle = editInput.val();
-                // Ember.$("#edit-todo-title-div").html(upTitle);
-                this.store.findRecord('todo-item', params).then(function(td) {
-                    td.set('title', upTitle);
-                    td.save();
-                });
-
-                this.set('todoTitleValue', upTitle);
-                Ember.$("#todoId").val(todo.get('id'));
-
-                this.set('editing', true);
-            }
-
+            // var title = Ember.$("#edit-todo-title-div").html();
+            this.store.findRecord('todo-item', id).then(function(td) {
+                td.set('title', params);
+                td.save();
+            });
+            //当头部的title字段改变时需要自动触发这2句代码，动态修改中间部分的高度
+            var h = $('#right-panel-id').height() - ($("#fixed-top-id").height()) - 100;
+            console.log('==============',$("#fixed-top-id").height());
+            Ember.$("#middle-content-id").css("height", h);
         },
         setStartDateById: function(params) {
             // 获取id
@@ -54,6 +41,16 @@ export default Ember.Controller.extend({
                 td.save();
             });
         },
+        //  保存备注信息
+        saveRemarkById: function(params) {
+            var id = Ember.$("#todoId").val();
+            // 设置选中的TODO数据设置到表单上
+            var remark = Ember.$("#remarkId").html();
+            this.store.findRecord('todo-item', id).then(function(td) {
+                td.set('remark', params);
+                td.save();
+            });
+        },
         saveSubTodo: function() {
 
             // this.store.unloadAll('todo-item');
@@ -63,13 +60,11 @@ export default Ember.Controller.extend({
             var userId = this.getUserIdFromSession();
             var parentId = Ember.$('#todoId').val();
             var project = Ember.$('#projCodeId').val();
-            console.log('project = ',project);
             // 如果未选中任何分类默认放在"我的Todo"分类中
             if (Ember.isEmpty(project)) {
                 project = "myTodos";
             }
             var currentDateStr = new Date().Format("yyyy-MM-dd hh:mm");
-            console.log('currentDateStr = ',currentDateStr);
 			var todoItem = this.store.createRecord('todo-item', {
 				title: title,
 			    checked: false,
