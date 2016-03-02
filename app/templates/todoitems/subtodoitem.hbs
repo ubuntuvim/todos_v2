@@ -8,15 +8,11 @@
         {{/link-to}}
         <div class="divider"></div> -->
         <div class="form-group" style="margin-bottom: 3px;">
-            <div contenteditable="true" class="title" id="edit-todo-title-div" ondblclick={{action 'setEditingStatus'}}>
+            <!-- <div contenteditable="true" class="title" id="edit-todo-title-div" onblur={{action 'updateTitle'}}>
                 {{model.title}}
-            </div>
-
-            <!-- {{#if editing}}
-                <div contenteditable="true" id="edit-todo-title-div" ondblclick={{action 'setEditingStatus'}}>{{model.title}}</div>
-            {{else}}
-                <textarea class="form-control" rows="3" id="edit-todo-title" onblur={{action 'setEditingStatus'}}>{{model.title}}</textarea>
-            {{/if}} -->
+            </div> -->
+            <textarea class="form-control" id="edit-todo-title"
+                onblur={{action 'updateTitle' value="target.value"}}>{{model.title}}</textarea>
         </div>
         <!-- <div class="divider common-divider"></div> -->
     </div>
@@ -31,11 +27,11 @@
                 <div class="row">
                     <input type="text" class="form-control todo-date todo-start-date"
                         placeholder="开始日期" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
-                        onblur={{action 'setStartDateById' value="target.value"}} value={{startDate}}>
+                        onblur={{action 'setStartDateById' value="target.value"}} value={{model.startDate}}>
                     <font class="data-divider-flag">~</font>
                     <input type="text" class="form-control todo-date todo-end-date"
                         placeholder="结束日期" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"
-                        onblur={{action 'setEndDateById' value="target.value"}} value={{endDate}}>
+                        onblur={{action 'setEndDateById' value="target.value"}} value={{model.endDate}}>
                 </div>
               </div>
               <div class="form-group">
@@ -79,15 +75,14 @@
 
 
             <!-- <div class="divider common-divider" style="bottom: 5px !important;"></div> -->
-
-            <!-- <div class="form-group">
+            <!-- 暂时不开发这个功能 -->
+            <!-- <div class="form-group" style="margin-top: 20px;">
                 <input type="text" class="form-control" id="todo-comment" placeholder="添加评论">
             </div> -->
 
-
           <div class="form-group" style="margin-top: 20px;">
-            <!-- <label for="">备注</label> -->
-            <textarea class="form-control" id="edit-todo-remark" placeholder="添加备注信息。。"></textarea>
+            <textarea class="form-control"  placeholder="添加备注信息。。"
+                onblur={{action 'saveRemarkById' value="target.value"}}>{{model.remark}}</textarea>
           </div>
 
         </form>
@@ -111,5 +106,23 @@
     //  当头部的title字段改变时需要自动触发这2句代码，动态修改中间部分的高度
     var h = $('#right-panel-id').height() - $("#fixed-top-id").height() - 100;
     $("#middle-content-id").css("height", h);
+
+    $('textarea').flexText();
 })();
+
+// $(document).on("input propertychange", "textarea", function (e) {
+//    var target = e.target;
+//    // 保存初始高度，之后需要重新设置一下初始高度，避免只能增高不能减低。
+//     var dh = $(target).attr('defaultHeight') || 0;
+//     if (!dh) {
+//         dh = target.clientHeight;
+//         $(target).attr('defaultHeight', dh);
+//     }
+//
+//     target.style.height = dh +'px';
+//     var clientHeight = target.clientHeight;
+//     var scrollHeight = target.scrollHeight;
+//     if (clientHeight !== scrollHeight) { target.style.height = scrollHeight + 10 + "px";
+//     }
+// });
 </script>
