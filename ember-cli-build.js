@@ -43,8 +43,6 @@ module.exports = function(defaults) {
   // app.import("vendor/js/todos.js");
   // app.import("");
   // app.import("");
-  // app.import("");
-  // app.import("");
 
   //
   // app.import("bower_components/jQuery_mmenu/dist/core/css/jquery.mmenu.all.css");
