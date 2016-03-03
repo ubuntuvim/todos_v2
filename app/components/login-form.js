@@ -35,7 +35,7 @@ export default Ember.Component.extend({
                 'email': _this.get('email'),
                 'password': _this.get('password')
             }).then(function(resolve) {  // 登录成功
-
+                
             }, function(msg) {  //登录失败
                 flag = false;
                 Ember.Logger.info(msg);
