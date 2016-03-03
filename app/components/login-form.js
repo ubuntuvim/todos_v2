@@ -1,8 +1,8 @@
 // app/components/login-form.js
 
 import Ember from 'ember';
-import Firebase from 'firebase';
-import LocalStorageStore from 'ember-simple-auth/session-stores/local-storage';
+// import Firebase from 'firebase';
+// import LocalStorageStore from 'ember-simple-auth/session-stores/local-storage';
 
 //  导入全局配置
 import config from '../config/environment';
@@ -35,7 +35,7 @@ export default Ember.Component.extend({
                 'email': _this.get('email'),
                 'password': _this.get('password')
             }).then(function(resolve) {  // 登录成功
-                
+                console.info(resolve);
             }, function(msg) {  //登录失败
                 flag = false;
                 Ember.Logger.info(msg);
@@ -88,7 +88,7 @@ export default Ember.Component.extend({
 			//  显示进度提示
 			this.set('isShow', true);
 
-			this.get('session').authenticate('authenticator:google-oauth2').then(function(data) {  // 登录成功
+			this.get('session').authenticate('authenticator:google-oauth2').then(function() {  // 登录成功
                 // _this.set('isShow', true);
 				// 跳转到首页，如果不用这个跳转默认使用ember的transitionTo()跳转，页面没有加载效果
                 window.location.href = config.localeBaseUrl;
@@ -98,9 +98,9 @@ export default Ember.Component.extend({
 			});
 		}
 	}  //  end actions
-    ,checkLoginStatus: function() {
+    // checkLoginStatus: function() {
         // if (this.get('session').get('data').authenticated.uid) {
         //     window.location.href = config.localeBaseUrl;
         // }
-    }  // end actions
+    // }  // end actions
 });
