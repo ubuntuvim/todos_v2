@@ -48,9 +48,6 @@ module.exports = function(environment) {
     // 配置全局变量
     ENV.apiBaseUrl = baseUrl+':3001/api';
     ENV.localeBaseUrl = baseUrl + ":4200/todoitems";
-    afterLoginUrl = baseUrl;
-
-    ENV.globalTitle = globalTitle;
   }
 
   if (environment === 'test') {
@@ -63,7 +60,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-    ENV.globalTitle = globalTitle;
 
     // 配置全局变量
     // ENV.apiBaseUrl = 'http://localhost:3001/api';
@@ -75,8 +71,6 @@ module.exports = function(environment) {
     // 配置全局变量
     ENV.apiBaseUrl = baseUrl+':3001/api';
     ENV.localeBaseUrl = baseUrl;
-    afterLoginUrl = baseUrl;
-    ENV.globalTitle = globalTitle;
   }
 
 
