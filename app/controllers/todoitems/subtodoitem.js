@@ -22,9 +22,9 @@ export default Ember.Controller.extend({
             });
             //当头部的title字段改变时需要自动触发这2句代码，动态修改中间部分的高度
             var h = $('#right-panel-id').height() - ($("#fixed-top-id").height()) - 100;
-            console.log('==============',$("#fixed-top-id").height());
             Ember.$("#middle-content-id").css("height", h);
         },
+        // 更新子任务的开始时间
         setStartDateById: function(params) {
             // 获取id
             var todoId = Ember.$("#todoId").val();
@@ -33,6 +33,7 @@ export default Ember.Controller.extend({
                 td.save();
             });
         },
+        // 更新任务结束时间
         setEndDateById: function(params) {
             // 获取id
             var todoId = Ember.$("#todoId").val();
@@ -45,16 +46,14 @@ export default Ember.Controller.extend({
         saveRemarkById: function(params) {
             var id = Ember.$("#todoId").val();
             // 设置选中的TODO数据设置到表单上
-            var remark = Ember.$("#remarkId").html();
+            // var remark = Ember.$("#remarkId").html();
             this.store.findRecord('todo-item', id).then(function(td) {
                 td.set('remark', params);
                 td.save();
             });
         },
+        // 保存子任务
         saveSubTodo: function() {
-
-            // this.store.unloadAll('todo-item');
-            // var _this = this;
 
 			var title = this.get('subTodo');
             var userId = this.getUserIdFromSession();
@@ -91,11 +90,58 @@ export default Ember.Controller.extend({
             childArr.push(todoItem);  // 使用方法pushObject新增的元素会重复显示在界面上
             ptodo.save();
         },
-        updateSubItemById: function() {
-            console.log('updateSubItemById...');
+        // 根据id更新子任务的title值
+        updateSubItemById: function(params) {
+            this.store.findRecord('todo-item', params).then(function(td) {
+                td.set('title', Ember.$("#"+params).val());
+                td.save();
+            });
         },
-        completedSubTodoItem: function() {
+        //  根据id删除子任务
+        remoteSubTodoItem: function(params) {
+            if (confirm("您确认要删除该子任务吗？")){
+                this.store.findRecord('todo-item', params).then(function(td) {
+                    td.set('recordStatus', 3);
+                    td.save();
+                });
+            }
+        },
+        //  设置子任务为完成或者未完成状态
+        completedSubTodoItem: function(params) {
+            this.store.findRecord('todo-item', params).then(function(td) {
+                if (td.get('checked')) {  //  如果是选中则设置未选中（未完成）
+                    td.set('checked', false);
+                    td.set('recordStatus', 1);
+                } else {  //未选中设置为选中状态，完成状态
+                    td.set('checked', true);
+                    td.set('recordStatus', 2);
+                }
 
+                td.save();
+            });
+        },
+        // 删除TODO项，根据id删除todo并且还要删除所属的所有子任务
+        removeSubTodoItemById: function() {
+            if (confirm("确认后会删除该TODO项已经其所属的所有子任务，是否继续？")){
+                var id = Ember.$("#todoId").val();
+                var ptd = this.store.peekRecord('todo-item', id);
+                // 首先删除子任务（把子任务状态置为3）
+                var _this = this;
+                ptd.get('childTodos').then(function(tds) {
+                    tds.forEach(function(item, index) {
+                        _this.store.findRecord('todo-item', item.id).then(function(td) {
+                            td.set('recordStatus', 3);
+                            td.save();
+                        });
+                    });
+                });
+                this.store.findRecord('todo-item', id).then(function(td) {
+                    td.set('recordStatus', 3);
+                    td.save();
+                });
+                // 删除成功后，关闭右侧设置面板
+                this.transitionToRoute('todoitems');
+            }
         }
     },  //  end actions,
     getUserIdFromSession: function() {

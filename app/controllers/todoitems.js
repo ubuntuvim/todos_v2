@@ -249,13 +249,14 @@ export default Ember.Controller.extend({
 		},
 		//  删除todo，改变状态并不是真的删除.recordStatus->3
 		remoteTodoItem: function(params) {
-
-			this.store.findRecord('todo-item', params).then(function(todo) {
-				todo.set('recordStatus', 3);  //改变todo的状态为3，删除状态
-				todo.save();
-			}, function(error) {
-				console.log('删除失败！['+error+']');
-			});
+            if (confirm("您确认要删除该TODO项吗？")){
+                this.store.findRecord('todo-item', params).then(function(todo) {
+    				todo.set('recordStatus', 3);  //改变todo的状态为3，删除状态
+    				todo.save();
+    			}, function(error) {
+    				console.log('删除失败！['+error+']');
+    			});
+            }
 		},
 		recoveryTodoItem: function(params) {
 			// 撤销删除
