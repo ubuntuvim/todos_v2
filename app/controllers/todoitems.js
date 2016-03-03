@@ -214,15 +214,37 @@ export default Ember.Controller.extend({
 		//  完成todo
 		completedTodoItem: function(param) {
 
-			// 修改本todo的完成状态
+			// 修改本todo的完成状态，修改父TODO的状态时需要同步修改子任务的完成或者未完成状态
             var _this = this;
 		    this.store.findRecord('todo-item', param).then(function(todo) {
 				if (todo.get('checked')) {
 					todo.set('checked', false);
 					todo.set('recordStatus', 1);  //设置为未完成状态
+                    // 设置所有的子任务为未完成状态
+                    todo.get('childTodos').then(function(tds) {
+                        tds.forEach(function(item, index) {
+                            _this.store.findRecord('todo-item', item.id).then(function(td) {
+                                td.set('recordStatus', 1);
+                                td.set('checked', false);
+                                td.save();
+                            });
+                        });
+                    });
+
 				} else {
 					todo.set('checked', true);
 					todo.set('recordStatus', 2);  //设置为完成状态
+
+                    // 设置所有的子任务为未完成状态
+                    todo.get('childTodos').then(function(tds) {
+                        tds.forEach(function(item, index) {
+                            _this.store.findRecord('todo-item', item.id).then(function(td) {
+                                td.set('recordStatus', 2);
+                                td.set('checked', true);
+                                td.save();
+                            });
+                        });
+                    });
 				}
 				_this.updateById(param, todo);
 				// todo.save();
