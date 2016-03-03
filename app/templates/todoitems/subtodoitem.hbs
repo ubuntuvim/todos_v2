@@ -46,15 +46,23 @@
                       {{! 不知道什么原因当新增一个子任务的时候会重复显示，但是保存到服务器的却只有一个，刷新页面后显示也是正确的。
                         暂时还不知道怎么处理，先放着}}
                       {{#each model.childTodos as |subItem index|}}
-                            <li class="sub-todo-list">
+                          <!-- 过滤，只显示状态recordStatus为未完成，完成的子任务，删除状态的子任务不显示 -->
+                          {{#if (filter-todo-item subItem.recordStatus)}}
+                            <li class="sub-todo-list"
+                              onmouseover="showRemoveIcon(this)"
+                              onmouseout="hideRemoveIcon(this)">
                                 <div class="checkbox check-transparent">
-                                    <input type="checkbox" value="1" onclick={{action "completedSubTodoItem" subItem.id}}>
-                                      <label class="sub-todo-label">
+                                    <input type="checkbox" value="1" checked="{{if subItem.checked 'checked'}}" onclick={{action "completedSubTodoItem" subItem.id}}>
+                                    <label class="sub-todo-label">
+                                        <input class="sub-todo-input {{if subItem.checked 'sub-todo-complete-style' 'sub-todo-nocomplete-style'}}"
+                                            value={{subItem.title}} onblur={{action "updateSubItemById" subItem.id}} id={{subItem.id}}>
+                                    </label>
 
-                                          <input class="sub-todo-input" value={{subItem.title}} onchange={{action "updateSubItemById" subItem.id}}>
-                                      </label>
+                                    <span class="glyphicon glyphicon-remove sub-todo-remove"
+                                      onclick={{action 'remoteSubTodoItem' subItem.id}}></span>
                               </div>
                            </li>
+                           {{/if}}
                      {{/each}}
                   </ul>
               </div>
@@ -96,7 +104,7 @@
             <span class="glyphicon glyphicon-menu-right"></span>
         {{/link-to}}
 
-        <button type="buttons" class="btn btn-danger btn-xs right-panel-del-btn">删除本任务</button>
+        <button type="buttons" class="btn btn-danger btn-xs right-panel-del-btn" onclick={{action 'removeSubTodoItemById'}}>删除本任务</button>
     </div>
 </div>
 
@@ -110,19 +118,4 @@
     $('textarea').flexText();
 })();
 
-// $(document).on("input propertychange", "textarea", function (e) {
-//    var target = e.target;
-//    // 保存初始高度，之后需要重新设置一下初始高度，避免只能增高不能减低。
-//     var dh = $(target).attr('defaultHeight') || 0;
-//     if (!dh) {
-//         dh = target.clientHeight;
-//         $(target).attr('defaultHeight', dh);
-//     }
-//
-//     target.style.height = dh +'px';
-//     var clientHeight = target.clientHeight;
-//     var scrollHeight = target.scrollHeight;
-//     if (clientHeight !== scrollHeight) { target.style.height = scrollHeight + 10 + "px";
-//     }
-// });
 </script>
