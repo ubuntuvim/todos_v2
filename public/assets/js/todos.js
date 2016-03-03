@@ -172,3 +172,11 @@ function addRotate(self) {
 function removeRotate(self) {
     $(self).removeClass('animated rotateIn');
 }
+// 鼠标移动到子任务上时在右侧显示删除按钮
+function showRemoveIcon(self) {
+    $(self).children('div').children("span").show();
+}
+// 鼠标移开子任务上时隐藏右侧的删除按钮
+function hideRemoveIcon(self) {
+    $(self).children('div').children("span").hide();
+}

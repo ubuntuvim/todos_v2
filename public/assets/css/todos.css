@@ -619,3 +619,22 @@ input[type=checkbox] {
     padding-left: 20px;
     /*padding-top: 20px;*/
 }
+/* 完成状态下的子任务样式：中划线，颜色淡黑色 */
+.sub-todo-complete-style {
+    color: #ccc;
+    text-decoration: line-through;
+}
+/* 未完成状态的子任务演示：正确显示即可 */
+.sub-todo-nocomplete-style {
+    color: #000;
+    text-decoration:none;
+}
+/* 鼠标移动到子任务上显示删除按钮 */
+.sub-todo-remove {
+    display: none;  /* 默认不显示，当鼠标移动到其上时才显示 */
+    font-size: 6px;
+    color: #777;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
