@@ -1,12 +1,22 @@
 <!--  APP的logo信息 -->
 {{!yield}}
 <!-- <div class="navbar-header col-md-2"> -->
-  <a class="navbar-brand" href="/">
+  {{#link-to 'todoitems' class="navbar-brand"}}
     DDLIST<strong>ING</strong>
-  </a>
+  {{/link-to}}
   <div class="sidebar-collapse">
-    <a href="#" onclick="closeOrCollapsLeftMenu()">
+      {{#link-to 'todoitems' id="closeLeftMenu"}}
       <i class="fa fa-bars"></i>
-    </a>
+      {{/link-to}}
+    <!-- <a href="/todoitems" onclick="closeOrCollapsLeftMenu()">
+      <i class="fa fa-bars"></i>
+    </a> -->
   </div>
 <!-- </div> -->
+<script type="text/javascript">
+    (function() {
+        $("#closeLeftMenu").click(function() {
+            closeOrCollapsLeftMenu();
+        });
+    })();
+</script>
