@@ -54,14 +54,26 @@
 
   	    <li style="background-color: #fff;">
 			<!-- 背景色设置 -->
-  	      <h3>换肤:</h3>
+  	      <h3>换肤</h3>
   	      <ul id="color-schemes">
-  	        <li><a href="#" class="bg-1"></a></li>
-  	        <li><a href="#" class="bg-2"></a></li>
-  	        <li><a href="#" class="bg-3"></a></li>
-  	        <li><a href="#" class="bg-4"></a></li>
-  	        <li><a href="#" class="bg-5"></a></li>
-  	        <li><a href="#" class="bg-6"></a></li>
+  	        <li>
+				{{#link-to 'todoitems' class="bg-1"}}{{/link-to}}
+			</li>
+			<li>
+				{{#link-to 'todoitems' class="bg-2"}}{{/link-to}}
+			</li>
+			<li>
+				{{#link-to 'todoitems' class="bg-3"}}{{/link-to}}
+			</li>
+			<li>
+				{{#link-to 'todoitems' class="bg-4"}}{{/link-to}}
+			</li>
+			<li>
+				{{#link-to 'todoitems' class="bg-5"}}{{/link-to}}
+			</li>
+			<li>
+				{{#link-to 'todoitems' class="bg-6"}}{{/link-to}}
+			</li>
   	      </ul>
 
   	    </li>
@@ -69,10 +81,10 @@
   	    <li class="divider"></li>
 
   	    <li class="ps-li">
-  	      <a href="#"><i class="fa fa-user"></i> 个人中心</a>
+  	      {{#link-to 'todoitems'}}<i class="fa fa-user"></i> 个人中心{{/link-to}}
   	    </li>
 		<li class="ps-li">
-  	      <a href="#"><span class="glyphicon glyphicon-envelope"></span> {{userEmail}}</a>
+  	      {{#link-to 'todoitems'}}<span class="glyphicon glyphicon-envelope"></span> {{userEmail}}{{/link-to}}
   	    </li>
 
   	    <!--
@@ -121,8 +133,13 @@
 
 	$(function() {
 		$("#color-schemes li a").click(function() {
-			var d = $(this).attr("class");
+			var d = $(this).attr("class").split(" ")[0];
+			console.log('d 1 = ' + d);
 			var e = $("body").attr("class").split(" ").pop();
+			if ('ember-application' === e) {
+				e = '';
+			}
+			console.log('e 1 = ' + e);
 			$("body").removeClass(e).addClass(d)
 		});
 	});

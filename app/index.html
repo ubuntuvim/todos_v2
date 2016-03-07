@@ -45,7 +45,7 @@
 
 
   </head>
-  <body class="bg-1" style="overflow: auto; overflow-x: hidden;">
+  <body class="" style="overflow: auto; overflow-x: hidden;">
     {{content-for 'body'}}
 
     <script src="/assets/vendor.js"></script>
@@ -101,6 +101,11 @@
 
         return fmt;
     }
+
+    $(function() {
+		// 设置默认背景图片
+		$("body").addClass('bg-1');
+	});
     </script>
 
     <!-- 引入textarea根据内容自适应插件 -->

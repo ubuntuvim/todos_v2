@@ -369,6 +369,7 @@ input[type=checkbox] {
 	padding: 5px 10px;
 	text-decoration: none;
 	font-size: 12px;
+    color: #717171;
 }
 
 .personal-settings > li > a i {
@@ -381,7 +382,9 @@ input[type=checkbox] {
 	font-size: 12px;
 	font-family: "Roboto", "Arial", sans-serif;
 	color: #717171;
-	font-weight: 400;
+	font-weight: 600;
+    line-height: 8px;
+    text-align: center;
 }
 
 #color-schemes {
