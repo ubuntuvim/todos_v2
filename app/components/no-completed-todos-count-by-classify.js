@@ -24,8 +24,8 @@ export default Ember.Component.extend({
             return td.get('recordStatus') === 1
                     && td.get('user') === userId
                     && td.get('project') === projCode
-                    && td.get('isChildOrParent') != 1
-                    && td.get('isChildOrParent') != 2;
+                    && td.get('isChildOrParent') !== 1
+                    && td.get('isChildOrParent') !== 2;
         }).get('length');
 	})
 });

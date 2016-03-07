@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
                 td.save();
             });
             //当头部的title字段改变时需要自动触发这2句代码，动态修改中间部分的高度
-            var h = $('#right-panel-id').height() - ($("#fixed-top-id").height()) - 100;
+            var h = Ember.$('#right-panel-id').height() - (Ember.$("#fixed-top-id").height()) - 100;
             Ember.$("#middle-content-id").css("height", h);
         },
         // 更新子任务的开始时间

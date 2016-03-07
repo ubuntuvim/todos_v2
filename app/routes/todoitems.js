@@ -2,6 +2,8 @@
 
 import Ember from 'ember';
 
+import config from '../config/environment';
+
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 // import LocalStorageStore from 'ember-simple-auth/session-stores/local-storage';
 
@@ -28,5 +30,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	// 	console.log("afterModel  >> " + data);
 	// // 	return { LOGIN_USER_EMAIL: data };
 	// }
+
 
 });

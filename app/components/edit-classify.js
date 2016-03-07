@@ -22,7 +22,7 @@ export default Ember.Component.extend({
                     if ((td.get('project') === projCode
                         && td.get('user') === userId)
                         && (td.get('recordStatus') === 1
-                        || td.get('recordStatus') === 2)) {
+                            || td.get('recordStatus') === 2)) {
                         //  设置为删除状态
                         td.set('recordStatus', 3);
                         td.save();
