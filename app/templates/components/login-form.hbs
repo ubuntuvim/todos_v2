@@ -1,7 +1,7 @@
 {{! app/templates/components/login-form.hbs }}
 
 <!-- 页面顶部的登录提示，只要控制显隐状态即可  -->
-<div class="ns-box ns-bar ns-effect-exploader ns-type-notice ns-show {{if isShow 'showProcessTool' 'hiddenProcessTools'}}" id="login-tip">
+<div class="ns-box ns-bar ns-effect-exploader ns-type-notice ns-show {{if isShow 'showProcessTool' 'hiddenProcessTools'}}" id="login-tip" style="top: 45px;">
     <div class="ns-box-inner">
         {{#if errorMessage}}
         {{errorMessage}}
