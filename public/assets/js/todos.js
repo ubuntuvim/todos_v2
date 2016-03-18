@@ -180,3 +180,12 @@ function showRemoveIcon(self) {
 function hideRemoveIcon(self) {
     $(self).children('div').children("span").hide();
 }
+// 点击编辑按钮设置当前todo为选中状态：设置背景色
+function setLiBg(self) {
+    //  清楚原来选中的TODO项的背景色
+    $("#todolist").children('li').each(function() {
+        $(this).removeClass('todos-list-bg');
+    });
+    //  再设置当前选中的todo项的背景色
+    $(self).parent().parent().parent().addClass('todos-list-bg');
+}
