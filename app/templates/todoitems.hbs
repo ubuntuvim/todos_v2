@@ -54,7 +54,7 @@
        <div class="col-md-12">
 
            <!-- tile -->
-           <section class="tile transparent">
+           <section class="tile transparent" style="margin-left: -10px; margin-right: -20px;">
              <!-- tile body -->
              <div class="tile-body color transparent-black rounded-bottom-corners">
                {{input type="text" placeholder="新增todo项……" class="w100p h50p bottommargin"
@@ -110,12 +110,14 @@
                  <span class="filter-tools-commen {{if showCAll 'filter-tools-active'}}"
                    onclick={{action 'showByCondition' '2'}}>已完成({{completedTodoCount}})</span>
 
+                   <!--
+                   回收站还没实现感觉用处不大，先注释掉
                  <span class="filter-tools-commen filter-tools-trash">
                  <span id="trash-tool">
                    <span class="glyphicon glyphicon-trash"></span>
                    回收站({{recoverableTodoCount}})
                    </span>
-                 </span>
+                 </span> -->
                </ul>
              </div>
              <!-- /tile body -->
