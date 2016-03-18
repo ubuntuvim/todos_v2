@@ -6,7 +6,7 @@
   {{/link-to}}
   <div class="sidebar-collapse">
       {{#link-to 'todoitems' id="closeLeftMenu"}}
-      <i class="fa fa-bars"></i>
+      <i class="fa fa-bars" id="headerBars" onmouseover="showLeftRightIcon()" onmouseout="hideLeftRightIcon()"></i>
       {{/link-to}}
     <!-- <a href="/todoitems" onclick="closeOrCollapsLeftMenu()">
       <i class="fa fa-bars"></i>
@@ -18,5 +18,20 @@
         $("#closeLeftMenu").click(function() {
             closeOrCollapsLeftMenu();
         });
+
     })();
+    // 鼠标移动到展开、关闭左侧菜单按钮时候触发的函数
+    function showLeftRightIcon() {
+        $("#headerBars").removeClass('fa-bars');
+        if ($("#navbar").hasClass('collapsed')) {  //折叠状态
+            $("#headerBars").addClass('fa-arrow-right');
+        } else {
+            $("#headerBars").addClass('fa-arrow-left');
+        }
+    }
+    function hideLeftRightIcon() {
+        $("#headerBars").addClass('fa-bars');
+        $("#headerBars").removeClass('fa-arrow-left');
+        $("#headerBars").removeClass('fa-arrow-right');
+    }
 </script>
