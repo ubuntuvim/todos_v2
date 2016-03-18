@@ -213,7 +213,7 @@ export default Ember.Controller.extend({
 		},
 		//  完成todo
 		completedTodoItem: function(param) {
-
+            this.setTodoListItemBG(param);  //  设置选中的todo项背景色
 			// 修改本todo的完成状态，修改父TODO的状态时需要同步修改子任务的完成或者未完成状态
             var _this = this;
 		    this.store.findRecord('todo-item', param).then(function(todo) {
@@ -250,8 +250,10 @@ export default Ember.Controller.extend({
 				// todo.save();
 			});
 		},
-		//  修改星号状态，todo列表以星号状态排序，有星号的排前面
+		//  修改星号状态，todo列表以星号状态排序，有星号的排前面，设置当前选中的todo项的背景色
 		changeStarStatus: function(params) {
+            this.setTodoListItemBG(params);  //  设置选中的todo项背景色
+
             var _this = this;
 			this.store.findRecord('todo-item', params).then(function(todo) {
 				if (todo.get('star')) {
@@ -323,6 +325,15 @@ export default Ember.Controller.extend({
 	},
     getUserIdFromSession: function() {
         return this.get('session').get('data').authenticated.uid;
+    },
+    setTodoListItemBG(ids) {
+        // 设置背景色
+        //  清楚原来选中的TODO项的背景色
+        Ember.$("#todolist").children('li').each(function() {
+            $(this).removeClass('todos-list-bg');
+        });
+        //  再设置当前选中的todo项的背景色
+        var htmlId = "#star_id_"+ids;  //  由于star与completed按钮是同级元素，所以直接使用这个id定位到父标签li
+        Ember.$(htmlId).parent().parent().addClass('todos-list-bg');
     }
-
 });
