@@ -11,10 +11,13 @@
 </li>
 
 <li class="navigation" >
-  <a href="#" class="sidebar-toggle" data-toggle="#navigation">清单项
+  <!-- <a href="#" class="sidebar-toggle" data-toggle="#navigation"> -->
+  {{#link-to 'todoitems' class="sidebar-toggle" data-toggle="#navigation"}}
+      清单项
       <!-- 点击加号弹出一个表单，用于增加分类，由于弹出层的原因放在index.hbs才不会被遮盖 -->
   <i class="fa fa-plus" {{action 'toAddClassifyModal'}} title="新增清单项"></i>
-</a>
+  {{/link-to}}
+<!-- </a> -->
 
   <ul class="menu">
     <li class="li-selector active" style="cursor: pointer;" onmousemove="msov(this)" onmouseout="msot(this)">
