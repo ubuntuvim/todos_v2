@@ -10,7 +10,8 @@ module.exports = function(environment) {
     environment: environment,
     firebase: 'https://luminous-heat-9079.firebaseio.com/',
     baseURL: '/',
-    locationType: 'auto',
+    // 设置项目URL格式，不需要设置服务器进入路由后刷新页面也不会出现404
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
