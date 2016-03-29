@@ -94,6 +94,7 @@ You will need the following things properly installed on your computer.
 * [Bower](http://bower.io/)
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
+* [Ember CLI](http://ember-cli.com/user-guide)版本为1.13。**如果是用高版本的Ember CLI编译项目可能会出现问题！**
 
 ## Installation
 
