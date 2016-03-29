@@ -9,7 +9,7 @@ ddlisting的主旨是：**天天清，天天轻**。
 
 ### 目录说明
 #### 项目主要目录
-![目录说明](http://i11.tietuku.com/24f27a93697325f9.jpg "目录说明")
+![目录说明](http://i1.piimg.com/24f27a93697325f9.jpg "目录说明")
 
 * adapters 项目适配器目录，链接firebase设置
 * components 组件目录，首页代码拆分成一个个组件
@@ -28,7 +28,7 @@ ddlisting的主旨是：**天天清，天天轻**。
 * dist 项目静态资源编译之后存放目录
 
 #### 组件目录
-![组件目录](http://i11.tietuku.com/edc1f686a9f0500e.jpg "组件目录")
+![组件目录](http://i1.piimg.com/edc1f686a9f0500e.jpg "组件目录")
 
 * left-menu.hbs left-menu.js  左侧菜单
 * logo-tag.hbs logo-tag.js  APP logo设置页面
@@ -41,12 +41,12 @@ ddlisting的主旨是：**天天清，天天轻**。
 
 ### 数据库设计
 数据库设计与model是一一对应的，各个model之间的关系如下图：
-![数据库设计图](http://i11.tietuku.com/5c6d2a1163149875.png '数据库设计图')
+![数据库设计图](http://i1.piimg.com/5c6d2a1163149875.png '数据库设计图')
 如需调整请直接到[processOn](https://www.processon.com/diagraming/5630f4e0e4b01f46a2b3477d)修改。
 
 ### APP 首页
 APP界面与功能说明如下：
-![首页界面1](http://i11.tietuku.com/0f6ecd8c09a00e73.jpg)
+![首页界面1](http://7xnrhh.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160329101448.png)
 
 * 1位置包含了三个功能：点击左边的图标可以关闭左侧的项目列表、点击中间的图标可以刷新本页面、右边是搜索框
 * 2位置是项目列表，气泡中的数字是项目中的todo数量，左边的数组是未完成的todo数目、右边的数字是本项目下总的todo项数目
@@ -58,7 +58,7 @@ APP界面与功能说明如下：
 
 
 图1-2 todo项详细设置
-![图1-2](http://i11.tietuku.com/192c481d05ad8512.jpg)
+![图1-2](http://7xnrhh.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160329101533.png)
 
 * 点击1位置可以展收起来的左侧项目列表
 * 2位置 设置todo项
@@ -66,14 +66,14 @@ APP界面与功能说明如下：
 
 
 图1-3 系统消息
-![图1-3](http://i11.tietuku.com/d4e21fa3882817b6.jpg)
+![图1-3](http://7xnrhh.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160329101605.png)
 
 * 点击1位置可以关闭展开的消息提示面板
 * 2位置显示各个系统消息
 
 
 图1-4 个人中心
-![图1-4](http://i11.tietuku.com/9b2f1313be397864.jpg)
+![图1-4](http://7xnrhh.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160329101605.png)
 
 * 点击1位置关闭展开的设置面板
 * 2位置可以设置APP主题背景、点击个人中心可以进入个人中心详细信息页面、点击“退出”可以退出登录用户
@@ -81,6 +81,7 @@ APP界面与功能说明如下：
 ### 分支说明
 1. 2015-11-26，增加了登录功能，功能的实现使用插件[ember-simple-auth](https://github.com/simplabs/ember-simple-auth)。此功能提交到分支HEAD中，之前的版本仍然在master分支。
 2. 2015-12-11，合并了HEAD分支到master，并且在此版本中完成了登录、注册、APP简介等功能，其中后台数据处理使用nodejs+MySQL(后台处理代码也放在[github](https://github.com/ubuntuvim/todos_server_v2))。下一版本计划把所有的数据都保存到本地MySQL，不放firebase上了，太慢了！！
+3. 2015-02-24，上线第一版。满足最基本的功能。
 
 #项目运行环境配置
 
