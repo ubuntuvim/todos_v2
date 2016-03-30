@@ -48,9 +48,9 @@ APP功能简介请看[Wiki介绍](https://github.com/ubuntuvim/todos_v2/wiki)。
 
 #项目运行环境配置
 
-## Prerequisites
+## 运行环境要求
 
-You will need the following things properly installed on your computer.
+你的电脑必须安装如下软件才能运行ember项目
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
@@ -59,41 +59,22 @@ You will need the following things properly installed on your computer.
 * [PhantomJS](http://phantomjs.org/)
 * [Ember CLI](http://ember-cli.com/user-guide)版本为1.13。**如果是用高版本的Ember CLI编译项目可能会出现问题！**
 
-## Installation
+## 安装项目
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+* 克隆项目到自己本地：`git clone https://github.com/ubuntuvim/todos_v2.git`
+* 等待克隆完成，进入项目目录：`cd todos_v2`
+* 执行npm命令安装插件运行环境：`npm install`
+* 执行bower命令安装插件、库：`bower install`
 
-## Running / Development
+## 运行项目
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* 进入项目路径下执行ember命令：`ember server`
+* 等待项目运行完成，在浏览器执行：[http://localhost:4200](http://localhost:4200)
 
-### Code Generators
 
-Make use of the many generators for code, try `ember help generate` for more details
+### 打包项目
 
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+* 进入项目路径下执行命令：`ember build` (开发模式，包含测试包，代码不压缩)
+* 进入项目路径下执行命令：`ember build --environment production` (生产模式，无测试包，代码压缩)
+* 复制`appName/dist`目录下的所有文件到服务器中，然后访问
 
