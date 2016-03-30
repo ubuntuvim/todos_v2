@@ -59,6 +59,8 @@ APP功能简介请看[Wiki介绍](https://github.com/ubuntuvim/todos_v2/wiki)。
 * [PhantomJS](http://phantomjs.org/)
 * [Ember CLI](http://ember-cli.com/user-guide)版本为1.13。**如果是用高版本的Ember CLI编译项目可能会出现问题！**
 
+**注意**：上述软件的安装请参考[http://ember-cli.com/user-guide/](http://ember-cli.com/user-guide/)完成安装。
+
 ## 安装项目
 
 * 克隆项目到自己本地：`git clone https://github.com/ubuntuvim/todos_v2.git`
