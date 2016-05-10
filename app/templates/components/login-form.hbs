@@ -56,20 +56,22 @@
 
 
 <div class="widget-login mt30">
-    <a href="#" {{action 'googleLogin'}} class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google">
+    <a href="#" {{action 'googleLogin'}} class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google" style="width: 100px;">
       <span class="icon-sn-google"></span>
       <strong class="visible-xs-inline">Google 账号</strong>
     </a>
-    <a href="#" {{action 'githubLogin'}} class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github">
+    <a href="#" {{action 'githubLogin'}} class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github" style="width: 100px;">
       <span class="icon-sn-github"></span>
       <strong class="visible-xs-inline">Github 账号</strong>
     </a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo" onclick="return tip()"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
-    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq" onclick="return tip()"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+    <!--
+    <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo" {{action 'weiboLogin'}}><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+    <a class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq" id="qqLoginBtn" onclick="toQQLogin()"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
     <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat" onclick="return tip()"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
     <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm" onclick="return tip()"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
     <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm" onclick="return tip()"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
     <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm" onclick="return tip()"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+    -->
 </div>
 
 <!--
@@ -80,6 +82,7 @@
 
 </section>
 <script>
+
 function tip() {
     alert("功能正在加班开发中，请稍等时日！");
     return false;

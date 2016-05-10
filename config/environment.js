@@ -4,11 +4,12 @@ module.exports = function(environment) {
 
   // var apiBaseUrl = 'http://www.ddlisting.com:3001/api';
   // var locationUrl = 'http://www.ddlisting.com';
+  var firebaseAppUrl = 'https://luminous-heat-9079.firebaseio.com/';
   var globalTitle = "天天清，天天轻。";
   var ENV = {
     modulePrefix: 'todos-v2',
     environment: environment,
-    firebase: 'https://luminous-heat-9079.firebaseio.com/',
+    firebase: firebaseAppUrl,
     baseURL: '/',
     // 设置项目URL格式，不需要设置服务器进入路由后刷新页面也不会出现404
     locationType: 'hash',
@@ -79,9 +80,13 @@ module.exports = function(environment) {
         // store: 'simple-auth-session-store:local-storage',
         // authorizer: 'authorizer:firebase',
         crossOriginWhitelist: [ afterLoginUrl ],
-        routeAfterAuthentication: '/#/todoitems',  //登录成功后跳转到的页面
+        routeAfterAuthentication: 'todoitems',  //登录成功后跳转到的页面
         authenticationRoute: 'login'  //  登录不成功转回登录页面
   };
+
+  // firebase秘钥
+  ENV.firebaseSecrets = '6bEDHTm1I8XaCuzLbJAHagA7KcTuX5jwhN35DKxb';
+  ENV.firebaseAppUrl = firebaseAppUrl;
 
   return ENV;
 };
