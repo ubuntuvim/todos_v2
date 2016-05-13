@@ -6,7 +6,24 @@
 
 <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <link href="css/ddlisting.css" rel="stylesheet">
+<link href="http://notes.ddlisting.com/css/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet">
+<!-- <link href="css/index.css" rel="stylesheet"> -->
+<link href="http://notes.ddlisting.com/css/index.css" rel="stylesheet">
 
+<style type="text/css">
+body {
+  position: relative;
+}
+.h500 {
+	height: 500px;
+}
+.container-fluid {
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target="#navbar-scroll">
 
@@ -21,7 +38,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><b>DD</b>LISTING</a>
+      <a class="navbar-brand" href="#"><strong>DD</strong>LISTING</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,6 +67,50 @@
 </nav>
 
 
+<div class="container-fluid">
+
+<section style="margin-top: -4px;">
+	<div class="header">
+		<h2>Leanote, 不只是笔记!</h2>
+		<p>简约而不简单</p>
+		<p>知识管理, 博客, 分享, 协作... 尽在Leanote</p>
+		
+		<div>
+			<a class="btn btn-default btn-primary" href="/register">注册</a> 
+			&nbsp;
+			&nbsp;
+			<a class="btn btn-default" href="http://notes.ddlisting.com/demo">体验一下</a>
+		</div>
+	</div>
+	
+	<div class="preview" style="position: relative;">
+		<div>
+			<div class="img-header">
+				<img src="http://notes.ddlisting.com/images/home/mac-btns.png">
+			</div>
+			<div id="webSliderContainer">
+			    <img class="web-slider" data-text="Default theme - markdown" src="http://notes.ddlisting.com/images/slider/v2/default_markdown.png" style="opacity: 1;">
+			    <img class="web-slider hide-img" data-text="Default theme - rich editor" src="http://notes.ddlisting.com/images/slider/v2/simple_tinymce.png" style="opacity: 0;">
+			    <img class="web-slider hide-img" data-text="Simple theme - markdown" src="http://notes.ddlisting.com/images/slider/v2/simple_markdown.png" style="opacity: 0;">
+			    <img class="web-slider hide-img" data-text="Writting mode" src="http://notes.ddlisting.com/images/slider/v2/writting.png" style="opacity: 0;">
+			</div>
+		</div>
+		<div class="slider-desc"><span id="webText">Default theme - markdown</span></div>
+		<div class="mobile">
+			<div class="mobile-header">
+				<img src="http://notes.ddlisting.com/images/home/mac-dot.png">
+			</div>
+			<div id="mobileSliderContainer">
+		        <img class="mobile-slider" data-text="Mobile" src="http://notes.ddlisting.com/images/slider/v2/mobile_simple_list.png" style="opacity: 1;">
+			    <img class="mobile-slider hide-img" data-text="Mobile markdown" src="http://notes.ddlisting.com/images/slider/v2/mobile_markdown.png" style="opacity: 0;">
+			</div>
+		    <div class="slider-desc mobile-text"><span id="mobileText">Mobile</span></div>
+		</div>
+	</div>
+</section>
+
+</div>
+
 <div id="ddlisting" class="h500">
 <h2>天天清单</h2>
 </div>
@@ -76,5 +137,6 @@
 
 <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://notes.ddlisting.com/js/home/index.js"></script>
 
 </html>
